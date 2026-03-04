@@ -1,0 +1,52 @@
+.pageHero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-hero);
+}
+
+.pageHero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 192, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 30%, rgba(0, 94, 184, 0.06) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.pageHero .inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.pageHero h1 {
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--accent-gold);
+    transition: opacity 0.2s;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.8;
+}
+
+.separator {
+    color: var(--text-tertiary);
+}
