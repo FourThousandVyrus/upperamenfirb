@@ -5,14 +5,14 @@ import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
 export const metadata = {
-    title: 'News & Updates | Upper Amenfi Rural Bank PLC',
-    description: 'Stay updated with the latest news, community events, and financial insights from Upper Amenfi Rural Bank.',
+    title: 'News & Updates | Upper Amenfi Community Bank PLC',
+    description: 'Stay updated with the latest news, community events, and financial insights from Upper Amenfi Community Bank.',
 };
 
 const newsItems = [
     {
         category: 'Announcement',
-        date: 'January 2024',
+        date: 'July 2025',
         title: '35th Annual General Meeting Highlights',
         excerpt: 'Shareholders and stakeholders gathered for the bank\'s milestone 35th AGM to review financial performance, approve dividends, and chart the path forward for continued growth across three regions.',
         img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80',
@@ -65,7 +65,7 @@ export default function NewsPage() {
                 <div className={styles.pageHeroInner}>
                     <h1>News &amp; Insights</h1>
                     <p className={styles.pageHeroSubtitle}>
-                        Stay updated with the latest from Upper Amenfi Rural Bank.
+                        Stay updated with the latest from Upper Amenfi Community Bank.
                     </p>
                 </div>
             </div>
@@ -102,7 +102,7 @@ export default function NewsPage() {
                         <span className="section-eyebrow">More Updates</span>
                         <h2 className="section-title">Recent News</h2>
                     </ScrollReveal>
-                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', marginTop: 32 }}>
+                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', marginTop: 32 }}>
                         {rest.map((n, i) => (
                             <ScrollReveal key={i} delay={i * 80}>
                                 <div className={styles.imageCard}>

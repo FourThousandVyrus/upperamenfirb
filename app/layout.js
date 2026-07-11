@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter, Outfit } from 'next/font/google';
+import { Inter, Outfit, Caveat } from 'next/font/google';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AnnouncementBar from './components/AnnouncementBar';
@@ -24,28 +24,35 @@ const outfit = Outfit({
   variable: '--font-outfit',
 });
 
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-caveat',
+});
+
 const siteUrl = 'https://upperamenfirb.com';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Upper Amenfi Rural Bank PLC | Modern Rural Banking in Ghana',
-    template: '%s | Upper Amenfi Rural Bank PLC',
+    default: 'Upper Amenfi Community Bank PLC | Modern Community Banking in Ghana',
+    template: '%s | Upper Amenfi Community Bank PLC',
   },
   description:
-    'Upper Amenfi Rural Bank PLC — 37+ years of trusted banking. Savings, loans, Susu, and digital banking across 18 branches in the Western, Western North, Central, Eastern, and Ashanti Regions of Ghana.',
+    'Upper Amenfi Community Bank PLC — 37+ years of trusted banking. Savings, loans, Susu, and digital banking across 18 branches in the Western, Western North, and Central Regions of Ghana.',
   keywords: [
-    'Upper Amenfi Rural Bank',
+    'Upper Amenfi Community Bank',
     'UARB',
-    'rural bank Ghana',
+    'community bank Ghana',
     'savings account Ghana',
     'loans Ghana',
     'microfinance Ghana',
-    'Asankrangwa bank',
+    'Wassa Ankwaso bank',
     'Susu savings',
     'fixed deposit Ghana',
     'Bank of Ghana licensed',
-    'rural banking Western Region',
+    'community banking Western Region',
     'mobile banking Ghana',
     'USSD banking',
     'community banking',
@@ -53,9 +60,9 @@ export const metadata = {
     'salary loans Ghana',
     'Ghana Deposit Protection',
   ],
-  authors: [{ name: 'Upper Amenfi Rural Bank PLC' }],
-  creator: 'Upper Amenfi Rural Bank PLC',
-  publisher: 'Upper Amenfi Rural Bank PLC',
+  authors: [{ name: 'Upper Amenfi Community Bank PLC' }],
+  creator: 'Upper Amenfi Community Bank PLC',
+  publisher: 'Upper Amenfi Community Bank PLC',
   formatDetection: {
     telephone: true,
     email: true,
@@ -68,22 +75,22 @@ export const metadata = {
     type: 'website',
     locale: 'en_GH',
     url: siteUrl,
-    siteName: 'Upper Amenfi Rural Bank PLC',
-    title: 'Upper Amenfi Rural Bank PLC | Modern Rural Banking in Ghana',
+    siteName: 'Upper Amenfi Community Bank PLC',
+    title: 'Upper Amenfi Community Bank PLC | Modern Community Banking in Ghana',
     description:
-      '37+ years of trusted banking. Savings, loans, Susu, and digital banking across 18 branches in Ghana.',
+      '37+ years of trusted banking. Savings, loans, and digital banking across 18 branches in Ghana.',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Upper Amenfi Rural Bank — Modern Rural Banking in Ghana',
+        alt: 'Upper Amenfi Community Bank — Modern Community Banking in Ghana',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Upper Amenfi Rural Bank PLC',
+    title: 'Upper Amenfi Community Bank PLC',
     description:
       '37+ years of trusted banking. Savings, loans, and digital banking across 18 branches in Ghana.',
     images: ['/opengraph-image'],
@@ -110,33 +117,31 @@ export const metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BankOrCreditUnion',
-  name: 'Upper Amenfi Rural Bank PLC',
+  name: 'Upper Amenfi Community Bank PLC',
   alternateName: 'UARB',
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: `${siteUrl}/images/logo-new.jpeg`,
   description:
-    'Upper Amenfi Rural Bank PLC is a Bank of Ghana-licensed rural bank established in 1988, providing savings, loans, Susu, and digital banking services across 18 branches in Ghana.',
+    'Upper Amenfi Community Bank PLC is a Bank of Ghana-licensed community bank established in 1988, providing savings, loans, Susu, and digital banking services across 18 branches in Ghana.',
   foundingDate: '1988',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
-    value: 478,
+    value: 496,
   },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Ankwaso, Wassa Amenfi',
-    addressLocality: 'Asankrangwa',
+    addressLocality: 'Wassa Ankwaso',
     addressRegion: 'Western Region',
     addressCountry: 'GH',
     postalCode: 'P.O. Box 399, Dunkwa-on-Offin',
   },
-  telephone: ['+233533519373', '+233312091556'],
-  email: 'info@uarb.com.gh',
+  telephone: ['+233533519373', '+233553498729'],
+  email: 'info@upperamenfirb.com',
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Western Region, Ghana' },
     { '@type': 'AdministrativeArea', name: 'Western North Region, Ghana' },
     { '@type': 'AdministrativeArea', name: 'Central Region, Ghana' },
-    { '@type': 'AdministrativeArea', name: 'Eastern Region, Ghana' },
-    { '@type': 'AdministrativeArea', name: 'Ashanti Region, Ghana' },
   ],
   sameAs: [
     'https://www.facebook.com/upperamenfirb',
@@ -163,7 +168,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${caveat.variable}`}>
       <head>
         <script
           type="application/ld+json"

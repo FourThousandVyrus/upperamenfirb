@@ -8,7 +8,7 @@ import ScrollReveal from '../components/ScrollReveal';
 
 export const metadata = {
     title: 'Security Tips & Fraud Awareness',
-    description: 'Protect yourself from scams and fraud. Learn how Upper Amenfi Rural Bank keeps your money safe and what you can do to stay secure.',
+    description: 'Protect yourself from scams and fraud. Learn how Upper Amenfi Community Bank keeps your money safe and what you can do to stay secure.',
 };
 
 const scamTypes = [
@@ -55,7 +55,7 @@ const safetyTips = [
     'Do not click on links in unsolicited SMS or email messages',
     'Always verify caller identity before sharing any information',
     'Keep your USSD PIN (*992#) secret and change it regularly',
-    'Report lost or stolen cards immediately by calling +233 533 519 373',
+    'Report lost or stolen cards immediately by calling +233 553 498 729 or +233 533 519 373',
     'Monitor your account regularly for unauthorized transactions',
     'Use strong passwords that combine letters, numbers, and symbols',
     'Do not write your PIN on your card or keep it in your wallet',
@@ -84,7 +84,7 @@ export default function SecurityTipsPage() {
                             <div>
                                 <h3>Important Notice</h3>
                                 <p>
-                                    Upper Amenfi Rural Bank will <strong>NEVER</strong> ask you for your PIN, password, OTP, or
+                                    Upper Amenfi Community Bank will <strong>NEVER</strong> ask you for your PIN, password, OTP, or
                                     full account details via phone call, SMS, email, or social media. If someone contacts you
                                     claiming to be from UARB and requests this information, it is a scam.
                                 </p>
@@ -129,7 +129,7 @@ export default function SecurityTipsPage() {
 
             {/* Safety Tips Checklist */}
             <section className={styles.section}>
-                <div className="container" style={{ maxWidth: 800 }}>
+                <div className="container" style={{ maxWidth: 'min(800px, 100%)' }}>
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">Stay Safe</span>
@@ -155,7 +155,7 @@ export default function SecurityTipsPage() {
 
             {/* Report Fraud */}
             <section className={styles.sectionDark}>
-                <div className="container" style={{ maxWidth: 700 }}>
+                <div className="container" style={{ maxWidth: 'min(700px, 100%)' }}>
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">Report Fraud</span>
@@ -173,11 +173,18 @@ export default function SecurityTipsPage() {
                                         <span>+233 533 519 373</span>
                                     </div>
                                 </a>
-                                <a href="mailto:info@uarb.com.gh" className={styles.reportChannel}>
+                                <a href="tel:+233553498729" className={styles.reportChannel}>
+                                    <Phone size={20} />
+                                    <div>
+                                        <strong>Call Our Hotline</strong>
+                                        <span>+233 553 498 729</span>
+                                    </div>
+                                </a>
+                                <a href="mailto:info@upperamenfirb.com" className={styles.reportChannel}>
                                     <Mail size={20} />
                                     <div>
                                         <strong>Email Us</strong>
-                                        <span>info@uarb.com.gh</span>
+                                        <span>info@upperamenfirb.com</span>
                                     </div>
                                 </a>
                                 <Link href="/branches" className={styles.reportChannel}>

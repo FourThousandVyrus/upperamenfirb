@@ -3,7 +3,7 @@ import styles from '../inner.module.css';
 
 export const metadata = {
     title: 'Privacy Policy',
-    description: 'Upper Amenfi Rural Bank PLC privacy policy — how we collect, use, and protect your personal information.',
+    description: 'Upper Amenfi Community Bank PLC privacy policy — how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
             </div>
 
             <section className={styles.section}>
-                <div className="container" style={{ maxWidth: 800 }}>
+                <div className="container" style={{ maxWidth: 'min(800px, 100%)' }}>
                     <div className={styles.legalContent}>
                         <p style={{ color: 'var(--text-muted)', marginBottom: 32 }}>
                             <strong>Last Updated:</strong> March 1, 2026
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
 
                         <h2>1. Introduction</h2>
                         <p>
-                            Upper Amenfi Rural Bank PLC (&quot;UARB&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to
+                            Upper Amenfi Community Bank PLC (&quot;UACB&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to
                             protecting the privacy and security of your personal information. This Privacy Policy explains how we collect,
                             use, store, and protect information gathered through our website (upperamenfirb.com).
                         </p>
@@ -137,9 +137,9 @@ export default function PrivacyPage() {
                             If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us:
                         </p>
                         <ul>
-                            <li><strong>Email:</strong> info@uarb.com.gh</li>
-                            <li><strong>Phone:</strong> +233 533 519 373</li>
-                            <li><strong>Address:</strong> Upper Amenfi Rural Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
+                            <li><strong>Email:</strong> info@upperamenfirb.com</li>
+                            <li><strong>Phone:</strong> +233 553 498 729</li>
+                            <li><strong>Address:</strong> Upper Amenfi Community Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
                         </ul>
                         <p>
                             You may also contact the <strong>Data Protection Commission of Ghana</strong> if you believe your data

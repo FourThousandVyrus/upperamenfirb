@@ -4,7 +4,7 @@ import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
 export const metadata = {
-    title: 'Rates & Fees | Upper Amenfi Rural Bank PLC',
+    title: 'Rates & Fees | Upper Amenfi Community Bank PLC',
     description: 'View our competitive savings interest rates, loan rates, and service fees. Transparent pricing for all banking products.',
 };
 
@@ -23,7 +23,7 @@ export default function RatesPage() {
             {/* Rate Highlights */}
             <section style={{ padding: '0', marginTop: '-20px', position: 'relative', zIndex: 2 }}>
                 <div className="container">
-                    <div className={styles.statsRow} style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                    <div className={styles.statsRow}>
                         <ScrollReveal>
                             <div className={styles.statCard}>
                                 <div style={{ color: 'var(--accent-500)', marginBottom: 8 }}><TrendingUp size={24} /></div>
@@ -125,7 +125,7 @@ export default function RatesPage() {
             <section className={styles.section}>
                 <div className="container">
                     <ScrollReveal>
-                        <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
+                        <div style={{ maxWidth: 'min(680px, 100%)', margin: '0 auto', textAlign: 'center' }}>
                             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
                                 <strong>Disclaimer:</strong> Rates shown are indicative and subject to change
                                 without prior notice. Final rates may depend on individual assessment, loan

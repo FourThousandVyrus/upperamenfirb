@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
     Smartphone, Hash, ArrowRight, CheckCircle, AlertCircle,
     Wallet, ArrowLeftRight, Phone, CreditCard, HelpCircle, Shield,
@@ -93,7 +94,7 @@ export default function UssdGuidePage() {
                                 <p style={{ marginBottom: 20, color: 'var(--text-muted)' }}>
                                     Access essential banking services without needing a smartphone or internet connection. Our digital channels are designed for everyone.
                                 </p>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                                <div className={styles.responsiveTwoCol} style={{ gap: 12 }}>
                                     {[
                                         { icon: <Smartphone size={16} />, label: 'USSD Banking (*992#)' },
                                         { icon: <CreditCard size={16} />, label: 'E-Zwich Biometric Card' },
@@ -110,9 +111,12 @@ export default function UssdGuidePage() {
                                 </div>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <img
+                                <Image
                                     src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=75"
                                     alt="Woman using phone for mobile banking"
+                                    width={800}
+                                    height={500}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 />
                             </div>
                         </div>
@@ -122,7 +126,7 @@ export default function UssdGuidePage() {
 
             {/* How to Get Started */}
             <section className={styles.section}>
-                <div className="container" style={{ maxWidth: 800 }}>
+                <div className="container" style={{ maxWidth: 'min(800px, 100%)' }}>
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">Get Started</span>
@@ -154,7 +158,7 @@ export default function UssdGuidePage() {
 
             {/* USSD Menu Options */}
             <section className={styles.sectionAlt}>
-                <div className="container" style={{ maxWidth: 900 }}>
+                <div className="container" style={{ maxWidth: 'min(900px, 100%)' }}>
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">*992# Menu</span>
@@ -194,7 +198,7 @@ export default function UssdGuidePage() {
 
             {/* Troubleshooting */}
             <section className={styles.section}>
-                <div className="container" style={{ maxWidth: 800 }}>
+                <div className="container" style={{ maxWidth: 'min(800px, 100%)' }}>
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">Help</span>

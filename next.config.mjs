@@ -39,10 +39,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Power optimizations
   poweredByHeader: false,
-  // Allow external tunnel origins
-  experimental: {
-    allowedDevOrigins: ["*.ngrok-free.app", "localhost:3000"],
-  },
+
 };
 
 export default nextConfig;

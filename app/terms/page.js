@@ -3,7 +3,7 @@ import styles from '../inner.module.css';
 
 export const metadata = {
     title: 'Terms & Conditions',
-    description: 'Terms and conditions for using the Upper Amenfi Rural Bank PLC website.',
+    description: 'Terms and conditions for using the Upper Amenfi Community Bank PLC website.',
 };
 
 export default function TermsPage() {
@@ -19,7 +19,7 @@ export default function TermsPage() {
             </div>
 
             <section className={styles.section}>
-                <div className="container" style={{ maxWidth: 800 }}>
+                <div className="container" style={{ maxWidth: 'min(800px, 100%)' }}>
                     <div className={styles.legalContent}>
                         <p style={{ color: 'var(--text-muted)', marginBottom: 32 }}>
                             <strong>Last Updated:</strong> March 1, 2026
@@ -27,14 +27,14 @@ export default function TermsPage() {
 
                         <h2>1. Acceptance of Terms</h2>
                         <p>
-                            By accessing and using the Upper Amenfi Rural Bank PLC (&quot;UARB&quot;) website at upperamenfirb.com,
+                            By accessing and using the Upper Amenfi Community Bank PLC (&quot;UACB&quot;) website at upperamenfirb.com,
                             you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms,
                             please do not use our website.
                         </p>
 
                         <h2>2. Website Purpose</h2>
                         <p>
-                            This website is an informational and promotional platform for Upper Amenfi Rural Bank PLC. It provides
+                            This website is an informational and promotional platform for Upper Amenfi Community Bank PLC. It provides
                             details about our banking products, services, branch network, and corporate information. This website
                             does not provide online banking services, account access, or transaction capabilities.
                         </p>
@@ -58,7 +58,7 @@ export default function TermsPage() {
                         <h2>5. Intellectual Property</h2>
                         <p>
                             All content on this website — including text, graphics, logos, images, and software — is the property of
-                            Upper Amenfi Rural Bank PLC and is protected by Ghanaian and international copyright laws. You may not
+                            Upper Amenfi Community Bank PLC and is protected by Ghanaian and international copyright laws. You may not
                             reproduce, distribute, or create derivative works from this content without our written permission.
                         </p>
 
@@ -88,7 +88,7 @@ export default function TermsPage() {
 
                         <h2>9. Limitation of Liability</h2>
                         <p>
-                            Upper Amenfi Rural Bank PLC shall not be liable for any direct, indirect, incidental, or consequential
+                            Upper Amenfi Community Bank PLC shall not be liable for any direct, indirect, incidental, or consequential
                             damages arising from your use of this website. This includes, but is not limited to, damages resulting
                             from reliance on information provided, service interruptions, or inability to access the website.
                         </p>
@@ -101,7 +101,7 @@ export default function TermsPage() {
 
                         <h2>11. Regulatory Information</h2>
                         <p>
-                            Upper Amenfi Rural Bank PLC is licensed and regulated by the Bank of Ghana. We are a member of ARB Apex
+                            Upper Amenfi Community Bank PLC is licensed and regulated by the Bank of Ghana. We are a member of ARB Apex
                             Bank Limited and participate in the Ghana Deposit Protection Scheme operated by the Ghana Deposit
                             Protection Corporation.
                         </p>
@@ -115,9 +115,9 @@ export default function TermsPage() {
                         <h2>13. Contact</h2>
                         <p>For questions about these Terms and Conditions, please contact:</p>
                         <ul>
-                            <li><strong>Email:</strong> info@uarb.com.gh</li>
-                            <li><strong>Phone:</strong> +233 533 519 373</li>
-                            <li><strong>Head Office:</strong> Upper Amenfi Rural Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
+                            <li><strong>Email:</strong> info@upperamenfirb.com</li>
+                            <li><strong>Phone:</strong> +233 553 498 729</li>
+                            <li><strong>Head Office:</strong> Upper Amenfi Community Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
                         </ul>
                     </div>
                 </div>

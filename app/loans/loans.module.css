@@ -1,0 +1,570 @@
+/* =========================================
+   LOANS PAGE — Premium 2026
+   ========================================= */
+
+/* ═══ HERO ═══ */
+.hero {
+  position: relative;
+  height: 55vh;
+  min-height: 400px;
+  max-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 16, 72, 0.88);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-bottom: 56px;
+}
+
+.heroContent h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 4px;
+}
+
+.heroAccent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroUnderline {
+  color: var(--accent-400);
+  width: clamp(140px, 20vw, 200px);
+  height: auto;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.heroDesc {
+  font-size: 1.05rem !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  max-width: 520px;
+  line-height: 1.7 !important;
+  margin-bottom: 24px;
+}
+
+.heroChips {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.heroChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.heroChip svg {
+  color: var(--accent-400);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-300);
+}
+
+.breadcrumb span {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ═══ SECTIONS ═══ */
+.section {
+  padding: var(--section-gap) 0;
+}
+
+.sectionAlt {
+  padding: var(--section-gap) 0;
+  background: var(--bg-gold-tint);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+
+/* ═══ LOAN PRODUCT GRID ═══ */
+.loanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.loanCard {
+  background: var(--bg-white);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s var(--ease-out);
+}
+
+.loanCard::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: url('/images/kente_pattern.png') repeat;
+  background-size: 80px;
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  opacity: 0.15;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.loanCard:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+.loanCard:hover::before {
+  opacity: 0;
+}
+
+.loanCard.loanGreen { }
+.loanCard.loanGold { }
+.loanCard.loanBlue { }
+.loanCard.loanPurple { }
+
+.loanBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-500);
+  color: var(--primary-900);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.loanCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.loanIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease-spring);
+}
+
+
+
+.loanIconGreen {
+  background: var(--green-100);
+  color: var(--green-600);
+}
+
+.loanIconGold {
+  background: var(--accent-100);
+  color: var(--accent-600);
+}
+
+.loanIconBlue {
+  background: var(--blue-100);
+  color: var(--blue-600);
+}
+
+.loanIconPurple {
+  background: var(--primary-100);
+  color: var(--primary-600);
+}
+
+.loanCardHeader h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.loanTagline {
+  font-family: var(--font-hand);
+  font-size: 0.92rem;
+  color: var(--accent-600);
+  font-weight: 600;
+}
+
+.loanDesc {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.loanWho {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.loanWhoLabel {
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+
+/* ═══ SPLIT LAYOUT ═══ */
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.splitVisual {
+  position: relative;
+}
+
+.splitImageWrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 460px;
+}
+
+.splitImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splitStar1 {
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  color: var(--accent-500);
+  width: 32px;
+  height: 32px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.splitStar2 {
+  position: absolute;
+  bottom: 32px;
+  left: -16px;
+  color: var(--green-400);
+  width: 24px;
+  height: 24px;
+  animation: floatSlow 7s ease-in-out infinite 2s;
+}
+
+.heroUnderline {
+  color: var(--accent-400);
+  width: clamp(140px, 20vw, 200px);
+  height: auto;
+  margin-bottom: 16px;
+  display: block;
+}
+
+
+/* ═══ ELIGIBILITY LIST ═══ */
+.eligibilityList {
+  margin-top: 24px;
+}
+
+.eligibilityList h4 {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.eligibilityList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eligibilityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  border: 1px solid var(--border-default);
+  margin-bottom: 8px;
+  transition: all 0.2s var(--ease-out);
+}
+
+.eligibilityItem:hover {
+  border-color: var(--accent-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.eligibilityIcon {
+  color: var(--green-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+
+/* ═══ STEPS — How to Apply ═══ */
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stepCard {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background: var(--bg-white);
+  transition: all 0.3s var(--ease-out);
+}
+
+.stepCard:hover {
+  border-color: var(--accent-300);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(6px);
+}
+
+.stepNum {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--primary-900);
+}
+
+.stepCard h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.stepCard p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ═══ CONTACT CARD ═══ */
+.contactCard {
+  background: var(--bg-white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.contactCard h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.contactCard p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.contactPhones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-body);
+  border: 1px solid var(--border-default);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  text-decoration: none;
+  transition: all 0.2s var(--ease-out);
+}
+
+.contactPhone:hover {
+  border-color: var(--accent-400);
+  background: var(--accent-100);
+}
+
+.contactPhone svg {
+  color: var(--green-500);
+}
+
+
+/* ═══ CTA ═══ */
+.ctaSection {
+  padding: 100px 0;
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ctaMesh {
+  display: none;
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaSection h2 {
+  color: white;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.ctaDesc {
+  color: rgba(255, 255, 255, 0.55) !important;
+  max-width: 480px;
+  margin: 0 auto 36px !important;
+  font-size: 1.05rem !important;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .splitVisual {
+    order: -1;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .splitImageWrap {
+    height: 340px;
+  }
+
+  .loanGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 48vh;
+    min-height: 360px;
+  }
+
+  .loanCard {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroContent {
+    padding-bottom: 36px;
+  }
+
+  .heroChips {
+    gap: 8px;
+  }
+
+  .heroChip {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .stepCard {
+    padding: 16px;
+  }
+
+  .contactCard {
+    padding: 28px 24px;
+  }
+}

@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-export const alt = 'Upper Amenfi Rural Bank — Modern Rural Banking in Ghana';
+export const alt = 'Upper Amenfi Community Bank — Modern Community Banking in Ghana';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -67,7 +66,7 @@ export default function OGImage() {
             marginBottom: '8px',
           }}
         >
-          Upper Amenfi Rural Bank
+          Upper Amenfi Community Bank
         </div>
 
         <div

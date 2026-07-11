@@ -47,7 +47,9 @@ export default function CookieConsent() {
                 style={{
                     position: 'absolute', top: '12px', right: '12px',
                     color: 'rgba(255,255,255,0.4)', background: 'none', border: 'none',
-                    cursor: 'pointer', padding: '4px',
+                    cursor: 'pointer', padding: '10px',
+                    minWidth: '44px', minHeight: '44px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}
             >
                 <X size={18} />

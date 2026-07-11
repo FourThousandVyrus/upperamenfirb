@@ -2,10 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Shield, Users, MapPin, TrendingUp, Award, Landmark, Heart, Target, Eye, Star, Lock, Building2, CheckCircle } from 'lucide-react';
+import { Shield, Users, MapPin, TrendingUp, Award, Landmark, Heart, Target, Eye, Star, Lock, Building2, CheckCircle, BookOpen, Handshake, Briefcase, Scale, Globe, Sprout } from 'lucide-react';
 import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
+
+const coreValues = [
+    { value: 'Commitment to Work', behaviors: 'Punctuality, Regularity to work, Loyalty, dedication, Reliability.' },
+    { value: 'Timeliness', behaviors: 'Prompt Customer Service, Reliability, Accuracy, State-of-Art Technology, and Adherence to policies, processes and procedures.' },
+    { value: 'Discipline', behaviors: 'Respect for authority, Mutual respect, Strict adherence to Dress Code.' },
+    { value: 'Integrity', behaviors: 'Honesty, Accountability, Good sense of responsibility, Strict compliance to the Operational Manual.' },
+    { value: 'Professionalism', behaviors: 'Good communication, Etiquette and Good manners, Competence, Self-Development, Secrecy, Positive Thinking and "Can Do" Attitude, Team Work.' },
+    { value: 'Competitiveness', behaviors: 'Networking, Innovation, Diversification, Staff motivation, Research, Enrollment on to New Government Programme.' },
+    { value: 'Community Development', behaviors: 'Good corporate social responsibility, Community service.' },
+    { value: 'Shareholder Interests', behaviors: 'Good communication to shareholders, Creating value for shareholders.' },
+];
 
 export default function AboutPage() {
     return (
@@ -25,7 +36,7 @@ export default function AboutPage() {
                         {[
                             { value: 37, suffix: '+', label: 'Years Operating' },
                             { value: 18, label: 'Branches' },
-                            { value: 588, suffix: 'M', label: 'Total Deposits (₵)' },
+                            { value: 614, suffix: 'M+', label: 'Total Deposits (₵)' },
                             { value: 3, label: 'Regions Covered' },
                         ].map((s, i) => (
                             <ScrollReveal key={i} delay={i * 80}>
@@ -51,20 +62,85 @@ export default function AboutPage() {
                                 <span className="section-eyebrow">Our Story</span>
                                 <h2>37 Years of Community Trust</h2>
                                 <p style={{ marginBottom: 16 }}>
-                                    Upper Amenfi Rural Bank was established in 1988 by a group of visionary
-                                    farmers and community leaders in the Wassa Amenfi District. What began as
-                                    a small savings institution has grown into one of Ghana&apos;s most successful
-                                    rural banks, serving over three regions.
+                                    According to history, the Wassa Amenfi Traditional Council in the Western Region only had one rural bank in the 1980s, located at Wassa Akropong. The bank (UARB Plc) emanated from and carved itself out of Wassa Akropong. The separation occurred due to a distance disadvantage for customers, primarily cocoa farmers, who had to walk a considerable distance to cash the Akuafo Cheque, the government&apos;s primary method of payment to farmers.
+                                </p>
+                                <p style={{ marginBottom: 16 }}>
+                                    Thousands of our cherished cocoa farmers in and around our catchment areas, especially communities like Wassa Ankaasie, Jedua II, Beposo, Agona Amenfi, Wassa Juabo, Adjakaa Manso Jukwaa-Hemang, and Wassa Ankwawso, were left excluded and stranded on how to get their cocoa sales proceeds through the Akuafo-Cheque System.
+                                </p>
+                                <p style={{ marginBottom: 16 }}>
+                                    However, with the good intentions of the chiefs and elders in the aforementioned communities and their brisk, innovative financial ideas, they decided to set up a community bank. The establishment of Upper Amenfi Rural Bank Plc came about through the purchase of shares by the concerned communities. The bank chose Wassa Ankwawso as its headquarters.
                                 </p>
                                 <p>
-                                    Today, UARB operates 18 branches with a staff complement of over 470
-                                    employees, including 218 mobile bankers who bring banking to your doorstep.
-                                    We remain committed to our founding mission: empowering communities
-                                    through accessible financial services.
+                                    The promoters of this bank chose <strong>Cocoa Pod</strong> as the bank&apos;s logo, signifying that the bank seeded from a typical cocoa-growing area and for the farmers.
                                 </p>
                             </div>
                         </div>
                     </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Licensing Status */}
+            <section className={styles.sectionAlt}>
+                <div className="container">
+                    <ScrollReveal>
+                        <div className={styles.splitLayout}>
+                            <div>
+                                <span className="section-eyebrow">Licensing Status</span>
+                                <h2>Established by the Bank of Ghana</h2>
+                                <p style={{ marginBottom: 16 }}>
+                                    Incorporated on 13th August, 1987 (with Bank of Ghana License No. 124 issued on 18th August, 1987), Upper Amenfi Rural Bank commenced operations on 2nd September, 1994, to support local agriculture and commerce. It has grown to become one of the premier rural banks in the Western, Western North, and Central regions of Ghana.
+                                </p>
+                                <p style={{ marginBottom: 16 }}>
+                                    Following a path of continuous strategic improvement, the bank officially re-registered on 15th February, 2023 under the Companies Act 2019 (Act 992) as a Public Limited Company with Registration Number <strong>PL000080223</strong>, adopting the official name <strong>UPPER AMENFI COMMUNITY BANK PLC</strong>.
+                                </p>
+                                <p>
+                                    As of December 2024, the bank boasts a paid-up capital of <strong>GH¢3.87 million</strong>, a customer deposit base of <strong>GH¢614.68 million</strong>, and total assets of <strong>GH¢669.75 million</strong>, serving our communities across three regions.
+                                </p>
+                            </div>
+                            <div className={styles.splitImageWrap}>
+                                <Image src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Banking operations" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            </div>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Customer Portfolio */}
+            <section className={styles.section}>
+                <div className="container">
+                    <ScrollReveal>
+                        <div className="text-center">
+                            <span className="section-eyebrow">2023 Customer Portfolio</span>
+                            <h2 className="section-title">Growing With Our Customers</h2>
+                            <p className="section-desc centered" style={{ maxWidth: 'min(700px, 100%)' }}>
+                                Active customers are subscribing to our numerous tailor-made products and services in our 18 branches located in various parts of Ghana. Our success story has significantly improved the economic and social well-being of millions of Ghanaians.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+
+                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 24, marginTop: 40 }}>
+                        <ScrollReveal delay={0}>
+                            <div className={styles.card}>
+                                <div className={styles.cardIcon}><Globe size={22} /></div>
+                                <h3>Digital Services</h3>
+                                <p>SMS, E-Zwich, ATM, Agency banking, ACH, Apexlink (i-Trans transfers), WUMT, USSD, mobile banking — we&apos;ve simplified access to financial services.</p>
+                            </div>
+                        </ScrollReveal>
+                        <ScrollReveal delay={80}>
+                            <div className={styles.card}>
+                                <div className={styles.cardIcon}><Briefcase size={22} /></div>
+                                <h3>Comprehensive Products</h3>
+                                <p>Microfinancing, business loans, salary loans, funeral loans, farmer&apos;s loans, overdrafts — a full spectrum of financial solutions.</p>
+                            </div>
+                        </ScrollReveal>
+                        <ScrollReveal delay={160}>
+                            <div className={styles.card}>
+                                <div className={styles.cardIcon}><Sprout size={22} /></div>
+                                <h3>Job Creation</h3>
+                                <p>UARB Plc has contributed to the creation of over 275,000 direct and indirect jobs across the bank&apos;s catchment areas and Ghana as a whole.</p>
+                            </div>
+                        </ScrollReveal>
+                    </div>
                 </div>
             </section>
 
@@ -78,14 +154,12 @@ export default function AboutPage() {
                         </div>
                     </ScrollReveal>
 
-                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 40 }}>
+                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 24, marginTop: 40 }}>
                         <ScrollReveal delay={0}>
                             <div className={styles.card}>
                                 <div className={styles.cardIcon}><Target size={22} /></div>
                                 <h3>Our Mission</h3>
-                                <p>To mobilize deposits from individuals, groups, and corporate institutions for
-                                    the socio-economic development of our operational areas through efficient and
-                                    professional banking services.</p>
+                                <p>To Encourage, Sustain the Habit of Savings and Alleviate Poverty.</p>
                             </div>
                         </ScrollReveal>
 
@@ -93,19 +167,49 @@ export default function AboutPage() {
                             <div className={styles.card}>
                                 <div className={styles.cardIcon}><Eye size={22} /></div>
                                 <h3>Our Vision</h3>
-                                <p>To become the most preferred, efficient, and profitable rural bank in Ghana,
-                                    leading in financial inclusion and community empowerment.</p>
+                                <p>To be the leading Community Bank in the country.</p>
                             </div>
                         </ScrollReveal>
 
                         <ScrollReveal delay={160}>
                             <div className={styles.card}>
-                                <div className={styles.cardIcon}><Star size={22} /></div>
-                                <h3>Core Values</h3>
-                                <p>Integrity, professionalism, teamwork, customer-centricity, and innovation
-                                    guide everything we do across all 18 branches and communities.</p>
+                                <div className={styles.cardIcon}><Heart size={22} /></div>
+                                <h3>Our Promise</h3>
+                                <p>The bank&apos;s vision and mission are driven by the range of solutions it offers to bridge the gap between the banked, underbanked, and unbanked in the financial service industry.</p>
                             </div>
                         </ScrollReveal>
+                    </div>
+                </div>
+            </section>
+
+            {/* Core Values Table */}
+            <section className={styles.section}>
+                <div className="container">
+                    <ScrollReveal>
+                        <div className="text-center">
+                            <span className="section-eyebrow">Who We Are</span>
+                            <h2 className="section-title">Our Core Values</h2>
+                            <p className="section-desc centered" style={{ maxWidth: 600 }}>
+                                The principles that guide every interaction with our customers, shareholders, and communities.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+
+                    <div style={{ marginTop: 40, maxWidth: 'min(800px, 100%)', margin: '40px auto 0' }}>
+                        {coreValues.map((v, i) => (
+                            <ScrollReveal key={i} delay={i * 40}>
+                                <div className={styles.coreValueRow} style={{
+                                    borderBottom: i < coreValues.length - 1 ? '1px solid var(--border-default)' : 'none',
+                                }}>
+                                    <div className={styles.coreValueLabel}>
+                                        {v.value}
+                                    </div>
+                                    <div className={styles.coreValueDesc}>
+                                        {v.behaviors}
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -123,10 +227,10 @@ export default function AboutPage() {
                         </div>
                     </ScrollReveal>
 
-                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', marginTop: 40 }}>
+                    <div className={styles.cardGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(230px, 100%), 1fr))', marginTop: 40 }}>
                         {[
                             { icon: <Award size={20} />, title: 'Best Rural Bank', desc: 'Recognized for outstanding performance in rural banking' },
-                            { icon: <Shield size={20} />, title: 'PLC Status', desc: 'Upgraded to Public Limited Company status' },
+                            { icon: <Shield size={20} />, title: 'PLC Status', desc: 'Upgraded to Public Limited Company status in 2022' },
                             { icon: <TrendingUp size={20} />, title: 'Consistent Growth', desc: '37 consecutive years of growth and stability' },
                             { icon: <Landmark size={20} />, title: 'Ghana Deposit Protection', desc: 'Full membership ensuring customer deposits are protected' },
                         ].map((a, i) => (
@@ -151,7 +255,7 @@ export default function AboutPage() {
                                 <span className="section-eyebrow">Security & Trust</span>
                                 <h2>Your Money. Our Fortress.</h2>
                                 <p style={{ marginBottom: 24 }}>
-                                    Backed by the Bank of Ghana and protected by advanced security infrastructure, your deposits are safe with us.
+                                    Backed by the Bank of Ghana and protected by advanced security infrastructure, your deposits are safe with us. We require partnerships with current and potential shareholders, customers, regulatory authorities, and business associations.
                                 </p>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 24 }}>
                                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: '9999px', background: 'var(--primary-100)', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'var(--font-heading)', color: 'var(--navy)' }}>
@@ -173,6 +277,8 @@ export default function AboutPage() {
                                         'Encrypted Financial Data',
                                         'Biometric E-Zwich Security',
                                         'Multi-Layer Fraud Protection',
+                                        'Highly Trusted Network Systems',
+                                        'Security for All Customers\' Deposits',
                                     ].map((item, i) => (
                                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.9rem', color: 'var(--text-body)' }}>
                                             <CheckCircle size={16} style={{ color: 'var(--green-500)', flexShrink: 0 }} />
@@ -181,10 +287,8 @@ export default function AboutPage() {
                                     ))}
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <div style={{ width: 180, height: 180, borderRadius: '50%', background: 'var(--primary-100)', border: '2px solid var(--border-default)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                                    <Lock size={56} style={{ color: 'var(--navy)', opacity: 0.7 }} />
-                                </div>
+                            <div className={styles.splitImageWrap}>
+                                <Image src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80" alt="Security infrastructure" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                         </div>
                     </ScrollReveal>
@@ -200,9 +304,7 @@ export default function AboutPage() {
                                 <span className="section-eyebrow">Impact</span>
                                 <h2>More Than a Bank</h2>
                                 <p style={{ marginBottom: 16 }}>
-                                    We believe banking should uplift communities, not just serve them.
-                                    Through our CSR initiatives, we&apos;ve invested in education,
-                                    infrastructure, healthcare, and agriculture.
+                                    We believe banking should uplift communities, not just serve them. Through our CSR initiatives, we&apos;ve invested in education, infrastructure, healthcare, and agriculture.
                                 </p>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                                     {[

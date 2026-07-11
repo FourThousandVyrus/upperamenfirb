@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 import TransitionLink from '../RouteTransition/TransitionLink';
@@ -15,8 +14,6 @@ import {
     Award,
     Landmark,
     Building2,
-    Send,
-    CheckCircle,
 } from 'lucide-react';
 
 const footerLinks = {
@@ -30,7 +27,8 @@ const footerLinks = {
     ],
     company: [
         { href: '/about', label: 'Our Story' },
-        { href: '/governance', label: 'Leadership' },
+        { href: '/governance', label: 'Leadership & Governance' },
+        { href: '/investor-relations', label: 'Investor Relations' },
         { href: '/csr', label: 'Community Impact' },
         { href: '/news', label: 'News & Updates' },
         { href: '/rates', label: 'Current Rates' },
@@ -46,63 +44,31 @@ const footerLinks = {
 };
 
 export default function Footer() {
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    const handleSubscribe = (e) => {
-        e.preventDefault();
-        if (!email.trim()) return;
-        setSubscribed(true);
-        setEmail('');
-        setTimeout(() => setSubscribed(false), 4000);
-    };
-
     return (
         <footer className={styles.footer}>
-            {/* Newsletter Banner */}
-            <div className={styles.newsletter}>
-                <div className="container">
-                    <div className={styles.newsletterInner}>
-                        <div>
-                            <h3>Stay Updated</h3>
-                            <p>Get the latest news, rates, and financial tips delivered to your inbox.</p>
-                        </div>
-                        {subscribed ? (
-                            <div className={styles.newsletterSuccess}>
-                                <CheckCircle size={20} />
-                                <span>Thank you for subscribing!</span>
-                            </div>
-                        ) : (
-                            <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
-                                <input
-                                    type="email"
-                                    className={styles.newsletterInput}
-                                    placeholder="Enter your email address"
-                                    aria-label="Email address"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                                <button type="submit" className="btn btn-glow btn-md">
-                                    Subscribe <Send size={15} />
-                                </button>
-                            </form>
-                        )}
-                    </div>
-                </div>
-            </div>
-
             {/* Main Footer */}
             <div className={styles.footerMain}>
                 <div className="container">
                     <div className={styles.footerGrid}>
                         {/* Brand */}
                         <div className={styles.footerBrand}>
-                            <TransitionLink href="/" className={styles.footerLogo}>
-                                <Image src="/images/logo.png" alt="Upper Amenfi Rural Bank Limited" width={327} height={92} />
-                            </TransitionLink>
+                        <TransitionLink href="/" className={styles.footerLogo}>
+                            <Image
+                                src="/images/logo-new.jpeg"
+                                alt="Upper Amenfi Community Bank PLC"
+                                className={styles.footerLogoImg}
+                                width={48}
+                                height={48}
+                            />
+                            <div className={styles.footerLogoText}>
+                                <span className={styles.footerLogoName}>UPPER AMENFI</span>
+                                <span className={styles.footerLogoName}>COMMUNITY BANK PLC.</span>
+                                <div className={styles.footerLogoDivider} />
+                                <span className={styles.footerLogoSub}>ALWAYS AT YOUR SERVICE</span>
+                            </div>
+                        </TransitionLink>
                             <p className={styles.footerBrandDesc}>
-                                Empowering communities with modern, secure financial services for over 37 years across Western and Ashanti regions of Ghana.
+                                Empowering communities with modern, secure financial services for over 37 years across Western, Western North, and Central regions of Ghana.
                             </p>
                             <div className={styles.socialLinks}>
                                 <a href="https://www.facebook.com/upperamenfirb" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialLink}>
@@ -162,15 +128,15 @@ export default function Footer() {
                             <div className={styles.contactItems}>
                                 <div className={styles.contactItem}>
                                     <Phone size={14} />
-                                    <a href="tel:+233312091556" style={{ color: 'inherit', textDecoration: 'none' }}>+233 312 091 556</a>
+                                    <a href="tel:+233553498729" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 553 498 729</a>
                                 </div>
                                 <div className={styles.contactItem}>
                                     <Mail size={14} />
-                                    <span>info@uarb.com.gh</span>
+                                    <span>info@upperamenfirb.com</span>
                                 </div>
                                 <div className={styles.contactItem}>
                                     <MapPin size={14} />
-                                    <span>Asankrangwa, Western Region, Ghana</span>
+                                    <span>Wassa Ankwaso, Western Region, Ghana</span>
                                 </div>
                             </div>
                         </div>
@@ -198,11 +164,24 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Disclaimer */}
+            <div className={styles.disclaimer}>
+                <div className="container">
+                    <p>
+                        <strong>Disclaimer:</strong> Upper Amenfi Community Bank PLC is licensed and regulated by the Bank of Ghana.
+                        The information provided on this website is for general informational purposes only and does not constitute financial, investment, or legal advice.
+                        Product features, interest rates, and fees are subject to change without notice and may vary depending on individual circumstances.
+                        The Bank of Ghana deposit insurance covers eligible deposits up to the applicable limit.
+                        For personalized advice, please visit any of our branches or contact our customer service team.
+                    </p>
+                </div>
+            </div>
+
             {/* Bottom Bar */}
             <div className={styles.bottomBar}>
                 <div className="container">
                     <div className={styles.bottomInner}>
-                        <span>&copy; 2026 Upper Amenfi Rural Bank PLC. All rights reserved.</span>
+                        <span>&copy; {new Date().getFullYear()} Upper Amenfi Community Bank PLC. All rights reserved.</span>
                         <div className={styles.bottomLinks}>
                             <TransitionLink href="/privacy">Privacy Policy</TransitionLink>
                             <TransitionLink href="/terms">Terms of Service</TransitionLink>

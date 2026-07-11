@@ -21,27 +21,19 @@ export default function RouteTransition() {
       aria-hidden="true"
     >
       <div className={styles.overlayContent}>
-        {/* Bank logo */}
-        <div className={styles.logoMark}>
-          <Image
-            src="/images/logo.png"
-            alt="Upper Amenfi Rural Bank"
-            width={180}
-            height={50}
-            className={styles.logoImg}
-            priority
-          />
-        </div>
-        <div className={styles.loadingText}>Loading</div>
-        <div className={styles.progressBar}>
-          <div
-            className={`${styles.progressFill} ${isTransitioning ? styles.progressActive : ''}`}
-          />
-        </div>
-        <div className={styles.dots}>
-          <span className={styles.dot} />
-          <span className={styles.dot} />
-          <span className={styles.dot} />
+        <Image
+          src="/images/logo-new.jpeg"
+          alt="Upper Amenfi Community Bank PLC"
+          width={64}
+          height={64}
+          className={styles.logoImg}
+          priority
+        />
+        <div className={styles.loaderLogoText}>
+          <span className={styles.loaderLogoName}>UPPER AMENFI</span>
+          <span className={styles.loaderLogoName}>COMMUNITY BANK PLC.</span>
+          <div className={styles.loaderLogoDivider} />
+          <span className={styles.loaderLogoSub}>ALWAYS AT YOUR SERVICE</span>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FileText, Calendar, X, Bell } from 'lucide-react';
+import { FileText, X, Bell } from 'lucide-react';
 
 export default function AnnouncementBar() {
     const [visible, setVisible] = useState(true);
@@ -23,10 +23,10 @@ export default function AnnouncementBar() {
                         </div>
                         <div className="utility-divider" />
                         <div className="utility-item">
-                            <span className="utility-tag">Event</span>
+                            <span className="utility-tag">Report</span>
                             <a href="https://upperamenfirb.com/wp-content/uploads/2025/11/upper-amenfi-agm-2025.-huhcdr-9.pdf" target="_blank" rel="noopener noreferrer" className="utility-link">
-                                <Calendar size={14} />
-                                35th Annual General Meeting
+                                <FileText size={14} />
+                                35th AGM Report (2025)
                             </a>
                         </div>
                     </div>

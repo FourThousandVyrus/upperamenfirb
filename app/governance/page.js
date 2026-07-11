@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Shield, Users, Building, Lock, UserCheck, Landmark } from 'lucide-react';
@@ -7,21 +8,85 @@ import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
 
-const management = [
-    { name: 'General Manager', initials: 'GM' },
-    { name: 'Operations Manager', initials: 'OM' },
-    { name: 'Finance Manager', initials: 'FM' },
-    { name: 'Credit Manager', initials: 'CM' },
-    { name: 'Internal Auditor', initials: 'IA' },
-    { name: 'Risk & Compliance', initials: 'RC' },
-    { name: 'HR Manager', initials: 'HR' },
-    { name: 'IT Manager', initials: 'IT' },
-    { name: 'Marketing Manager', initials: 'MM' },
-    { name: 'Treasury Manager', initials: 'TM' },
-    { name: 'Legal Officer', initials: 'LO' },
+const board = [
+    { name: 'Mr. Anthony Mensah', initials: 'AM', role: 'Board Chairman', image: '/images/anthony mensah.png' },
+    { name: 'Mrs. Georgina Lartey', initials: 'GL', role: 'Vice Chairperson', image: '/images/georgina lartey.png' },
+    { name: 'Ben Angyewa Essuman (Esq)', initials: 'BE', role: 'Board Secretary', image: '/images/ben angywewa essuman.png' },
+    { name: 'Mr. Jacob Kwarteng', initials: 'JK', role: 'Member', image: '/images/jacob kwarteng.png' },
+    { name: 'Mr. Joseph Baffour-Tabi', initials: 'JT', role: 'Member', image: '/images/joseph baffour-tabi.png' },
+    { name: 'Paul Nkuah-Gyapong (Esq)', initials: 'PNG', role: 'Member', image: '/images/paul nkuah-gyapong.png' },
 ];
 
+const management = [
+    { name: 'Mr. Ignatius Appiah Otwey', initials: 'IAO', role: 'Chief Executive Officer (C.E.O.)', image: '/images/ignatius appiah.png' },
+    { name: 'Mr. Paul Agyekum Mensah', initials: 'PAM', role: 'Deputy C.E.O. (Operations)', image: '/images/paul agyekum.png' },
+    { name: 'Mr. Collins Nyame', initials: 'CN', role: 'Head of Finance', image: '/images/collins nyame.png' },
+    { name: 'Mr. Charles Boakye', initials: 'CB', role: 'Head of Internal Audit', image: '/images/charles boakye.png' },
+    { name: 'Mr. Emmanuel Enyan Guha', initials: 'EEG', role: 'Head of Monitoring, Supervision & Evaluation', image: '/images/emmanuel enyan.png' },
+    { name: 'Mr. Stephen Adjei', initials: 'SA', role: 'Head of Risk & Compliance', image: '/images/stephen adjei.png' },
+    { name: 'Mr. Joshua Lartey', initials: 'JL', role: 'Ag. Head of Human Resource', image: '/images/joshua lartey.png' },
+    { name: 'Mr. Dominic Asare Wiredu', initials: 'DAW', role: 'Head of IT', image: '/images/dominic asare wiredu.png' },
+    { name: 'Mr. Emmanuel Kusi Asiedu', initials: 'EKA', role: 'Head of Credit', image: '/images/emmanuel kusi.png' },
+];
+
+
 export default function GovernancePage() {
+    const hubRef = useRef(null);
+    const memberRefs = useRef([]);
+    const chairmanRef = useRef(null);
+    const [lines, setLines] = useState([]);
+
+    const calcLines = useCallback(() => {
+        if (!hubRef.current || !chairmanRef.current) return;
+        const hubRect = hubRef.current.getBoundingClientRect();
+        const chairCircle = chairmanRef.current.querySelector(`.${styles.hubChairmanPhoto}`);
+        if (!chairCircle) return;
+        const chairRect = chairCircle.getBoundingClientRect();
+
+        const chairCx = chairRect.left + chairRect.width / 2 - hubRect.left;
+        const chairCy = chairRect.top + chairRect.height / 2 - hubRect.top;
+        const chairRx = chairRect.width / 2;
+        const chairRy = chairRect.height / 2;
+
+        const newLines = memberRefs.current.map((memberEl) => {
+            if (!memberEl) return null;
+            const memberCircle = memberEl.querySelector(`.${styles.teamPhoto}`);
+            if (!memberCircle) return null;
+            const memberRect = memberCircle.getBoundingClientRect();
+
+            const memCx = memberRect.left + memberRect.width / 2 - hubRect.left;
+            const memCy = memberRect.top + memberRect.height / 2 - hubRect.top;
+            const memRx = memberRect.width / 2;
+            const memRy = memberRect.height / 2;
+
+            const dx = memCx - chairCx;
+            const dy = memCy - chairCy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist === 0) return null;
+
+            const ux = dx / dist;
+            const uy = dy / dist;
+
+            const chairT = 1 / Math.sqrt((ux * ux) / (chairRx * chairRx) + (uy * uy) / (chairRy * chairRy));
+            const x1 = chairCx + chairT * ux;
+            const y1 = chairCy + chairT * uy;
+
+            const memT = 1 / Math.sqrt((ux * ux) / (memRx * memRx) + (uy * uy) / (memRy * memRy));
+            const x2 = memCx - memT * ux;
+            const y2 = memCy - memT * uy;
+
+            return { x1, y1, x2, y2 };
+        }).filter(Boolean);
+
+        setLines(newLines);
+    }, []);
+
+    useEffect(() => {
+        calcLines();
+        window.addEventListener('resize', calcLines);
+        return () => window.removeEventListener('resize', calcLines);
+    }, [calcLines]);
+
     return (
         <>
             {/* Hero */}
@@ -41,12 +106,9 @@ export default function GovernancePage() {
                                 <span className="section-eyebrow">Corporate Structure</span>
                                 <h2>Built on Accountability</h2>
                                 <p style={{ marginBottom: 24 }}>
-                                    Upper Amenfi Rural Bank PLC is governed by a Board of Directors elected by
-                                    shareholders at the Annual General Meeting. The Board provides strategic
-                                    direction and oversight while day-to-day operations are managed by an
-                                    experienced professional team.
+                                    Upper Amenfi Community Bank PLC is accustomed to the modern organizational structure of business companies. The Bank has the most able leadership of the Board of Directors with diverse professional academic backgrounds and rich work experiences who offer policy directions and implementation for sustainable growth and development of the Bank.
                                 </p>
-                                <div className={styles.cardGrid} style={{ marginTop: 24, gridTemplateColumns: '1fr 1fr' }}>
+                                <div className={styles.responsiveTwoCol} style={{ marginTop: 24 }}>
                                     {[
                                         { icon: <Users size={18} />, title: 'Shareholders', desc: 'Elected at Annual General Meeting' },
                                         { icon: <Landmark size={18} />, title: 'Board of Directors', desc: 'Strategic direction & oversight' },
@@ -69,16 +131,55 @@ export default function GovernancePage() {
                 </div>
             </section>
 
-            {/* Management Team */}
+            {/* Board of Directors - Hub & Spoke */}
             <section className={styles.sectionAlt}>
+                <div className="container">
+                    <ScrollReveal>
+                        <div className="text-center">
+                            <span className="section-eyebrow">Governance</span>
+                            <h2 className="section-title">Board of Directors</h2>
+                            <p className="section-desc centered">
+                                Our Board of Directors consists of distinguished professionals with diverse expertise, responsible for setting policy directions, strategic oversight, and maintaining high corporate governance standards.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <div className={styles.hubSpoke} ref={hubRef}>
+                        <svg className={styles.hubLines}>
+                            {lines.map((l, i) => (
+                                <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} style={{ animationDelay: `${i * 0.3}s` }} />
+                            ))}
+                        </svg>
+                        <div className={styles.hubSpokeRow}>
+                            {board.slice(1).map((b, i) => (
+                                <div key={i} className={styles.hubMember} ref={(el) => { memberRefs.current[i] = el; }}>
+                                    <h4>{b.name}</h4>
+                                    <p>{b.role}</p>
+                                    <div className={styles.teamPhoto}>
+                                        <Image src={b.image} alt={b.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.hubChairman} ref={chairmanRef}>
+                            <div className={styles.hubChairmanPhoto}>
+                                <Image src={board[0].image} alt={board[0].name} width={200} height={200} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                            </div>
+                            <h4>{board[0].name}</h4>
+                            <p>{board[0].role}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Management Team */}
+            <section className={styles.section}>
                 <div className="container">
                     <ScrollReveal>
                         <div className="text-center">
                             <span className="section-eyebrow">Leadership</span>
                             <h2 className="section-title">Key Management Team</h2>
                             <p className="section-desc centered">
-                                Our experienced management team drives the bank&apos;s strategic objectives
-                                and ensures excellence in service delivery.
+                                The management team of the bank is made up of a high-caliber and dynamic team who combine enthusiasm with professional skills. From the initial staff of seven (7), the Bank now offers employment to about 168 regular staff, 218 mobile bankers, and 92 security staff.
                             </p>
                         </div>
                     </ScrollReveal>
@@ -86,9 +187,17 @@ export default function GovernancePage() {
                         {management.map((m, i) => (
                             <ScrollReveal key={i} delay={i * 40}>
                                 <div className={styles.teamCard}>
-                                    <div className={styles.teamAvatar}>{m.initials}</div>
+                                    {m.image ? (
+                                        <div className={styles.teamPhoto}>
+                                            <Image src={m.image} alt={m.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                        </div>
+                                    ) : (
+                                        <div className={styles.teamAvatar}>
+                                            {m.initials}
+                                        </div>
+                                    )}
                                     <h4>{m.name}</h4>
-                                    <p>Senior Management</p>
+                                    <p>{m.role}</p>
                                 </div>
                             </ScrollReveal>
                         ))}
@@ -129,7 +238,7 @@ export default function GovernancePage() {
                     <ScrollReveal>
                         <div className={styles.splitLayout}>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80" alt="Security" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&q=80" alt="Security Camera" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <div>
                                 <span className="section-eyebrow">Security</span>

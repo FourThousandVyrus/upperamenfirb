@@ -1,12 +1,12 @@
 'use client';
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import ScrollReveal from './components/ScrollReveal';
 import AnimatedCounter from './components/AnimatedCounter';
 import TransitionLink from './components/RouteTransition/TransitionLink';
-import WaveDivider from './components/WaveDivider';
-import TiltCard from './components/TiltCard';
+import OrganicDivider from './components/OrganicDivider';
+
 import {
   Shield,
   Clock,
@@ -21,11 +21,102 @@ import {
   MapPin,
   Landmark,
   Smartphone,
+  Check,
+  Handshake,
+  Zap,
+  Heart,
 } from 'lucide-react';
 
+/* ── Hand-drawn SVG elements ── */
+function HandDrawnArrow({ className }) {
+  return (
+    <svg className={className} width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 34C20 28 45 12 80 14C95 15 108 20 114 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="0" />
+      <path d="M106 12L116 17L108 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function HandDrawnCircle({ className }) {
+  return (
+    <svg className={className} width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 6C42 5 54 14 55 28C56 40 46 54 32 55C18 56 5 44 5 30C5 16 16 7 30 6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.6" />
+    </svg>
+  );
+}
+
+function HandDrawnUnderline({ className }) {
+  return (
+    <svg className={className} width="280" height="16" viewBox="0 0 280 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12C40 4 80 14 120 8C160 2 200 12 240 6C258 3 272 8 278 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.7" />
+    </svg>
+  );
+}
+
+function HandDrawnStar({ className }) {
+  return (
+    <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L14.5 9L22 9.5L16 14.5L18 22L12 17.5L6 22L8 14.5L2 9.5L9.5 9Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </svg>
+  );
+}
+
+const testimonialsData = [
+  {
+    quote: "Upper Amenfi Community Bank helped me grow my cocoa business from 2 acres to 15 acres. Their loan process is quick and the staff truly care about your success.",
+    name: 'Kwame Asante',
+    role: 'Cocoa Farmer, Sefwi Wiawso',
+    img: '/images/avatar_kwame.png',
+    tint: 'cream',
+  },
+  {
+    quote: "As a market trader, I needed a bank that understands my business. Their susu collection service and quick loans have been a lifeline for my family.",
+    name: 'Abena Mensah',
+    role: 'Market Trader, Wassa Ankwaso',
+    img: '/images/avatar_abena.png',
+    tint: 'lavender',
+  },
+  {
+    quote: "The agency banking service brings the bank to our village. I no longer have to travel hours to access my savings. This is truly banking for the people.",
+    name: 'Yaw Boateng',
+    role: 'Teacher, Enchi',
+    img: '/images/avatar_yaw.png',
+    tint: 'mint',
+  },
+  {
+    quote: "I've been with UARB for over 20 years. They supported my children's education through their salary advance loans. I trust them completely.",
+    name: 'Grace Owusu',
+    role: 'Nurse, Bogoso',
+    img: '/images/avatar_grace.png',
+    tint: 'cream',
+  },
+  {
+    quote: "The USSD banking makes everything easy. I can check my balance and transfer money even without internet. Very convenient for us in the rural areas.",
+    name: 'Kofi Adjei',
+    role: 'Shop Owner, Samreboi',
+    img: '/images/avatar_kofi.png',
+    tint: 'lavender',
+  },
+  {
+    quote: "When no other bank would open a branch here, UARB came. Now our community has access to proper banking for the first time.",
+    name: 'Ama Darko',
+    role: 'Chief, Dadieso',
+    img: '/images/avatar_ama.png',
+    tint: 'mint',
+  },
+];
+
+const photostripData = [
+  { src: '/images/branch_strip.png', caption: 'Our Branches' },
+  { src: '/images/community_strip.png', caption: 'Our Community' },
+  { src: '/images/people_strip.png', caption: 'Our People' },
+  { src: '/images/impact_strip.png', caption: 'Our Impact' },
+  { src: '/images/customers_strip.png', caption: 'Our Customers' },
+];
+
+/* ── Main Homepage ── */
 export default function Home() {
   const heroRef = useRef(null);
-  const orbRefs = useRef([]);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -38,12 +129,10 @@ export default function Home() {
         const rect = hero.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        orbRefs.current.forEach((orb, i) => {
-          if (!orb) return;
-          const depth = [30, 20, 40][i];
-          orb.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
-        });
+        const img = hero.querySelector(`.${styles.heroImageWrap}`);
+        if (img) {
+          img.style.transform = `translate(${x * 15}px, ${y * 15}px)`;
+        }
       });
     };
 
@@ -56,397 +145,369 @@ export default function Home() {
 
   return (
     <>
-      {/* ===== ANIMATED HERO ===== */}
+      {/* ═══════════════════════════════════════════
+          SECTION 1 — OVERSIZED TYPOGRAPHY HERO
+          ═══════════════════════════════════════════ */}
       <section className={styles.hero} ref={heroRef}>
-        <div className={styles.heroMesh}>
-          <div ref={el => orbRefs.current[0] = el} className={`${styles.heroOrb} ${styles.heroOrb1}`} />
-          <div ref={el => orbRefs.current[1] = el} className={`${styles.heroOrb} ${styles.heroOrb2}`} />
-          <div ref={el => orbRefs.current[2] = el} className={`${styles.heroOrb} ${styles.heroOrb3}`} />
-          <div className={styles.heroGrid} />
-        </div>
-
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <div className={styles.heroBadge}>
-              <Shield size={14} />
-              Licensed by Bank of Ghana
-            </div>
-            <h1>
-              The Future of<br />
-              Rural Banking.<br />
-              <span>Right Here.</span>
-            </h1>
-            <p className={styles.heroDesc}>
-              37 years of trust. 18 branches across 3 regions. Empowering
-              communities with modern, secure financial services.
-            </p>
-            <div className={styles.heroCtas}>
-              <TransitionLink href="/contact" className="btn btn-glow btn-lg">
-                Open an Account <ArrowRight size={18} />
-              </TransitionLink>
-              <TransitionLink href="/products-services" className="btn btn-outline-light btn-lg">
-                Explore Products
-              </TransitionLink>
-            </div>
-          </div>
-
-          <div className={styles.heroVisual}>
-            {/* Main Image */}
-            <div className={styles.heroMainImage}>
-              <Image
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
-                alt="Banking professional assisting a customer"
-                width={560}
-                height={460}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                priority
-              />
-            </div>
-
-            {/* Secondary Overlay Image */}
-            <div className={styles.heroSecondImage}>
-              <Image
-                src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=500&q=80"
-                alt="Community gathering in Ghana"
-                width={220}
-                height={160}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                priority
-              />
-            </div>
-
-            {/* Floating Card — Years */}
-            <div className={`${styles.floatCard} ${styles.floatCard1}`}>
-              <div className={styles.floatCardIcon}>
-                <Clock size={18} />
-              </div>
-              <div className={styles.floatCardValue}><AnimatedCounter end={37} suffix="+" /></div>
-              <div className={styles.floatCardLabel}>Years of Trust</div>
-            </div>
-
-            {/* Floating Card — Branches */}
-            <div className={`${styles.floatCard} ${styles.floatCard2}`}>
-              <div className={styles.floatCardIcon}>
-                <MapPin size={18} />
-              </div>
-              <div className={styles.floatCardValue}><AnimatedCounter end={18} /></div>
-              <div className={styles.floatCardLabel}>Branches • 5 Regions</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TRUST STRIP + AWARDS (merged) ===== */}
-      <section className={styles.trustStrip}>
         <div className="container">
-          <div className={styles.trustGrid}>
-            {[
-              { icon: <Clock size={22} />, end: 37, suffix: '+', label: 'Years of Service' },
-              { icon: <Building2 size={22} />, end: 18, label: 'Branches Nationwide' },
-              { icon: <MapPin size={22} />, end: 5, label: 'Regions Covered' },
-              { icon: <TrendingUp size={22} />, end: 588, prefix: '₵', suffix: 'M+', label: 'Total Deposits' },
-            ].map((stat, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <div className={styles.trustItem}>
-                  <div className={styles.trustIcon}>
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <div className={styles.trustValue}>
-                      {stat.prefix || ''}<AnimatedCounter end={stat.end} suffix={stat.suffix || ''} />
-                    </div>
-                    <div className={styles.trustLabel}>{stat.label}</div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <div className={styles.heroLayout}>
+            {/* Left: Massive type */}
+            <div className={styles.heroText}>
+              <div className={styles.heroBadge}>
+                <Shield size={14} />
+                Licensed by Bank of Ghana
+              </div>
 
-          {/* Awards row merged in */}
-          <div className={styles.awardsRow}>
-            <div className={styles.awardItem}>
-              <Award size={16} className={styles.awardIcon} /> Best Rural Bank 2025
+              <h1 className={styles.heroHeadline}>
+                Banking Local<br />
+                is Banking<br />
+                <span className={styles.heroAccent}>Better.</span>
+              </h1>
+
+              <HandDrawnUnderline className={styles.heroUnderline} />
+
+              <p className={styles.heroSub}>
+                37 years of trust across 3 regions. 18 branches serving
+                communities with accessible, reliable financial services.
+              </p>
+
+              <div className={styles.heroCtas}>
+                <TransitionLink href="/contact" className="btn btn-glow btn-lg">
+                  Open an Account
+                  <ArrowRight size={18} />
+                </TransitionLink>
+                <TransitionLink href="/products-services" className="btn btn-outline-light btn-lg">
+                  Explore Products
+                </TransitionLink>
+              </div>
+
+              {/* Inline stat chips */}
+              <div className={styles.heroStats}>
+                <div className={styles.heroStatChip}>
+                  <AnimatedCounter end={37} suffix="+" />
+                  <span>Years</span>
+                </div>
+                <div className={styles.heroStatDivider} />
+                <div className={styles.heroStatChip}>
+                  <AnimatedCounter end={18} />
+                  <span>Branches</span>
+                </div>
+                <div className={styles.heroStatDivider} />
+                <div className={styles.heroStatChip}>
+                  <AnimatedCounter end={588} prefix="₵" suffix="M+" />
+                  <span>Deposits</span>
+                </div>
+              </div>
             </div>
-            <div className={styles.awardItem}>
-              <Shield size={16} className={styles.awardIcon} /> Bank of Ghana Licensed
-            </div>
-            <div className={styles.awardItem}>
-              <Landmark size={16} className={styles.awardIcon} /> Ghana Deposit Protection
-            </div>
-            <div className={styles.awardItem}>
-              <TrendingUp size={16} className={styles.awardIcon} /> 37+ Years of Growth
+
+            {/* Right: Image with organic shape */}
+            <div className={styles.heroVisual}>
+              <div className={styles.heroImageWrap}>
+                <div className={styles.heroImageClip}>
+                  <Image
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+                    alt="Banking professional assisting a customer"
+                    width={600}
+                    height={700}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    priority
+                  />
+                </div>
+
+                {/* Hand-drawn circle accent */}
+                <HandDrawnCircle className={styles.heroCircleAccent} />
+
+                {/* Floating stat pill */}
+                <div className={styles.heroFloatPill}>
+                  <div className={styles.heroFloatPillIcon}>
+                    <Award size={16} />
+                  </div>
+                  <span>Best Rural Bank 2025</span>
+                </div>
+              </div>
+
+              {/* Hand-drawn arrow pointing to image */}
+              <HandDrawnArrow className={styles.heroArrow} />
             </div>
           </div>
         </div>
       </section>
 
-      <WaveDivider color="var(--bg-white)" />
-
-      {/* ===== PRODUCT OVERVIEW CARDS ===== */}
+      {/* ═══════════════════════════════════════════
+          SECTION 3 — BENTO PRODUCT GRID
+          ═══════════════════════════════════════════ */}
       <section className={styles.productsSection}>
         <div className="container">
           <ScrollReveal>
-            <div className="text-center">
+            <div className={styles.sectionHeader}>
               <span className="section-eyebrow">Our Services</span>
-              <h2 className="section-title">Financial Solutions That Work For You</h2>
+              <h2 className="section-title">Financial Solutions<br />That Work For You</h2>
               <p className="section-desc centered">
-                From savings accounts to business loans, we offer flexible products designed for individuals and businesses in our communities.
+                From savings accounts to business loans, flexible products designed for individuals and businesses in our communities.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className={styles.productsGrid}>
-            <ScrollReveal delay={0}>
-              <TiltCard className={styles.productCard}>
-                <div className={styles.productCardImage}>
+          <div className={styles.bentoGrid}>
+            {/* Large card — Current Account */}
+            <ScrollReveal delay={0} className={styles.bentoLarge}>
+              <div className={`${styles.bentoCard} ${styles.bentoCardDark}`}>
+                <div className={styles.bentoCardContent}>
+                  <div className={styles.bentoCardIcon}>
+                    <Shield size={28} />
+                  </div>
+                  <h3>Current Account</h3>
+                  <p>Operated by individuals, sole proprietary concerns, partnership firms, companies, clubs, and organizations with regular transactions.</p>
+                  <TransitionLink href="/products-services" className={styles.bentoLink}>
+                    Learn More <ArrowRight size={16} />
+                  </TransitionLink>
+                </div>
+                <div className={styles.bentoCardImage}>
                   <Image
                     src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75"
-                    alt="Professional woman managing finances"
+                    alt="Professional managing finances"
                     width={600}
-                    height={360}
+                    height={400}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
-                <div className={styles.productCardIcon}>
-                  <Shield size={26} />
-                </div>
-                <h3>Personal Banking</h3>
-                <p>Save, grow, and protect your money with flexible savings, current accounts, fixed deposits, and susu collections.</p>
-                <TransitionLink href="/products-services" className={styles.productCardLink}>
-                  Learn More <ArrowRight size={16} />
-                </TransitionLink>
-              </TiltCard>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <TiltCard className={styles.productCard}>
-                <div className={styles.productCardImage}>
-                  <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75"
-                    alt="Business professional in meeting"
-                    width={600}
-                    height={360}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-                <div className={styles.productCardIcon}>
-                  <Briefcase size={26} />
-                </div>
-                <h3>Business Banking</h3>
-                <p>Capital and tools to accelerate your growth with commercial loans, overdraft facilities, and agency banking.</p>
-                <TransitionLink href="/products-services" className={styles.productCardLink}>
-                  Learn More <ArrowRight size={16} />
-                </TransitionLink>
-              </TiltCard>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <TiltCard className={styles.productCard}>
-                <div className={styles.productCardImage}>
-                  <Image
-                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75"
-                    alt="Loan documents being signed"
-                    width={600}
-                    height={360}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-                <div className={styles.productCardIcon}>
-                  <Banknote size={26} />
-                </div>
-                <h3>Loans & Credit</h3>
-                <p>Get approvals in under 3 hours. Easy loans, salary loans, microfinance, and specialized credit solutions.</p>
-                <TransitionLink href="/loans" className={styles.productCardLink}>
-                  Learn More <ArrowRight size={16} />
-                </TransitionLink>
-              </TiltCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== COMMUNITY IMPACT ===== */}
-      <section className={styles.impactSection}>
-        <div className={styles.impactBg}>
-          <Image
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=70"
-            alt="Community celebration in Ghana"
-            fill
-            sizes="100vw"
-            style={{ objectFit: 'cover' }}
-          />
-          <div className={styles.impactOverlay} />
-        </div>
-
-        <div className="container">
-          <div className={styles.impactContent}>
-            <ScrollReveal>
-              <div className="text-center">
-                <span className="section-eyebrow" style={{ color: 'var(--accent-300)' }}>Community Impact</span>
-                <h2 style={{ color: 'white', marginBottom: '12px' }}>
-                  Building Stronger Communities
-                </h2>
-                <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '520px', margin: '0 auto' }}>
-                  Every deposit, every loan, and every transaction contributes to the growth of our communities.
-                </p>
               </div>
             </ScrollReveal>
 
-            <div className={styles.impactGrid}>
-              {[
-                { value: 275, suffix: 'K+', label: 'Jobs Created Through Lending' },
-                { value: 588, prefix: '₵', suffix: 'M', label: 'Total Customer Deposits' },
-                { value: 37, suffix: '+', label: 'Years Serving Communities' },
-                { value: 18, label: 'Branches Across Ghana' },
-              ].map((stat, i) => (
-                <ScrollReveal key={i} delay={i * 80}>
-                  <div className={styles.impactStat}>
-                    <div className={styles.impactValue}>
-                      {stat.prefix || ''}
-                      <AnimatedCounter end={stat.value} suffix={stat.suffix || ''} />
-                    </div>
-                    <div className={styles.impactLabel}>{stat.label}</div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            {/* Small card — Fixed Deposit */}
+            <ScrollReveal delay={100} className={styles.bentoSmall}>
+              <div className={`${styles.bentoCard} ${styles.bentoCardGold}`}>
+                <div className={styles.bentoCardIcon}>
+                  <Banknote size={26} />
+                </div>
+                <h3>Fixed Deposit</h3>
+                <p>A distinct savings account that pays a fixed rate of interest. Highly competitive rates from <strong>14% to 18% p.a.</strong></p>
+                <TransitionLink href="/products-services" className={styles.bentoLink}>
+                  Learn More <ArrowRight size={16} />
+                </TransitionLink>
+              </div>
+            </ScrollReveal>
+
+            {/* Small card — Susu Accounts */}
+            <ScrollReveal delay={200} className={styles.bentoSmall}>
+              <div className={`${styles.bentoCard} ${styles.bentoCardGreen}`}>
+                <div className={styles.bentoCardIcon}>
+                  <Users size={26} />
+                </div>
+                <h3>Susu Accounts</h3>
+                <p>Mobilization of cash savings at a defined daily or weekly minimum. Perfect for traders, market women, and farmers.</p>
+                <TransitionLink href="/products-services" className={styles.bentoLink}>
+                  Learn More <ArrowRight size={16} />
+                </TransitionLink>
+              </div>
+            </ScrollReveal>
+
+            {/* Tiny card — USSD quick access */}
+            <ScrollReveal delay={300} className={styles.bentoTiny}>
+              <div className={`${styles.bentoCard} ${styles.bentoCardPurple}`}>
+                <Smartphone size={22} className={styles.bentoTinyIcon} />
+                <h4>USSD Banking</h4>
+                <p className={styles.bentoTinyDial}>*992#</p>
+                <p className={styles.bentoTinyDesc}>No internet needed</p>
+                <TransitionLink href="/ussd-guide" className={styles.bentoLink}>
+                  Learn How <ArrowRight size={14} />
+                </TransitionLink>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      <WaveDivider color="var(--bg-cream)" />
+      <OrganicDivider color="var(--bg-gold-tint)" variant="organic" />
 
-      {/* ===== TESTIMONIALS — INFINITE TICKER ===== */}
+      {/* ═══════════════════════════════════════════
+          SECTION 4 — WHY WE'RE DIFFERENT
+          ═══════════════════════════════════════════ */}
+      <section className={styles.differentSection}>
+        <div className="container">
+          <div className={styles.differentLayout}>
+            <div className={styles.differentText}>
+              <ScrollReveal>
+                <span className="section-eyebrow">Why Choose Us</span>
+                <h2 className="section-title">Not Just a Bank.<br />A Community Partner.</h2>
+              </ScrollReveal>
+
+              <div className={styles.differentItems}>
+                {[
+                  {
+                    num: '01',
+                    icon: <Zap size={20} />,
+                    title: 'Decisions in 24 Hours',
+                    desc: 'No endless paperwork. Our streamlined process means you get answers fast when you need them most.',
+                  },
+                  {
+                    num: '02',
+                    icon: <Handshake size={20} />,
+                    title: 'No Hidden Fees',
+                    desc: 'Transparent pricing on every product. What you see is what you pay — the way banking should be.',
+                  },
+                  {
+                    num: '03',
+                    icon: <Heart size={20} />,
+                    title: 'Community First',
+                    desc: 'Every cedi deposited stays in our communities. We invest in the people who trust us with their future.',
+                  },
+                ].map((item, i) => (
+                  <ScrollReveal key={i} delay={i * 120}>
+                    <div className={styles.differentItem}>
+                      <div className={styles.differentItemNum}>{item.num}</div>
+                      <div className={styles.differentItemContent}>
+                        <div className={styles.differentItemIcon}>{item.icon}</div>
+                        <h3>{item.title}</h3>
+                        <p>{item.desc}</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+
+            <ScrollReveal className={styles.differentVisual}>
+              <div className={styles.differentImageWrap}>
+                <Image
+                  src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=700&q=80"
+                  alt="Community gathering in Ghana"
+                  width={700}
+                  height={800}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                {/* Hand-drawn star accents */}
+                <HandDrawnStar className={styles.differentStar1} />
+                <HandDrawnStar className={styles.differentStar2} />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 5 — OUR STORY TIMELINE
+          ═══════════════════════════════════════════ */}
+      <section className={styles.timelineSection}>
+        <div className="container">
+          <ScrollReveal>
+            <div className={styles.sectionHeader}>
+              <span className="section-eyebrow">Our Journey</span>
+              <h2 className="section-title" style={{ color: 'white' }}>37 Years of Growing Together</h2>
+            </div>
+          </ScrollReveal>
+
+          <div className={styles.timeline}>
+            {[
+              {
+                year: '1988',
+                title: 'Founded',
+                desc: 'Upper Amenfi Rural Bank was established in Wassa Ankwaso to serve the financial needs of the Amenfi communities.',
+                accent: 'green',
+              },
+              {
+                year: '2000',
+                title: '10 Branches',
+                desc: 'Expanded to 10 branches across the Western Region, bringing banking closer to rural communities.',
+                accent: 'gold',
+              },
+              {
+                year: '2015',
+                title: 'Digital Banking',
+                desc: 'Launched USSD banking (*992#) enabling millions of transactions without internet access.',
+                accent: 'blue',
+              },
+              {
+                year: '2020',
+                title: '3 Regions',
+                desc: 'Expanded into Western North and Central Regions with 18 branches serving over 275,000 customers.',
+                accent: 'purple',
+              },
+              {
+                year: '2025',
+                title: 'Best Rural Bank',
+                desc: 'Awarded Best Rural Bank in Ghana — recognition of 37 years of community-first banking.',
+                accent: 'gold',
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={i * 100} className={styles.timelineItem}>
+                <div className={`${styles.timelineDot} ${styles[`timelineDot${item.accent.charAt(0).toUpperCase() + item.accent.slice(1)}`]}`} />
+                <div className={styles.timelineCard}>
+                  <div className={styles.timelineYear}>{item.year}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <OrganicDivider color="var(--bg-paper)" variant="torn" />
+
+      {/* ═══════════════════════════════════════════
+          SECTION 6 — TESTIMONIALS
+          ═══════════════════════════════════════════ */}
       <section className={styles.testimonialSection}>
         <div className="container">
           <ScrollReveal>
-            <div className="text-center">
+            <div className={styles.sectionHeader}>
               <span className="section-eyebrow">What People Say</span>
               <h2 className="section-title">Trusted by Thousands</h2>
             </div>
           </ScrollReveal>
         </div>
 
-        {/* Ticker — items are duplicated for seamless infinite scroll */}
-        <div className={styles.testimonialTicker}>
-          {[
-            {
-              quote: "Upper Amenfi Rural Bank helped me grow my cocoa business from 2 acres to 15 acres. Their loan process is quick and the staff truly care about your success.",
-              name: 'Kwame Asante',
-              role: 'Cocoa Farmer, Sefwi Wiawso',
-              img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=75',
-            },
-            {
-              quote: "As a market trader, I needed a bank that understands my business. Their susu collection service and quick loans have been a lifeline for my family.",
-              name: 'Abena Mensah',
-              role: 'Market Trader, Asankrangwa',
-              img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=75',
-            },
-            {
-              quote: "The agency banking service brings the bank to our village. I no longer have to travel hours to access my savings. This is truly banking for the people.",
-              name: 'Yaw Boateng',
-              role: 'Teacher, Enchi',
-              img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=75',
-            },
-            {
-              quote: "I've been with UARB for over 20 years. They supported my children's education through their salary advance loans. I trust them completely.",
-              name: 'Grace Owusu',
-              role: 'Nurse, Bogoso',
-              img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=75',
-            },
-            {
-              quote: "The USSD banking makes everything easy. I can check my balance and transfer money even without internet. Very convenient for us in the rural areas.",
-              name: 'Kofi Adjei',
-              role: 'Shop Owner, Samreboi',
-              img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=75',
-            },
-            {
-              quote: "When no other bank would open a branch here, UARB came. Now our community has access to proper banking for the first time.",
-              name: 'Ama Darko',
-              role: 'Chief, Dadieso',
-              img: 'https://images.unsplash.com/photo-1546961342-ea5f71b193f3?w=100&q=75',
-            },
-          ].concat([
-            {
-              quote: "Upper Amenfi Rural Bank helped me grow my cocoa business from 2 acres to 15 acres. Their loan process is quick and the staff truly care about your success.",
-              name: 'Kwame Asante',
-              role: 'Cocoa Farmer, Sefwi Wiawso',
-              img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=75',
-            },
-            {
-              quote: "As a market trader, I needed a bank that understands my business. Their susu collection service and quick loans have been a lifeline for my family.",
-              name: 'Abena Mensah',
-              role: 'Market Trader, Asankrangwa',
-              img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=75',
-            },
-            {
-              quote: "The agency banking service brings the bank to our village. I no longer have to travel hours to access my savings. This is truly banking for the people.",
-              name: 'Yaw Boateng',
-              role: 'Teacher, Enchi',
-              img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=75',
-            },
-            {
-              quote: "I've been with UARB for over 20 years. They supported my children's education through their salary advance loans. I trust them completely.",
-              name: 'Grace Owusu',
-              role: 'Nurse, Bogoso',
-              img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=75',
-            },
-            {
-              quote: "The USSD banking makes everything easy. I can check my balance and transfer money even without internet. Very convenient for us in the rural areas.",
-              name: 'Kofi Adjei',
-              role: 'Shop Owner, Samreboi',
-              img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=75',
-            },
-            {
-              quote: "When no other bank would open a branch here, UARB came. Now our community has access to proper banking for the first time.",
-              name: 'Ama Darko',
-              role: 'Chief, Dadieso',
-              img: 'https://images.unsplash.com/photo-1546961342-ea5f71b193f3?w=100&q=75',
-            },
-          ]).map((t, i) => (
-            <div key={i} className={styles.testimonialCard}>
-              <div className={styles.quoteStars}>
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={14} fill="currentColor" />
-                ))}
-              </div>
-              <div className={styles.quoteIcon}>&ldquo;</div>
-              <p className={styles.quoteText}>{t.quote}</p>
-              <div className={styles.quotePerson}>
-                <div className={styles.quoteAvatar}>
-                  <Image src={t.img} alt={t.name} width={100} height={100} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div className={styles.testimonialRow}>
+          <div className={styles.testimonialTrack}>
+            {testimonialsData.concat(testimonialsData).map((t, i) => (
+              <div key={i} className={`${styles.testimonialCard} ${styles[`testTint${t.tint.charAt(0).toUpperCase() + t.tint.slice(1)}`]}`}>
+                <div className={styles.quoteStars}>
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={13} fill="currentColor" />
+                  ))}
                 </div>
-                <div>
-                  <div className={styles.quoteName}>{t.name}</div>
-                  <div className={styles.quoteRole}>{t.role}</div>
+                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
+                <div className={styles.quotePerson}>
+                  <div className={styles.quoteAvatar}>
+                    <Image src={t.img} alt={t.name} width={100} height={100} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <div>
+                    <div className={styles.quoteName}>{t.name}</div>
+                    <div className={styles.quoteRole}>{t.role}</div>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 7 — COMMUNITY PHOTO STRIP
+          ═══════════════════════════════════════════ */}
+      <section className={styles.photoStrip}>
+        <div className={styles.photoStripTrack}>
+          {photostripData.concat(photostripData).map((photo, i) => (
+            <div key={i} className={styles.photoCard}>
+              <div className={styles.photoCardInner}>
+                <Image
+                  src={photo.src}
+                  alt={photo.caption}
+                  width={500}
+                  height={350}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              <span className={styles.photoCaption}>{photo.caption}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ===== QUICK DIGITAL ACCESS ===== */}
-      <section className={styles.digitalBanner}>
-        <div className="container">
-          <ScrollReveal>
-            <div className={styles.digitalBannerInner}>
-              <div className={styles.digitalBannerContent}>
-                <Smartphone size={28} className={styles.digitalBannerIcon} />
-                <div>
-                  <h3>Bank From Any Phone</h3>
-                  <p>No internet needed. Dial <strong>*992#</strong> to check balances, transfer funds, and buy airtime instantly.</p>
-                </div>
-              </div>
-              <TransitionLink href="/ussd-guide" className="btn btn-glow btn-md">
-                Learn How <ArrowRight size={16} />
-              </TransitionLink>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== FINAL CTA ===== */}
+      {/* ═══════════════════════════════════════════
+          SECTION 8 — FINAL CTA
+          ═══════════════════════════════════════════ */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaMesh} />
         <div className={`${styles.ctaFloater} ${styles.ctaFloater1}`} />
@@ -455,9 +516,11 @@ export default function Home() {
         <div className="container">
           <ScrollReveal variant="scale">
             <div className={styles.ctaInner}>
+              <HandDrawnStar className={styles.ctaStar1} />
+              <HandDrawnStar className={styles.ctaStar2} />
               <h2>Start Your Journey Today</h2>
               <p className={styles.ctaDesc}>
-                Join thousands of customers who trust Upper Amenfi Rural Bank for their financial future.
+                Join thousands of customers who trust Upper Amenfi Community Bank for their financial future.
               </p>
               <div className={styles.ctaButtons}>
                 <TransitionLink href="/contact" className="btn btn-glow btn-lg">

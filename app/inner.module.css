@@ -7,8 +7,6 @@
     position: relative;
     padding: 160px 0 72px;
     background: var(--gradient-hero);
-    background-size: 200% 200%;
-    animation: gradientShift 14s ease-in-out infinite;
     overflow: hidden;
 }
 
@@ -16,9 +14,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(ellipse at 70% 20%, rgba(255, 192, 0, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(43, 28, 109, 0.12) 0%, transparent 50%);
+    background: none;
 }
 
 .pageHeroInner {
@@ -80,7 +76,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10, 22, 42, 0.92) 0%, rgba(10, 22, 42, 0.45) 100%);
+    background: rgba(10, 22, 42, 0.85);
 }
 
 .pageHeroCinematic .heroText {
@@ -240,7 +236,7 @@
 /* ===== CARD GRID ===== */
 .cardGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
     margin-top: 40px;
 }
@@ -540,18 +536,21 @@
 /* ===== TEAM GRID ===== */
 .teamGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
     margin-top: 40px;
 }
 
 .teamCard {
     text-align: center;
-    padding: 28px 16px;
+    padding: 32px 20px;
     background: white;
     border: 1px solid var(--border-default);
     border-radius: var(--radius-xl);
     transition: all 0.4s var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .teamCard:hover {
@@ -576,7 +575,100 @@
     letter-spacing: 0.05em;
 }
 
-.teamCard h4 {
+.teamPhoto {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #4a3a9d 0%, #2b1c6d 50%, #1a1048 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(43, 28, 109, 0.2);
+    transition: box-shadow 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.teamPhoto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 3px var(--accent-500), 0 12px 40px rgba(43, 28, 109, 0.3);
+}
+
+/* ===== HUB & SPOKE (Board of Directors) ===== */
+.hubSpoke {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0 32px;
+    margin-top: 40px;
+}
+
+.hubLines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.hubLines line {
+    stroke: var(--accent-500);
+    stroke-width: 1.5;
+    stroke-opacity: 0.35;
+    stroke-dasharray: 8 12;
+    stroke-linecap: round;
+    animation: currentFlow 2s linear infinite;
+}
+
+@keyframes currentFlow {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+.hubSpokeRow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 2;
+}
+
+.hubMember {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.hubMember .teamPhoto {
+    width: 140px;
+    height: 140px;
+}
+
+.hubMember:nth-child(1) {
+    margin-top: 24px;
+}
+
+.hubMember:nth-child(2) {
+    margin-top: 8px;
+}
+
+.hubMember:nth-child(4) {
+    margin-top: 8px;
+}
+
+.hubMember:nth-child(5) {
+    margin-top: 24px;
+}
+
+.hubMember h4 {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.82rem;
@@ -584,8 +676,64 @@
     margin-bottom: 2px;
 }
 
-.teamCard p {
+.hubMember p {
     font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.hubChairman {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hubChairmanPhoto {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #4a3a9d 0%, #2b1c6d 50%, #1a1048 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 48px rgba(43, 28, 109, 0.3);
+    border: 3px solid var(--accent-500);
+    transition: box-shadow 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.hubChairmanPhoto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 3px var(--accent-500), 0 16px 56px rgba(43, 28, 109, 0.35);
+}
+
+.hubChairman h4 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+}
+
+.hubChairman p {
+    font-size: 0.85rem;
+    color: var(--accent-600);
+    font-weight: 600;
+}
+
+.teamCard h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+}
+
+.teamCard p {
+    font-size: 0.82rem;
     color: var(--text-muted);
 }
 
@@ -863,8 +1011,42 @@
     }
 
     .teamGrid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+    }
+
+    .teamPhoto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hubLines {
+        display: none;
+    }
+
+    .hubSpokeRow {
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .hubMember .teamPhoto {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hubMember:nth-child(1),
+    .hubMember:nth-child(5) {
+        margin-top: 12px;
+    }
+
+    .hubMember:nth-child(2),
+    .hubMember:nth-child(4) {
+        margin-top: 4px;
+    }
+
+    .hubChairmanPhoto {
+        width: 160px;
+        height: 160px;
     }
 
     .pageHero {
@@ -901,6 +1083,39 @@
 
     .pageHeroCinematic h1 {
         font-size: 1.8rem;
+    }
+
+    .teamPhoto {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hubSpokeRow {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .hubMember .teamPhoto {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hubMember:nth-child(1),
+    .hubMember:nth-child(2),
+    .hubMember:nth-child(3),
+    .hubMember:nth-child(4),
+    .hubMember:nth-child(5) {
+        margin-top: 0;
+    }
+
+    .hubChairmanPhoto {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hubChairman h4 {
+        font-size: 0.92rem;
     }
 }
 
@@ -1432,4 +1647,117 @@
         flex-direction: column;
         gap: 12px;
     }
+}
+
+/* ===== RESPONSIVE 2-COL GRID (for inline usage) ===== */
+.responsiveTwoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+@media (max-width: 768px) {
+    .responsiveTwoCol {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* ===== CORE VALUES RESPONSIVE ===== */
+.coreValueRow {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    align-items: flex-start;
+}
+
+.coreValueLabel {
+    min-width: 180px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--navy);
+    flex-shrink: 0;
+}
+
+.coreValueDesc {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.6;
+    min-width: 0;
+}
+
+@media (max-width: 480px) {
+    .coreValueRow {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .coreValueLabel {
+        min-width: 0;
+    }
+}
+
+/* ===== Premium Service Cards with Images ===== */
+.serviceCard {
+    background: white;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.serviceCard:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.serviceImageWrap {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-secondary);
+}
+
+.serviceImageWrap img {
+    transition: transform 0.6s var(--ease-out);
+}
+
+.serviceCard:hover .serviceImageWrap img {
+    transform: scale(1.06);
+}
+
+.serviceContent {
+    padding: 24px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.serviceHeader h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-heading);
+    margin: 0;
+}
+
+.serviceContent p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
 }

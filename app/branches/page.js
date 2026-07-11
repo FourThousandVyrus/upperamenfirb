@@ -9,24 +9,24 @@ import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
 
 const branches = [
-    { no: 1, name: 'Ankwaso (Head Office)', year: 1988, district: 'Wassa Amenfi West', region: 'Western', location: 'Ankwaso', lat: 6.1436, lng: -2.2180 },
-    { no: 2, name: 'Asankrangwa', year: 1999, district: 'Wassa Amenfi West', region: 'Western', location: 'Asankrangwa', lat: 5.8074, lng: -2.4344 },
-    { no: 3, name: 'Samreboi', year: 1993, district: 'Wassa Amenfi West', region: 'Western', location: 'Samreboi', lat: 5.5333, lng: -2.0667 },
-    { no: 4, name: 'Dunkwa', year: 2001, district: 'Upper Denkyira East', region: 'Central', location: 'Dunkwa-on-Offin', lat: 5.9698, lng: -1.7831 },
-    { no: 5, name: 'Bogoso', year: 2003, district: 'Prestea-Huni Valley', region: 'Western', location: 'Bogoso', lat: 5.5741, lng: -2.0126 },
-    { no: 6, name: 'Prestea', year: 2005, district: 'Prestea-Huni Valley', region: 'Western', location: 'Prestea', lat: 5.4327, lng: -2.1428 },
-    { no: 7, name: 'Tarkwa', year: 2006, district: 'Tarkwa Nsuaem', region: 'Western', location: 'Tarkwa', lat: 5.3038, lng: -1.9896 },
-    { no: 8, name: 'Wassa Akropong', year: 2007, district: 'Wassa Amenfi East', region: 'Western', location: 'Wassa Akropong', lat: 5.7872, lng: -2.0836 },
-    { no: 9, name: 'Enchi', year: 2008, district: 'Aowin', region: 'Western North', location: 'Enchi', lat: 5.8231, lng: -2.8228 },
-    { no: 10, name: 'Sefwi Wiawso', year: 2010, district: 'Sefwi Wiawso', region: 'Western North', location: 'Sefwi Wiawso', lat: 6.2197, lng: -2.5006 },
-    { no: 11, name: 'Bibiani', year: 2011, district: 'Bibiani-Anhwiaso-Bekwai', region: 'Western North', location: 'Bibiani', lat: 6.4635, lng: -2.3194 },
-    { no: 12, name: 'Obuasi', year: 2012, district: 'Obuasi', region: 'Ashanti', location: 'Obuasi', lat: 6.2012, lng: -1.6913 },
-    { no: 13, name: 'Dadieso', year: 2013, district: 'Suaman', region: 'Western North', location: 'Dadieso', lat: 6.1150, lng: -3.0351 },
-    { no: 14, name: 'Akim Oda', year: 2014, district: 'Birim Central', region: 'Eastern', location: 'Akim Oda', lat: 5.9267, lng: -0.9858 },
-    { no: 15, name: 'Nkawkaw', year: 2015, district: 'Kwahu West', region: 'Eastern', location: 'Nkawkaw', lat: 6.5512, lng: -0.7662 },
-    { no: 16, name: 'Akontombra', year: 2016, district: 'Wassa Amenfi South', region: 'Western', location: 'Akontombra', lat: 6.0418, lng: -2.8752 },
-    { no: 17, name: 'Sefwi Bekwai', year: 2018, district: 'Sefwi Bekwai', region: 'Western North', location: 'Sefwi Bekwai', lat: 6.1980, lng: -2.3246 },
-    { no: 18, name: 'Manso Nkwanta', year: 2020, district: 'Wassa Amenfi Central', region: 'Western', location: 'Manso Nkwanta', lat: 6.4615, lng: -1.8929 },
+    { no: 1, name: 'Head Office', year: 1987, district: 'Wassa Amenfi Central', region: 'Western', location: 'Opp Methodist School Park, Ankwaso', digitalAddress: 'WB-3298-4652', lat: 5.8333, lng: -2.0833 },
+    { no: 2, name: 'Wassa Ankwawso', year: 1987, district: 'Wassa Amenfi Central', region: 'Western', location: 'Opp Methodist School Park', digitalAddress: 'WB-3298-4652', lat: 5.8333, lng: -2.0833 },
+    { no: 3, name: 'Agona Amenfi', year: 1991, district: 'Wassa Amenfi Central', region: 'Western', location: 'Main GPRTU Lorry Station', digitalAddress: 'WW-5836-1878', lat: 5.3500, lng: -2.1167 },
+    { no: 4, name: 'Asankrangwa', year: 2015, district: 'Wassa Amenfi West', region: 'Western', location: 'Opp Ama Mmra Super Market', digitalAddress: 'WY-0000-0264', lat: 5.8074, lng: -2.4344 },
+    { no: 5, name: 'Diaso', year: 1992, district: 'Upper Denkyira West', region: 'Central', location: 'Opanyin Yaw Gyaabeng House', digitalAddress: 'CV-0000-5510', lat: 5.7167, lng: -1.9500 },
+    { no: 6, name: 'Dunkwa-on-Offin', year: 1996, district: 'Upper Denkyira East', region: 'Central', location: 'Central Market / RAZAKI Phone Shop', digitalAddress: 'CU-0003-3579', lat: 5.9698, lng: -1.7831 },
+    { no: 7, name: 'Sefwi Bekwai', year: 2002, district: 'Bibiani-Anhwiaso-Bekwai', region: 'Western North', location: 'Near Yam & Plantain Sellers Station', digitalAddress: 'WB-2876-8722', lat: 6.1980, lng: -2.3246 },
+    { no: 8, name: 'Watico', year: 2006, district: 'Sefwi Wiawso', region: 'Western North', location: 'Watico Campus', digitalAddress: 'WG-0020-9409', lat: 6.2000, lng: -2.5500 },
+    { no: 9, name: 'Sefwi Akontombra', year: 2010, district: 'Sefwi Akontombra', region: 'Western North', location: 'Adjacent Akontombra Police Station', digitalAddress: 'WF-0005-8400', lat: 6.0418, lng: -2.8752 },
+    { no: 10, name: 'Sefwi Dwenase', year: 2016, district: 'Sefwi Wiawso', region: 'Western North', location: 'Main Lorry Station', digitalAddress: 'WG-0012-2074', lat: 6.1833, lng: -2.4667 },
+    { no: 11, name: 'Bibiani', year: 2016, district: 'Bibiani-Anhwiaso-Bekwai', region: 'Western North', location: 'Opp Kate Afram Clinic', digitalAddress: 'WB-0008-3147', lat: 6.4635, lng: -2.3194 },
+    { no: 12, name: 'Adjakaa Manso', year: 1996, district: 'Wassa Amenfi Central', region: 'Western', location: 'Main Lorry Station', digitalAddress: 'WW-6887-7765', lat: 5.4000, lng: -2.1333 },
+    { no: 13, name: 'Sefwi Awaso', year: 2014, district: 'Bibiani-Anhwiaso-Bekwai', region: 'Western North', location: 'Bauxite Co. Road / Awaso Roundabout', digitalAddress: 'WB-2481-1523', lat: 6.2833, lng: -2.4833 },
+    { no: 14, name: 'Wassa Juabo', year: 2016, district: 'Wassa Amenfi Central', region: 'Western', location: 'Main Market', digitalAddress: 'WW-7357-0485', lat: 5.3167, lng: -2.0833 },
+    { no: 15, name: 'Sefwi Nsawora', year: 2015, district: 'Sefwi Akontombra', region: 'Western North', location: 'Near Main Lorry Station / MTN Pole', digitalAddress: 'WF-3611-3891', lat: 6.0833, lng: -2.9167 },
+    { no: 16, name: 'Denkyira Subin', year: 2016, district: 'Upper Denkyira West', region: 'Central', location: 'Adjacent Subin Anglican Church', digitalAddress: 'CV-1170-1529', lat: 5.7500, lng: -1.9833 },
+    { no: 17, name: 'Suaman Dadieso', year: 2018, district: 'Suaman Dadieso', region: 'Western North', location: 'Hill Top – Dekyemso', digitalAddress: 'WU-0005-7126', lat: 6.1150, lng: -3.0351 },
+    { no: 18, name: 'Sefwi Asimpaneye', year: 2022, district: 'Juaboso', region: 'Western North', location: 'Opp. Kuapa Cocoa Depot', digitalAddress: 'WQ-2458-3024', lat: 6.2500, lng: -2.6500 },
 ];
 
 function getDirectionsUrl(branch) {
@@ -58,9 +58,9 @@ export default function BranchesPage() {
                 <div className="container">
                     <div className={styles.statsRow}>
                         <ScrollReveal><div className={styles.statCard}><h3><AnimatedCounter end={18} /></h3><p>Branch Locations</p></div></ScrollReveal>
-                        <ScrollReveal delay={80}><div className={styles.statCard}><h3><AnimatedCounter end={5} /></h3><p>Regions</p></div></ScrollReveal>
-                        <ScrollReveal delay={160}><div className={styles.statCard}><h3><AnimatedCounter end={1988} /></h3><p>First Branch</p></div></ScrollReveal>
-                        <ScrollReveal delay={240}><div className={styles.statCard}><h3><AnimatedCounter end={2020} /></h3><p>Latest Branch</p></div></ScrollReveal>
+                        <ScrollReveal delay={80}><div className={styles.statCard}><h3><AnimatedCounter end={3} /></h3><p>Regions</p></div></ScrollReveal>
+                        <ScrollReveal delay={160}><div className={styles.statCard}><h3><AnimatedCounter end={1987} /></h3><p>Year Founded</p></div></ScrollReveal>
+                        <ScrollReveal delay={240}><div className={styles.statCard}><h3><AnimatedCounter end={2022} /></h3><p>Latest Branch</p></div></ScrollReveal>
                     </div>
                 </div>
             </section>
@@ -89,8 +89,7 @@ export default function BranchesPage() {
                             <iframe
                                 title={`Map — ${selectedBranch.name}`}
                                 width="100%"
-                                height="400"
-                                style={{ border: 0, display: 'block' }}
+                                style={{ border: 0, display: 'block', height: 'clamp(300px, 50vw, 400px)' }}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 src={`https://www.google.com/maps?q=${selectedBranch.lat},${selectedBranch.lng}&z=14&output=embed`}
@@ -123,12 +122,12 @@ export default function BranchesPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{
-                                        display: 'flex',
+                                        display: 'inline-flex',
                                         alignItems: 'center',
                                         gap: 6,
                                         background: 'var(--accent-500)',
                                         color: 'white',
-                                        padding: '8px 14px',
+                                        padding: '10px 16px',
                                         borderRadius: 'var(--radius-pill)',
                                         fontSize: '0.78rem',
                                         fontWeight: 700,
@@ -136,6 +135,7 @@ export default function BranchesPage() {
                                         textDecoration: 'none',
                                         marginLeft: 8,
                                         whiteSpace: 'nowrap',
+                                        minHeight: 44,
                                     }}
                                 >
                                     <Navigation size={14} /> Directions
@@ -167,6 +167,7 @@ export default function BranchesPage() {
                                     <th>District</th>
                                     <th>Region</th>
                                     <th>Location</th>
+                                    <th>Digital Address</th>
                                     <th style={{ textAlign: 'center' }}>Map</th>
                                 </tr>
                             </thead>
@@ -196,6 +197,7 @@ export default function BranchesPage() {
                                             </span>
                                         </td>
                                         <td>{b.location}</td>
+                                        <td><span style={{ fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-600)' }}>{b.digitalAddress}</span></td>
                                         <td style={{ textAlign: 'center' }}>
                                             <a
                                                 href={getDirectionsUrl(b)}
@@ -207,8 +209,8 @@ export default function BranchesPage() {
                                                     display: 'inline-flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
-                                                    width: 32,
-                                                    height: 32,
+                                                    width: 44,
+                                                    height: 44,
                                                     borderRadius: 'var(--radius-md)',
                                                     background: 'var(--accent-100)',
                                                     color: 'var(--accent-600)',
@@ -222,7 +224,7 @@ export default function BranchesPage() {
                                     </tr>
                                 ))}
                                 {filtered.length === 0 && (
-                                    <tr><td colSpan={7} style={{ textAlign: 'center', padding: 40, color: 'var(--text-muted)' }}>No branches found matching &ldquo;{search}&rdquo;</td></tr>
+                                    <tr><td colSpan={8} style={{ textAlign: 'center', padding: 40, color: 'var(--text-muted)' }}>No branches found matching &ldquo;{search}&rdquo;</td></tr>
                                 )}
                             </tbody>
                         </table>
