@@ -59,8 +59,8 @@ export default function BranchesPage() {
                     <div className={styles.statsRow}>
                         <ScrollReveal><div className={styles.statCard}><h3><AnimatedCounter end={18} /></h3><p>Branch Locations</p></div></ScrollReveal>
                         <ScrollReveal delay={80}><div className={styles.statCard}><h3><AnimatedCounter end={3} /></h3><p>Regions</p></div></ScrollReveal>
-                        <ScrollReveal delay={160}><div className={styles.statCard}><h3><AnimatedCounter end={1987} /></h3><p>Year Founded</p></div></ScrollReveal>
-                        <ScrollReveal delay={240}><div className={styles.statCard}><h3><AnimatedCounter end={2022} /></h3><p>Latest Branch</p></div></ScrollReveal>
+                        <ScrollReveal delay={160}><div className={styles.statCard}><h3><AnimatedCounter end={1987} format={false} /></h3><p>Year Founded</p></div></ScrollReveal>
+                        <ScrollReveal delay={240}><div className={styles.statCard}><h3><AnimatedCounter end={2022} format={false} /></h3><p>Latest Branch</p></div></ScrollReveal>
                     </div>
                 </div>
             </section>
@@ -78,13 +78,12 @@ export default function BranchesPage() {
 
                     {/* Embedded Map */}
                     <ScrollReveal>
-                        <div style={{
+                        <div className={styles.branchMapWrap} style={{
                             borderRadius: 'var(--radius-xl)',
                             overflow: 'hidden',
                             border: '1px solid var(--border-default)',
                             boxShadow: 'var(--shadow-lg)',
                             marginBottom: 40,
-                            position: 'relative',
                         }}>
                             <iframe
                                 title={`Map — ${selectedBranch.name}`}
@@ -94,26 +93,13 @@ export default function BranchesPage() {
                                 referrerPolicy="no-referrer-when-downgrade"
                                 src={`https://www.google.com/maps?q=${selectedBranch.lat},${selectedBranch.lng}&z=14&output=embed`}
                             />
-                            <div style={{
-                                position: 'absolute',
-                                bottom: 16,
-                                left: 16,
-                                background: 'rgba(10, 22, 42, 0.88)',
-                                backdropFilter: 'blur(12px)',
-                                WebkitBackdropFilter: 'blur(12px)',
-                                borderRadius: 'var(--radius-lg)',
-                                padding: '14px 20px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 12,
-                                border: '1px solid rgba(255,255,255,0.1)',
-                            }}>
-                                <MapPin size={18} style={{ color: 'var(--accent-300)' }} />
-                                <div>
-                                    <p style={{ color: 'white', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.9rem', margin: 0 }}>
+                            <div className={styles.branchMapOverlay}>
+                                <MapPin size={18} style={{ color: 'var(--accent-300)', flexShrink: 0 }} />
+                                <div style={{ minWidth: 0, flex: 1 }}>
+                                    <p style={{ color: 'white', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.9rem', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                         {selectedBranch.name}
                                     </p>
-                                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', margin: 0 }}>
+                                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                         {selectedBranch.district}, {selectedBranch.region} Region
                                     </p>
                                 </div>
@@ -127,15 +113,15 @@ export default function BranchesPage() {
                                         gap: 6,
                                         background: 'var(--accent-500)',
                                         color: 'white',
-                                        padding: '10px 16px',
+                                        padding: '8px 14px',
                                         borderRadius: 'var(--radius-pill)',
                                         fontSize: '0.78rem',
                                         fontWeight: 700,
                                         fontFamily: 'var(--font-heading)',
                                         textDecoration: 'none',
-                                        marginLeft: 8,
                                         whiteSpace: 'nowrap',
-                                        minHeight: 44,
+                                        minHeight: 40,
+                                        flexShrink: 0,
                                     }}
                                 >
                                     <Navigation size={14} /> Directions
@@ -150,7 +136,8 @@ export default function BranchesPage() {
                         <input
                             type="text"
                             className={styles.searchInput}
-                            placeholder="Search by branch name, region, or district..."
+                                placeholder="Search by branch name, region, or district..."
+                                aria-label="Search branches by name, region, or district"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -163,11 +150,11 @@ export default function BranchesPage() {
                                 <tr>
                                     <th>#</th>
                                     <th>Branch</th>
-                                    <th>Est.</th>
+                                    <th className={styles.branchTableHide}>Est.</th>
                                     <th>District</th>
                                     <th>Region</th>
-                                    <th>Location</th>
-                                    <th>Digital Address</th>
+                                    <th className={styles.branchTableHide}>Location</th>
+                                    <th className={styles.branchTableHide}>Digital Address</th>
                                     <th style={{ textAlign: 'center' }}>Map</th>
                                 </tr>
                             </thead>
@@ -184,7 +171,7 @@ export default function BranchesPage() {
                                     >
                                         <td>{b.no}</td>
                                         <td><strong>{b.name}</strong></td>
-                                        <td>{b.year}</td>
+                                        <td className={styles.branchTableHide}>{b.year}</td>
                                         <td>{b.district}</td>
                                         <td>
                                             <span style={{
@@ -196,8 +183,8 @@ export default function BranchesPage() {
                                                 <MapPin size={12} /> {b.region}
                                             </span>
                                         </td>
-                                        <td>{b.location}</td>
-                                        <td><span style={{ fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-600)' }}>{b.digitalAddress}</span></td>
+                                        <td className={styles.branchTableHide}>{b.location}</td>
+                                        <td className={styles.branchTableHide}><span style={{ fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-600)' }}>{b.digitalAddress}</span></td>
                                         <td style={{ textAlign: 'center' }}>
                                             <a
                                                 href={getDirectionsUrl(b)}

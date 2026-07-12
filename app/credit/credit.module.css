@@ -591,6 +591,10 @@
   .creditStepNum {
     font-size: 2rem;
   }
+
+  .ctaSection {
+    padding: 60px 0;
+  }
 }
 
 @media (max-width: 640px) {

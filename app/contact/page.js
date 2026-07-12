@@ -7,16 +7,16 @@ import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
 const faqs = [
-    { q: 'What do I need to open an account?', a: 'A valid Ghana Card (or national ID), one passport photo, and an initial deposit. Visit any of our 18 branches to get started.' },
+    { q: 'What do I need to open an account?', a: 'A valid Ghana Card (or national ID), one passport photo, and an initial deposit. Visit any of our 19 branches to get started.' },
     { q: 'How long does loan approval take?', a: 'Easy loans for government employees are approved in under 3 hours. Other loans typically take 2-5 business days.' },
     { q: 'Can I access my account from my phone?', a: 'Yes! Use our USSD mobile banking code *992# from any phone — no internet required. You can check balances, transfer funds, and more. See our USSD Guide for details.' },
     { q: 'What are your operating hours?', a: 'Monday to Friday: 8:30 AM - 4:00 PM. Closed on Saturdays, Sundays, and public holidays.' },
-    { q: 'Is my money safe?', a: 'Yes. UARB is fully licensed by Bank of Ghana and your deposits are protected under the Ghana Deposit Protection scheme.' },
-    { q: 'How do I report a lost card?', a: 'Call our hotline immediately at +233 553 498 729 or +233 533 519 373 or visit any branch. We will block the card and issue a replacement.' },
+    { q: 'Is my money safe?', a: 'Yes. UACB is fully licensed by Bank of Ghana and your deposits are protected under the Ghana Deposit Protection scheme.' },
+    { q: 'How do I report a lost card?', a: 'Call our hotline immediately at +233 (0) 509 314 527 or visit any branch. We will block the card and issue a replacement.' },
     { q: 'What savings products do you offer?', a: 'We offer Normal Savings (8% p.a.), Susu Savings (7.5% p.a.), Fixed Deposits (14-18% p.a.), Current Accounts, and Salary Accounts. Visit any branch to learn more.' },
     { q: 'How can I estimate my loan repayment?', a: 'Use our free online Loan Calculator to estimate monthly repayments based on your loan amount, tenure, and product type.' },
     { q: 'Do you offer Western Union services?', a: 'Yes! You can send and receive money via Western Union Money Transfer (WUMT) at select branches. Visit our branches page to find a location near you.' },
-    { q: 'How many branches does UARB have?', a: 'We have 18 branches across 3 regions of Ghana — Western, Western North, and Central regions.' },
+    { q: 'How many branches does UACB have?', a: 'We have 19 branches across 3 regions of Ghana — Western, Western North, and Central regions.' },
 ];
 
 export default function ContactPage() {
@@ -39,8 +39,8 @@ export default function ContactPage() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_KEY',
-                    subject: `UARB Website Enquiry: ${formData.subject}`,
+                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+                    subject: `UACB Website Enquiry: ${formData.subject}`,
                     from_name: formData.name,
                     name: formData.name,
                     phone: formData.phone,
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 <div className={styles.pageHeroInner}>
                     <h1>Get in Touch</h1>
                     <p className={styles.pageHeroSubtitle}>
-                        We&apos;re here to help. Reach us by phone, email, or visit any of our 18 branches across Ghana.
+                        We&apos;re here to help. Reach us by phone, email, or visit any of our 19 branches across Ghana.
                     </p>
                 </div>
             </div>
@@ -105,8 +105,7 @@ export default function ContactPage() {
                                     <div>
                                         <h4>Phone</h4>
                                         <p>
-                                            <a href="tel:+233533519373" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 533 519 373</a><br />
-                                            <a href="tel:+233553498729" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 553 498 729</a>
+                                            <a href="tel:+233509314527" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 509 314 527</a>
                                         </p>
                                     </div>
                                 </div>
@@ -165,31 +164,31 @@ export default function ContactPage() {
                                 ) : (
                                     <form onSubmit={handleSubmit}>
                                         <div className={styles.formGroup}>
-                                            <label>Full Name</label>
-                                            <input type="text" name="name" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
+                                            <label htmlFor="contact-name">Full Name</label>
+                                            <input id="contact-name" type="text" name="name" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label>Phone Number</label>
-                                            <input type="tel" name="phone" placeholder="e.g. 0533 519 373" value={formData.phone} onChange={handleChange} required />
+                                            <label htmlFor="contact-phone">Phone Number</label>
+                                            <input id="contact-phone" type="tel" name="phone" pattern="[0-9+\s()-]+" placeholder="e.g. 0553 498 729" value={formData.phone} onChange={handleChange} required />
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label>Email Address</label>
-                                            <input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required />
+                                            <label htmlFor="contact-email">Email Address</label>
+                                            <input id="contact-email" type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required />
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label>Subject</label>
-                                            <select name="subject" value={formData.subject} onChange={handleChange} required>
+                                            <label htmlFor="contact-subject">Subject</label>
+                                            <select id="contact-subject" name="subject" value={formData.subject} onChange={handleChange} required>
                                                 <option value="">Select a topic</option>
-                                                <option>Account Opening</option>
-                                                <option>Loan Enquiry</option>
-                                                <option>Technical Support</option>
-                                                <option>Complaint</option>
-                                                <option>Other</option>
+                                                <option value="account-opening">Account Opening</option>
+                                                <option value="loan-enquiry">Loan Enquiry</option>
+                                                <option value="technical-support">Technical Support</option>
+                                                <option value="complaint">Complaint</option>
+                                                <option value="other">Other</option>
                                             </select>
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label>Message</label>
-                                            <textarea name="message" placeholder="Tell us how we can help..." value={formData.message} onChange={handleChange} required />
+                                            <label htmlFor="contact-message">Message</label>
+                                            <textarea id="contact-message" name="message" placeholder="Tell us how we can help..." value={formData.message} onChange={handleChange} maxLength={2000} required />
                                         </div>
                                         <button
                                             type="submit"

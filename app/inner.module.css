@@ -1025,8 +1025,16 @@
     }
 
     .hubSpokeRow {
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         margin-bottom: 32px;
+    }
+
+    .hubChairman {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hubMember .teamPhoto {
@@ -1091,7 +1099,7 @@
     }
 
     .hubSpokeRow {
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         margin-bottom: 24px;
     }
@@ -1403,21 +1411,6 @@
     font-size: 0.92rem;
     color: var(--text-body);
     margin: 0;
-}
-
-.sectionDark {
-    background: var(--bg-dark);
-    color: white;
-    padding: var(--section-gap) 0;
-}
-
-.sectionDark h2,
-.sectionDark h3 {
-    color: white;
-}
-
-.sectionDark p {
-    color: rgba(255, 255, 255, 0.6);
 }
 
 .reportChannels {
@@ -1760,4 +1753,69 @@
     color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
+}
+
+/* ===== BRANCHES PAGE ===== */
+.branchMapWrap {
+    position: relative;
+}
+
+.branchMapOverlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(10, 22, 42, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: calc(100% - 32px);
+}
+
+.branchTableHide {
+    display: table-cell;
+}
+
+@media (max-width: 768px) {
+    .branchMapOverlay {
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+        padding: 10px 14px;
+        gap: 8px;
+        max-width: none;
+    }
+
+    .branchTableHide {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hubSpokeRow {
+        grid-template-columns: 1fr;
+    }
+
+    .hubMember .teamPhoto {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hubChairmanPhoto {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hubChairman {
+        grid-column: 1;
+    }
+
+    .branchMapOverlay {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
 }

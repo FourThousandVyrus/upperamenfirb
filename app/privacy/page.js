@@ -61,7 +61,7 @@ export default function PrivacyPage() {
                             <li>Comply with legal and regulatory obligations</li>
                         </ul>
 
-                        <h2>4. Cookies</h2>
+                        <h2 id="cookies">4. Cookies</h2>
                         <p>
                             Our website uses cookies — small text files stored on your device — to enhance your browsing experience.
                             We use cookies for:
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
                         </p>
                         <ul>
                             <li><strong>Email:</strong> info@upperamenfirb.com</li>
-                            <li><strong>Phone:</strong> +233 553 498 729</li>
+                            <li><strong>Phone:</strong> +233 (0) 509 314 527</li>
                             <li><strong>Address:</strong> Upper Amenfi Community Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
                         </ul>
                         <p>

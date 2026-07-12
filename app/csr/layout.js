@@ -2,7 +2,7 @@ export const metadata = {
     title: 'CSR — Community Development, Education & Health',
     description:
         'Upper Amenfi Community Bank corporate social responsibility: annual scholarships, school construction, hospital equipment donations, agricultural support, and community road rehabilitation.',
-    keywords: ['CSR Ghana banking', 'rural bank community development', 'education scholarships Ghana', 'agricultural support Western Region'],
+    keywords: ['CSR Ghana banking', 'community bank community development', 'education scholarships Ghana', 'agricultural support Western Region'],
     alternates: { canonical: '/csr' },
     openGraph: {
         title: 'CSR & Community Impact | Upper Amenfi Community Bank',

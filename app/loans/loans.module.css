@@ -541,6 +541,10 @@
     min-height: 360px;
   }
 
+  .ctaSection {
+    padding: 60px 0;
+  }
+
   .loanCard {
     padding: 24px;
   }

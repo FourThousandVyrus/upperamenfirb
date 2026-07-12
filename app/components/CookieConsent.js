@@ -7,7 +7,7 @@ export default function CookieConsent() {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        const consent = localStorage.getItem('uarb-cookie-consent');
+        const consent = localStorage.getItem('uacb-cookie-consent');
         if (!consent) {
             const timer = setTimeout(() => setVisible(true), 1500);
             return () => clearTimeout(timer);
@@ -15,12 +15,12 @@ export default function CookieConsent() {
     }, []);
 
     const accept = () => {
-        localStorage.setItem('uarb-cookie-consent', 'accepted');
+        localStorage.setItem('uacb-cookie-consent', 'accepted');
         setVisible(false);
     };
 
     const decline = () => {
-        localStorage.setItem('uarb-cookie-consent', 'declined');
+        localStorage.setItem('uacb-cookie-consent', 'declined');
         setVisible(false);
     };
 
@@ -40,6 +40,7 @@ export default function CookieConsent() {
             boxShadow: '0 16px 48px rgba(0,0,0,0.3)',
             zIndex: 9999,
             animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+            marginBottom: 'env(safe-area-inset-bottom, 0px)',
         }}>
             <button
                 onClick={decline}

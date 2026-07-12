@@ -3,11 +3,6 @@ import { TrendingUp, Percent, Clock } from 'lucide-react';
 import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
-export const metadata = {
-    title: 'Rates & Fees | Upper Amenfi Community Bank PLC',
-    description: 'View our competitive savings interest rates, loan rates, and service fees. Transparent pricing for all banking products.',
-};
-
 export default function RatesPage() {
     return (
         <>

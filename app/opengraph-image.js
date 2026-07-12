@@ -92,7 +92,7 @@ export default function OGImage() {
             lineHeight: 1.5,
           }}
         >
-          37+ years of trusted banking across 18 branches in Ghana
+          39+ years of trusted banking across 19 branches in Ghana
         </div>
 
         {/* Bottom badges */}

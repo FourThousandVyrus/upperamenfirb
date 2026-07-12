@@ -40,10 +40,10 @@ export const metadata = {
     template: '%s | Upper Amenfi Community Bank PLC',
   },
   description:
-    'Upper Amenfi Community Bank PLC — 37+ years of trusted banking. Savings, loans, Susu, and digital banking across 18 branches in the Western, Western North, and Central Regions of Ghana.',
+    'Upper Amenfi Community Bank PLC — 39+ years of trusted banking. Savings, loans, Susu, and digital banking across 19 branches in the Western, Western North, and Central Regions of Ghana.',
   keywords: [
     'Upper Amenfi Community Bank',
-    'UARB',
+    'UACB',
     'community bank Ghana',
     'savings account Ghana',
     'loans Ghana',
@@ -78,7 +78,7 @@ export const metadata = {
     siteName: 'Upper Amenfi Community Bank PLC',
     title: 'Upper Amenfi Community Bank PLC | Modern Community Banking in Ghana',
     description:
-      '37+ years of trusted banking. Savings, loans, and digital banking across 18 branches in Ghana.',
+      '39+ years of trusted banking. Savings, loans, and digital banking across 19 branches in Ghana.',
     images: [
       {
         url: '/opengraph-image',
@@ -92,7 +92,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Upper Amenfi Community Bank PLC',
     description:
-      '37+ years of trusted banking. Savings, loans, and digital banking across 18 branches in Ghana.',
+      '39+ years of trusted banking. Savings, loans, and digital banking across 19 branches in Ghana.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -122,11 +122,11 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/images/logo-new.jpeg`,
   description:
-    'Upper Amenfi Community Bank PLC is a Bank of Ghana-licensed community bank established in 1988, providing savings, loans, Susu, and digital banking services across 18 branches in Ghana.',
+    'Upper Amenfi Community Bank PLC is a Bank of Ghana-licensed community bank established in 1987, providing savings, loans, Susu, and digital banking services across 19 branches in Ghana.',
   foundingDate: '1988',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
-    value: 496,
+    value: 478,
   },
   address: {
     '@type': 'PostalAddress',
@@ -136,7 +136,7 @@ const jsonLd = {
     addressCountry: 'GH',
     postalCode: 'P.O. Box 399, Dunkwa-on-Offin',
   },
-  telephone: ['+233533519373', '+233553498729'],
+  telephone: ['+233509314527'],
   email: 'info@upperamenfirb.com',
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Western Region, Ghana' },

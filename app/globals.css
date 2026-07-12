@@ -1,5 +1,5 @@
 /* =========================================
-   UARB — Premium Fintech Design System 2026
+    UACB — Premium Fintech Design System 2026
    Brand Colors: Purple #2b1c6d • Green #008935 • Gold #ffc000 • Blue #005eb8
    ========================================= */
 
@@ -15,6 +15,7 @@
   --primary-500: #4a3a9d;
   --primary-400: #6b5cb5;
   --primary-300: #9a8ecd;
+  --primary-200: #c4bbdf;
   --primary-100: #eeecf5;
   --primary-50: #f6f5fa;
 
@@ -131,6 +132,7 @@
   --gradient-green: linear-gradient(135deg, #008935 0%, #2ea64e 100%);
   --gradient-cta: linear-gradient(135deg, #221660 0%, #2b1c6d 50%, #1a1048 100%);
   --gradient-gold-shimmer: linear-gradient(90deg, #ffc000, #ffcd33, #ffda66, #ffcd33, #ffc000);
+  --gradient-gold: linear-gradient(135deg, #ffc000 0%, #ffcd33 100%);
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -173,7 +175,7 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: 99998;
   pointer-events: none;
   opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
@@ -417,29 +419,6 @@ p {
   transform: translateY(-1px);
 }
 
-.btn-white {
-  background: white;
-  color: var(--navy);
-  font-weight: 700;
-}
-
-.btn-white:hover {
-  background: var(--bg-cream);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-arrow::after {
-  content: '→';
-  transition: transform var(--duration-fast) var(--ease-spring);
-  position: static;
-  opacity: 1;
-}
-
-.btn-arrow:hover::after {
-  transform: translateX(4px);
-}
-
 /* ---------- SECTION UTILITIES ---------- */
 .section-eyebrow {
   font-family: var(--font-heading);
@@ -489,49 +468,6 @@ p {
 }
 
 /* ---------- IMAGE UTILITIES ---------- */
-.img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.img-rounded {
-  border-radius: var(--radius-lg);
-}
-
-.img-container {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  position: relative;
-}
-
-.img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease-out);
-}
-
-.img-container:hover img {
-  transform: scale(1.05);
-}
-
-/* ---------- GLASS CARD ---------- */
-.glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
-  transition: all var(--duration-normal) var(--ease-out);
-}
-
-.glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-
-/* ---------- SCROLL ANIMATIONS ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -727,31 +663,6 @@ p {
   transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- DARK SECTION ---------- */
-.dark-section {
-  background: var(--bg-dark);
-  color: var(--text-white);
-}
-
-.dark-section h1,
-.dark-section h2,
-.dark-section h3,
-.dark-section h4 {
-  color: var(--text-white);
-}
-
-.dark-section p {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.dark-section .section-eyebrow {
-  color: var(--gold-warm);
-}
-
-.dark-section .section-eyebrow::before {
-  background: var(--gold-warm);
-}
-
 /* ---------- UTILITY BAR ---------- */
 .utility-bar {
   background: var(--bg-dark);
@@ -918,54 +829,6 @@ p {
   outline: 2px solid var(--primary-400);
   outline-offset: 2px;
   border-radius: var(--radius-xs);
-}
-
-/* ---------- RESPONSIVE UTILITIES ---------- */
-.responsive-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-.responsive-full {
-  width: 100%;
-  min-width: 0;
-}
-
-@media (max-width: 768px) {
-  .hide-mobile {
-    display: none !important;
-  }
-
-  .responsive-2col {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-@media (min-width: 769px) {
-  .hide-desktop {
-    display: none !important;
-  }
-}
-
-/* ---------- WAVE DIVIDERS ---------- */
-.wave-divider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  margin: -1px 0;
-}
-
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: 60px;
-}
-
-.wave-divider.flip {
-  transform: scaleY(-1);
 }
 
 /* ---------- REDUCED MOTION ---------- */

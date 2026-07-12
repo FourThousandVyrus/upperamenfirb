@@ -200,7 +200,7 @@ export default function ProductsServicesPage() {
                             { icon: <CreditCard size={20} />, title: 'E-Zwich & ATM', desc: 'Biometric smart cards accepted at ATMs nationwide. Withdraw cash, check balances, and make purchases at POS terminals.', image: '/images/ezwich_card.png' },
                             { icon: <ArrowRight size={20} />, title: 'Apexlink', desc: 'Transfer money between rural banks across Ghana instantly through the ARB Apex Bank network.', image: '/images/apelink.png' },
                             { icon: <Building size={20} />, title: 'Agency Banking', desc: 'Bank through authorized agents in your community. Make deposits, withdrawals, and payments without visiting a branch.', image: '/images/agency_banking.png' },
-                            { icon: <Wallet size={20} />, title: 'Mobile Money Link', desc: 'Connect your mobile money wallet (MTN MoMo, Vodafone Cash, AirtelTigo Money) directly to your bank account.', image: '/images/momo_logos.png' },
+                            { icon: <Wallet size={20} />, title: 'Mobile Money Link', desc: 'Connect your mobile money wallet (MTN MoMo, Vodafone Cash, AirtelTigo Money) directly to your bank account.', image: '/images/telco.jpeg' },
                             { icon: <Repeat size={20} />, title: 'ACH Clearing', desc: 'Automated Clearing House for direct deposits, salary payments, and electronic payment processing.', image: '/images/ach_clearing.png' },
                             { icon: <MessageSquare size={20} />, title: 'SMS Banking', desc: 'Real-time SMS alerts on all account transactions. Stay informed about credits, debits, and balance changes.', image: '/images/sms_banking.png' },
                             { icon: <Send size={20} />, title: 'WUMT Services', desc: 'Send and receive Western Union money transfers at all our branches. Fast international remittances.', image: '/images/wu.jpg' },
@@ -231,9 +231,9 @@ export default function ProductsServicesPage() {
                         <div className="text-center">
                             <h2 className="section-title">Ready to Open an Account?</h2>
                             <p className="section-desc centered" style={{ marginBottom: 32 }}>
-                                Visit any of our 18 branches or contact us to get started. All you need is a Ghana Card.
+                                Visit any of our 19 branches or contact us to get started. All you need is a Ghana Card.
                             </p>
-                            <div style={{ display: 'flex', gap: 14, justifyContent: 'center' }}>
+                            <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
                                 <Link href="/credit" className="btn btn-glow btn-md">Account Requirements</Link>
                                 <Link href="/branches" className="btn btn-outline btn-md">Find a Branch</Link>
                             </div>

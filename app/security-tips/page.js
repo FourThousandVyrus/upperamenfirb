@@ -15,20 +15,20 @@ const scamTypes = [
     {
         icon: MessageSquare,
         title: 'Phishing Messages',
-        description: 'Fraudsters send fake SMS or emails pretending to be from UARB, asking you to click a link or share your PIN.',
-        tip: 'UARB will never send you a link asking for your PIN, password, or account details via SMS or email.',
+        description: 'Fraudsters send fake SMS or emails pretending to be from UACB, asking you to click a link or share your PIN.',
+        tip: 'UACB will never send you a link asking for your PIN, password, or account details via SMS or email.',
     },
     {
         icon: Phone,
         title: 'Phone Call Scams',
         description: 'Someone calls pretending to be a bank officer and asks for your account number, PIN, or OTP code.',
-        tip: 'Never share your PIN, OTP, or passwords over the phone. UARB staff will never ask for these.',
+        tip: 'Never share your PIN, OTP, or passwords over the phone. UACB staff will never ask for these.',
     },
     {
         icon: Users,
         title: 'Impersonation Fraud',
         description: 'Scammers pose as bank agents, mobile money operators, or government officials to trick you into sending money.',
-        tip: 'Always verify identities at a branch. Our official mobile bankers carry UARB-branded ID cards.',
+        tip: 'Always verify identities at a branch. Our official mobile bankers carry UACB-branded ID cards.',
     },
     {
         icon: Smartphone,
@@ -55,7 +55,7 @@ const safetyTips = [
     'Do not click on links in unsolicited SMS or email messages',
     'Always verify caller identity before sharing any information',
     'Keep your USSD PIN (*992#) secret and change it regularly',
-    'Report lost or stolen cards immediately by calling +233 553 498 729 or +233 533 519 373',
+    'Report lost or stolen cards immediately by calling +233 (0) 509 314 527',
     'Monitor your account regularly for unauthorized transactions',
     'Use strong passwords that combine letters, numbers, and symbols',
     'Do not write your PIN on your card or keep it in your wallet',
@@ -86,7 +86,7 @@ export default function SecurityTipsPage() {
                                 <p>
                                     Upper Amenfi Community Bank will <strong>NEVER</strong> ask you for your PIN, password, OTP, or
                                     full account details via phone call, SMS, email, or social media. If someone contacts you
-                                    claiming to be from UARB and requests this information, it is a scam.
+                                    claiming to be from UACB and requests this information, it is a scam.
                                 </p>
                             </div>
                         </div>
@@ -166,18 +166,11 @@ export default function SecurityTipsPage() {
                             </p>
 
                             <div className={styles.reportChannels}>
-                                <a href="tel:+233533519373" className={styles.reportChannel}>
+                                <a href="tel:+233509314527" className={styles.reportChannel}>
                                     <Phone size={20} />
                                     <div>
                                         <strong>Call Our Hotline</strong>
-                                        <span>+233 533 519 373</span>
-                                    </div>
-                                </a>
-                                <a href="tel:+233553498729" className={styles.reportChannel}>
-                                    <Phone size={20} />
-                                    <div>
-                                        <strong>Call Our Hotline</strong>
-                                        <span>+233 553 498 729</span>
+                                        <span>+233 (0) 509 314 527</span>
                                     </div>
                                 </a>
                                 <a href="mailto:info@upperamenfirb.com" className={styles.reportChannel}>

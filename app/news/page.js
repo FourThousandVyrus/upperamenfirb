@@ -4,19 +4,21 @@ import { Calendar } from 'lucide-react';
 import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
-export const metadata = {
-    title: 'News & Updates | Upper Amenfi Community Bank PLC',
-    description: 'Stay updated with the latest news, community events, and financial insights from Upper Amenfi Community Bank.',
-};
-
 const newsItems = [
+    {
+        category: 'Announcement',
+        date: 'July 2026',
+        title: '36th Annual General Meeting Highlights',
+        excerpt: 'Shareholders and stakeholders gathered for the bank\'s 36th AGM held on 4th July 2026. Highlights include the approval of a GH¢ 0.08221 dividend per share (totaling GH¢ 2,499,603.52), election of three new board members, and review of record financial performance with total assets reaching GH¢ 930.7 million.',
+        img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80',
+        featured: true,
+    },
     {
         category: 'Announcement',
         date: 'July 2025',
         title: '35th Annual General Meeting Highlights',
-        excerpt: 'Shareholders and stakeholders gathered for the bank\'s milestone 35th AGM to review financial performance, approve dividends, and chart the path forward for continued growth across three regions.',
+        excerpt: 'Shareholders gathered at the Forecourt of the Bank premises in Wassa Akropong for the 35th AGM held on 5th July 2025. The bank reported a 79.5% growth in total assets to GH¢ 669.7 million and approved a dividend of GH¢ 0.10 per share (totaling GH¢ 2,079,590.68).',
         img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80',
-        featured: true,
     },
     {
         category: 'Community',

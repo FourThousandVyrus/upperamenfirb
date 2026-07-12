@@ -6,6 +6,7 @@ export default function AnimatedCounter({
     prefix = '',
     suffix = '',
     duration = 2000,
+    format = true,
 }) {
     const ref = useRef(null);
     const [count, setCount] = useState(0);
@@ -56,7 +57,7 @@ export default function AnimatedCounter({
 
     return (
         <span ref={ref}>
-            {prefix}{count.toLocaleString()}{suffix}
+            {prefix}{format ? count.toLocaleString() : count}{suffix}
         </span>
     );
 }

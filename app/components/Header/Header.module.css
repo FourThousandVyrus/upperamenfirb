@@ -301,7 +301,7 @@
 
 .mobileNav {
     padding: 100px var(--container-padding) 40px;
-    max-width: 480px;
+    max-width: min(480px, 100vw);
     margin: 0 auto;
 }
 

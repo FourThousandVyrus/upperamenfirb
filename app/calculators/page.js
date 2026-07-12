@@ -239,7 +239,7 @@ export default function CalculatorsPage() {
                 <div className={styles.pageHeroInner}>
                     <h1>Financial Calculators</h1>
                     <p className={styles.pageHeroSubtitle}>
-                        Plan your finances with our interactive tools. Estimate loan repayments and project savings growth using UARB&apos;s actual rates.
+                        Plan your finances with our interactive tools. Estimate loan repayments and project savings growth using UACB&apos;s actual rates.
                     </p>
                 </div>
             </div>
@@ -260,7 +260,7 @@ export default function CalculatorsPage() {
                             <Building2 size={24} style={{ color: 'var(--gold-warm)' }} />
                             <div>
                                 <h3>Ready to Get Started?</h3>
-                                <p>Visit any of our 18 branches across Ghana to open an account or apply for a loan.</p>
+                                <p>Visit any of our 19 branches across Ghana to open an account or apply for a loan.</p>
                             </div>
                             <Link href="/branches" className="btn btn-glow btn-md">
                                 Find a Branch <ArrowRight size={16} />

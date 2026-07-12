@@ -34,9 +34,9 @@ export default function AboutPage() {
                 <div className="container">
                     <div className={styles.statsRow}>
                         {[
-                            { value: 37, suffix: '+', label: 'Years Operating' },
-                            { value: 18, label: 'Branches' },
-                            { value: 614, suffix: 'M+', label: 'Total Deposits (₵)' },
+                            { value: 39, suffix: '+', label: 'Years Operating' },
+                            { value: 19, label: 'Branches' },
+                            { value: 875, suffix: 'M+', label: 'Total Deposits (₵)' },
                             { value: 3, label: 'Regions Covered' },
                         ].map((s, i) => (
                             <ScrollReveal key={i} delay={i * 80}>
@@ -60,7 +60,7 @@ export default function AboutPage() {
                             </div>
                             <div>
                                 <span className="section-eyebrow">Our Story</span>
-                                <h2>37 Years of Community Trust</h2>
+                                <h2>39 Years of Community Trust</h2>
                                 <p style={{ marginBottom: 16 }}>
                                     According to history, the Wassa Amenfi Traditional Council in the Western Region only had one rural bank in the 1980s, located at Wassa Akropong. The bank (UARB Plc) emanated from and carved itself out of Wassa Akropong. The separation occurred due to a distance disadvantage for customers, primarily cocoa farmers, who had to walk a considerable distance to cash the Akuafo Cheque, the government&apos;s primary method of payment to farmers.
                                 </p>
@@ -88,13 +88,13 @@ export default function AboutPage() {
                                 <span className="section-eyebrow">Licensing Status</span>
                                 <h2>Established by the Bank of Ghana</h2>
                                 <p style={{ marginBottom: 16 }}>
-                                    Incorporated on 13th August, 1987 (with Bank of Ghana License No. 124 issued on 18th August, 1987), Upper Amenfi Rural Bank commenced operations on 2nd September, 1994, to support local agriculture and commerce. It has grown to become one of the premier rural banks in the Western, Western North, and Central regions of Ghana.
+                                    Incorporated on 13th August, 1987 (with Bank of Ghana License No. 123 issued on 18th August, 1987), Upper Amenfi Rural Bank commenced operations on 2nd September, 1994, to support local agriculture and commerce. It has grown to become one of the premier rural banks in the Western, Western North, and Central regions of Ghana.
                                 </p>
                                 <p style={{ marginBottom: 16 }}>
                                     Following a path of continuous strategic improvement, the bank officially re-registered on 15th February, 2023 under the Companies Act 2019 (Act 992) as a Public Limited Company with Registration Number <strong>PL000080223</strong>, adopting the official name <strong>UPPER AMENFI COMMUNITY BANK PLC</strong>.
                                 </p>
                                 <p>
-                                    As of December 2024, the bank boasts a paid-up capital of <strong>GH¢3.87 million</strong>, a customer deposit base of <strong>GH¢614.68 million</strong>, and total assets of <strong>GH¢669.75 million</strong>, serving our communities across three regions.
+                                    As of December 2025, the bank boasts a paid-up capital of <strong>GH¢6.08 million</strong>, a customer deposit base of <strong>GH¢875.00 million</strong>, and total assets of <strong>GH¢930.70 million</strong>, serving our communities across three regions with 19 locations.
                                 </p>
                             </div>
                             <div className={styles.splitImageWrap}>
@@ -110,10 +110,10 @@ export default function AboutPage() {
                 <div className="container">
                     <ScrollReveal>
                         <div className="text-center">
-                            <span className="section-eyebrow">2023 Customer Portfolio</span>
+                            <span className="section-eyebrow">2025 Customer Portfolio</span>
                             <h2 className="section-title">Growing With Our Customers</h2>
                             <p className="section-desc centered" style={{ maxWidth: 'min(700px, 100%)' }}>
-                                Active customers are subscribing to our numerous tailor-made products and services in our 18 branches located in various parts of Ghana. Our success story has significantly improved the economic and social well-being of millions of Ghanaians.
+                                Active customers are subscribing to our numerous tailor-made products and services in our 19 branches located in various parts of Ghana. Our success story has significantly improved the economic and social well-being of millions of Ghanaians.
                             </p>
                         </div>
                     </ScrollReveal>
@@ -137,7 +137,7 @@ export default function AboutPage() {
                             <div className={styles.card}>
                                 <div className={styles.cardIcon}><Sprout size={22} /></div>
                                 <h3>Job Creation</h3>
-                                <p>UARB Plc has contributed to the creation of over 275,000 direct and indirect jobs across the bank&apos;s catchment areas and Ghana as a whole.</p>
+                                <p>UACB Plc has contributed to the creation of over 275,000 direct and indirect jobs across the bank&apos;s catchment areas and Ghana as a whole.</p>
                             </div>
                         </ScrollReveal>
                     </div>
@@ -231,7 +231,7 @@ export default function AboutPage() {
                         {[
                             { icon: <Award size={20} />, title: 'Best Rural Bank', desc: 'Recognized for outstanding performance in rural banking' },
                             { icon: <Shield size={20} />, title: 'PLC Status', desc: 'Upgraded to Public Limited Company status in 2022' },
-                            { icon: <TrendingUp size={20} />, title: 'Consistent Growth', desc: '37 consecutive years of growth and stability' },
+                            { icon: <TrendingUp size={20} />, title: 'Consistent Growth', desc: '39 consecutive years of growth and stability' },
                             { icon: <Landmark size={20} />, title: 'Ghana Deposit Protection', desc: 'Full membership ensuring customer deposits are protected' },
                         ].map((a, i) => (
                             <ScrollReveal key={i} delay={i * 80}>

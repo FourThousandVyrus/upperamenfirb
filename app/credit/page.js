@@ -27,7 +27,7 @@ const accountTypes = [
       { text: 'Utility bill, tenancy agreement, or GPS address as proof of address', icon: <CheckCircle2 size={15} /> },
       { text: 'Letter of introduction (for salaried accounts)', icon: <CheckCircle2 size={15} /> },
       { text: 'Completed account opening form', icon: <CheckCircle2 size={15} /> },
-      { text: 'Complete UARB standard mandate and risk profile', icon: <CheckCircle2 size={15} /> },
+      { text: 'Complete UACB standard mandate and risk profile', icon: <CheckCircle2 size={15} /> },
       { text: 'Scan and upload signature card the same day', icon: <CheckCircle2 size={15} /> },
     ],
   },
@@ -42,7 +42,7 @@ const accountTypes = [
       { text: 'Two current passport photographs of each operator', icon: <CheckCircle2 size={15} /> },
       { text: 'Verified Ghana Card for each signatory', icon: <CheckCircle2 size={15} /> },
       { text: 'Proof of address for all signatories', icon: <CheckCircle2 size={15} /> },
-      { text: 'Completed account opening form and UARB standard mandate', icon: <CheckCircle2 size={15} /> },
+      { text: 'Completed account opening form and UACB standard mandate', icon: <CheckCircle2 size={15} /> },
       { text: 'Risk profile completed', icon: <CheckCircle2 size={15} /> },
       { text: 'Scan and upload signature card the same day', icon: <CheckCircle2 size={15} /> },
     ],
@@ -110,7 +110,7 @@ const accountTypes = [
       { text: 'Bye-laws or Constitution of the society', icon: <CheckCircle2 size={15} /> },
       { text: 'Two current passport photographs of each operator', icon: <CheckCircle2 size={15} /> },
       { text: 'Verified Ghana Cards for all signatories', icon: <CheckCircle2 size={15} /> },
-      { text: 'Completed account opening form and UARB standard mandate', icon: <CheckCircle2 size={15} /> },
+      { text: 'Completed account opening form and UACB standard mandate', icon: <CheckCircle2 size={15} /> },
       { text: 'Risk profile completed', icon: <CheckCircle2 size={15} /> },
     ],
   },
@@ -161,7 +161,7 @@ const accountTypes = [
       { text: 'Verified Ghana Card for each signatory', icon: <CheckCircle2 size={15} /> },
       { text: 'Letter of confirmation from the Controller and Accountant General', icon: <CheckCircle2 size={15} /> },
       { text: 'Personal identification of the Chief Executive Officer', icon: <CheckCircle2 size={15} /> },
-      { text: 'Completed account opening form and UARB standard mandate', icon: <CheckCircle2 size={15} /> },
+      { text: 'Completed account opening form and UACB standard mandate', icon: <CheckCircle2 size={15} /> },
       { text: 'CEO and Head of Compliance/AMLRO approval (high-risk/PEP accounts)', icon: <CheckCircle2 size={15} /> },
     ],
     note: 'Government agency accounts are flagged as high-risk/PEP and require additional approval from the CEO and Head of Compliance.',
@@ -175,7 +175,7 @@ const accountTypes = [
     reqs: [
       { text: 'Completed account opening form', icon: <CheckCircle2 size={15} /> },
       { text: 'Two current passport photographs of each operator', icon: <CheckCircle2 size={15} /> },
-      { text: 'UARB standard mandate completed', icon: <CheckCircle2 size={15} /> },
+      { text: 'UACB standard mandate completed', icon: <CheckCircle2 size={15} /> },
       { text: 'Copy of the minor\'s birth certificate or international passport', icon: <CheckCircle2 size={15} /> },
       { text: 'Document designating the individual as legal guardian', icon: <CheckCircle2 size={15} /> },
       { text: 'Parent or guardian\'s ID matching the primary identification', icon: <CheckCircle2 size={15} /> },
@@ -195,7 +195,7 @@ const accountTypes = [
       { text: 'Ghana Card or Birth Certificate', icon: <CheckCircle2 size={15} /> },
       { text: 'Confirmed school ID', icon: <CheckCircle2 size={15} /> },
       { text: 'Admission letter with photo (if no school ID)', icon: <CheckCircle2 size={15} /> },
-      { text: 'UARB standard mandate completed', icon: <CheckCircle2 size={15} /> },
+      { text: 'UACB standard mandate completed', icon: <CheckCircle2 size={15} /> },
       { text: 'Risk profile completed', icon: <CheckCircle2 size={15} /> },
     ],
     note: 'Students under 18 are only eligible if there is a documented need such as school fees or student loans.',
@@ -213,7 +213,7 @@ const creditSteps = [
   {
     num: '02',
     title: 'Request a Loan Form',
-    desc: 'Visit any of our 18 branches and pick up a loan application form from the customer service desk.',
+    desc: 'Visit any of our 19 branches and pick up a loan application form from the customer service desk.',
     icon: <ClipboardList size={22} />,
   },
   {
@@ -421,7 +421,7 @@ export default function CreditPage() {
                   {
                     num: '2',
                     title: 'Visit Any Branch',
-                    desc: 'Walk into any of our 18 branches across 3 regions. Our team will guide you through everything.',
+                    desc: 'Walk into any of our 19 branches across 3 regions. Our team will guide you through everything.',
                   },
                   {
                     num: '3',
@@ -431,7 +431,7 @@ export default function CreditPage() {
                   {
                     num: '4',
                     title: 'Make Your First Deposit',
-                    desc: 'Complete your initial deposit and receive your account details immediately. Welcome to UARB!',
+                    desc: 'Complete your initial deposit and receive your account details immediately. Welcome to UACB!',
                   },
                 ].map((s, i) => (
                   <ScrollReveal key={i} delay={i * 100}>
@@ -472,7 +472,7 @@ export default function CreditPage() {
             <div className={styles.ctaInner}>
               <h2>Ready to Get Started?</h2>
               <p className={styles.ctaDesc}>
-                Visit any of our 18 branches or reach out to us online.
+                Visit any of our 19 branches or reach out to us online.
                 Our team is ready to help you open your account today.
               </p>
               <div className={styles.ctaButtons}>

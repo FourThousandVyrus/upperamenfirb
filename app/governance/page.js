@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Shield, Users, Building, Lock, UserCheck, Landmark } from 'lucide-react';
+import { Shield, Users, Building, Lock, UserCheck, Landmark, ShieldCheck, HandCoins, Briefcase, Cpu, Scale } from 'lucide-react';
 import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -29,6 +29,38 @@ const management = [
     { name: 'Mr. Emmanuel Kusi Asiedu', initials: 'EKA', role: 'Head of Credit', image: '/images/emmanuel kusi.png' },
 ];
 
+const committees = [
+    {
+        name: 'Risk, Audit & Compliance Committee',
+        description: 'Oversees the bank\'s financial reporting, internal control frameworks, audit processes, and compliance with all statutory and regulatory directives.',
+        icon: <ShieldCheck size={20} />
+    },
+    {
+        name: 'Credit Committee',
+        description: 'Evaluates and approves loan and overdraft applications exceeding management limits, reviews credit policies, and monitors non-performing loans to manage credit risk.',
+        icon: <HandCoins size={20} />
+    },
+    {
+        name: 'Procurement Committee',
+        description: 'Ensures transparency, efficiency, and value for money in the bank\'s procurement of goods, services, and works in compliance with standard procurement guidelines.',
+        icon: <Briefcase size={20} />
+    },
+    {
+        name: 'ICT Steering Committee',
+        description: 'Provides oversight and direction for the bank\'s IT infrastructure, digital banking solutions, cyber security measures, and technology alignment with business objectives.',
+        icon: <Cpu size={20} />
+    },
+    {
+        name: 'HR Committee',
+        description: 'Oversees human resource strategies, staff development, recruitment, compensation frameworks, succession planning, and the general welfare of the bank\'s employees.',
+        icon: <Users size={20} />
+    },
+    {
+        name: 'Disciplinary Committee',
+        description: 'Ensures adherence to the bank\'s Code of Ethics, handles grievance procedures, and enforces disciplinary policies to maintain high integrity and moral standards.',
+        icon: <Scale size={20} />
+    }
+];
 
 export default function GovernancePage() {
     const hubRef = useRef(null);
@@ -113,7 +145,7 @@ export default function GovernancePage() {
                                         { icon: <Users size={18} />, title: 'Shareholders', desc: 'Elected at Annual General Meeting' },
                                         { icon: <Landmark size={18} />, title: 'Board of Directors', desc: 'Strategic direction & oversight' },
                                         { icon: <UserCheck size={18} />, title: 'Management Team', desc: 'Day-to-day operations' },
-                                        { icon: <Building size={18} />, title: 'Branch Managers', desc: '18 branches across 3 regions' },
+                                        { icon: <Building size={18} />, title: 'Branch Managers', desc: '19 branches across 3 regions' },
                                     ].map((c, i) => (
                                         <div key={i} className={styles.card}>
                                             <div className={styles.cardIcon}>{c.icon}</div>
@@ -171,6 +203,32 @@ export default function GovernancePage() {
                 </div>
             </section>
 
+            {/* Board Committees */}
+            <section className={styles.section}>
+                <div className="container">
+                    <ScrollReveal>
+                        <div className="text-center">
+                            <span className="section-eyebrow">Governance Committees</span>
+                            <h2 className="section-title">Board Committees</h2>
+                            <p className="section-desc centered">
+                                The Board of Directors executes its mandate and responsibilities through specialized Committees. The Committees work in line with established policies, procedures, and corporate governance principles.
+                            </p>
+                        </div>
+                    </ScrollReveal>
+                    <div className={styles.cardGrid} style={{ marginTop: 40 }}>
+                        {committees.map((c, i) => (
+                            <ScrollReveal key={i} delay={i * 50}>
+                                <div className={styles.card} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <div className={styles.cardIconGold}>{c.icon}</div>
+                                    <h3 style={{ fontSize: '1.15rem', marginBottom: 12 }}>{c.name}</h3>
+                                    <p style={{ margin: 0, flexGrow: 1 }}>{c.description}</p>
+                                </div>
+                            </ScrollReveal>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Management Team */}
             <section className={styles.section}>
                 <div className="container">
@@ -179,7 +237,7 @@ export default function GovernancePage() {
                             <span className="section-eyebrow">Leadership</span>
                             <h2 className="section-title">Key Management Team</h2>
                             <p className="section-desc centered">
-                                The management team of the bank is made up of a high-caliber and dynamic team who combine enthusiasm with professional skills. From the initial staff of seven (7), the Bank now offers employment to about 168 regular staff, 218 mobile bankers, and 92 security staff.
+                                The management team of the bank is made up of a high-caliber and dynamic team who combine enthusiasm with professional skills. From the initial staff of seven (7), the Bank now employs 5,401 staff across 19 locations nationwide.
                             </p>
                         </div>
                     </ScrollReveal>
@@ -216,10 +274,10 @@ export default function GovernancePage() {
                     </ScrollReveal>
                     <div className={styles.statsRow} style={{ marginTop: 40 }}>
                         {[
-                            { value: 168, label: 'Regular Staff' },
-                            { value: 218, label: 'Mobile Bankers' },
-                            { value: 92, label: 'Security Staff' },
-                            { value: 18, label: 'Branch Managers' },
+                            { value: 5401, label: 'Total Employees (2025)' },
+                            { value: 19, label: 'Branch Locations' },
+                            { value: 5262, label: 'Active Shareholders' },
+                            { value: 39, label: 'Years of Operation' },
                         ].map((s, i) => (
                             <ScrollReveal key={i} delay={i * 80}>
                                 <div className={styles.statCard}>
@@ -244,7 +302,7 @@ export default function GovernancePage() {
                                 <span className="section-eyebrow">Security</span>
                                 <h2>Operational Security</h2>
                                 <p style={{ marginBottom: 24 }}>
-                                    The bank employs robust security measures across all 18 branches and operations
+                                    The bank employs robust security measures across all 19 branches and operations
                                     to protect customers&apos; deposits, transactions, and personal information.
                                 </p>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

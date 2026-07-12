@@ -22,8 +22,8 @@ const menuOptions = [
         number: '2',
         title: 'Transfer Funds',
         icon: ArrowLeftRight,
-        description: 'Send money to other UARB accounts or mobile money wallets.',
-        steps: ['Dial *992#', 'Select 2 — Transfer', 'Choose: UARB Account or Mobile Money', 'Enter recipient details & amount', 'Confirm with your PIN'],
+        description: 'Send money to other UACB accounts or mobile money wallets.',
+        steps: ['Dial *992#', 'Select 2 — Transfer', 'Choose: UACB Account or Mobile Money', 'Enter recipient details & amount', 'Confirm with your PIN'],
     },
     {
         number: '3',
@@ -59,7 +59,7 @@ const troubleshooting = [
     },
     {
         problem: '"Account locked" or too many wrong PINs',
-        solution: 'Visit your nearest UARB branch with your Ghana Card to reset your PIN.',
+        solution: 'Visit your nearest UACB branch with your Ghana Card to reset your PIN.',
     },
     {
         problem: 'USSD session times out too quickly',
@@ -67,7 +67,7 @@ const troubleshooting = [
     },
     {
         problem: 'Cannot register for USSD banking',
-        solution: 'Visit any UARB branch with your Ghana Card. Staff will register your phone number and set up your PIN.',
+        solution: 'Visit any UACB branch with your Ghana Card. Staff will register your phone number and set up your PIN.',
     },
 ];
 
@@ -139,7 +139,7 @@ export default function UssdGuidePage() {
 
                     <div className={styles.stepsRow}>
                         {[
-                            { step: 1, title: 'Visit a Branch', desc: 'Go to any of our 18 branches with your Ghana Card' },
+                            { step: 1, title: 'Visit a Branch', desc: 'Go to any of our 19 branches with your Ghana Card' },
                             { step: 2, title: 'Register', desc: 'Staff will link your phone number to your account' },
                             { step: 3, title: 'Set Your PIN', desc: 'Create a secure 4-digit PIN for USSD transactions' },
                             { step: 4, title: 'Start Banking', desc: 'Dial *992# from your registered phone to begin' },

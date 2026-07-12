@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
         return () => clearTimeout(timer);
     }, []);
 
-    const phoneNumber = '233533519373';
+    const phoneNumber = '233509314527';
     const message = encodeURIComponent("Hi, I'd like to learn more about Upper Amenfi Community Bank's services.");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

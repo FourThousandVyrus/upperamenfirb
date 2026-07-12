@@ -41,8 +41,8 @@ const loanProducts = [
     tagline: 'For Salaried Workers',
     color: 'blue',
     badge: null,
-    desc: 'Pre-qualified loans for salaried professionals who channel their income through UARB. Repayment is automatic — deducted directly from your salary. No stress, no reminders, no hassle.',
-    who: 'Salaried workers with salary accounts at UARB.',
+    desc: 'Pre-qualified loans for salaried professionals who channel their income through UACB. Repayment is automatic — deducted directly from your salary. No stress, no reminders, no hassle.',
+    who: 'Salaried workers with salary accounts at UACB.',
   },
   {
     id: 'easy',
@@ -51,7 +51,7 @@ const loanProducts = [
     tagline: 'Approved in Under 3 Hours',
     color: 'gold',
     badge: 'Under 3 Hours',
-    desc: 'The fastest loan at UARB. If you are a government employee on the Controller and Accountant General Department\'s payroll, you can apply and receive funds the same day — often in under three hours.',
+    desc: 'The fastest loan at UACB. If you are a government employee on the Controller and Accountant General Department\'s payroll, you can apply and receive funds the same day — often in under three hours.',
     who: 'Government employees on the CAGD payroll.',
   },
   {
@@ -62,7 +62,7 @@ const loanProducts = [
     color: 'purple',
     badge: null,
     desc: 'When life calls for a gathering — whether a wedding ceremony, funeral rites, or community celebration — this loan provides the funds you need with compassionate repayment terms and low interest rates.',
-    who: 'Any customer with a savings account at UARB.',
+    who: 'Any customer with a savings account at UACB.',
   },
   {
     id: 'microfinance',
@@ -91,7 +91,7 @@ const eligibility = [
   'Must be at least 18 years old and in good mental health',
   'Must participate in legal economic activities with sufficient cash flow for loan repayment',
   'Must reside in the community for a minimum of six months',
-  'Must not be affiliated with any other Credit Savings Association (CSA) of UARB or any other financial institution',
+  'Must not be affiliated with any other Credit Savings Association (CSA) of UACB or any other financial institution',
   'Must be accepted by members and belong to a Solidarity Group of the CSA',
   'Members of one family cannot form one group or belong to the same solidarity group',
   'Women will predominate among group members — men must not exceed 20% of total members',
@@ -154,7 +154,7 @@ export default function LoansPage() {
               </div>
               <div className={styles.heroChip}>
                 <Phone size={16} />
-                <span>+233 533 519 373</span>
+                <span>+233 509 314 527</span>
               </div>
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function LoansPage() {
                   {
                     num: '1',
                     title: 'Visit Any Branch',
-                    desc: 'Walk into any of our 18 branches and speak with a loan officer. They will help you choose the right product.',
+                    desc: 'Walk into any of our 19 branches and speak with a loan officer. They will help you choose the right product.',
                   },
                   {
                     num: '2',
@@ -310,14 +310,14 @@ export default function LoansPage() {
                 <h3>Need Help?</h3>
                 <p>
                   Our loan officers are ready to assist you. Call us directly or
-                  visit any of our 18 branches across Ghana.
+                  visit any of our 19 branches across Ghana.
                 </p>
                 <div className={styles.contactPhones}>
-                  <a href="tel:+233533519373" className={styles.contactPhone}>
-                    <Phone size={16} /> +233 (0) 533 519 373
+                  <a href="tel:+233509314527" className={styles.contactPhone}>
+                    <Phone size={16} /> +233 (0) 509 314 527
                   </a>
-                  <a href="tel:+233242976784" className={styles.contactPhone}>
-                    <Phone size={16} /> +233 (0) 242 976 784
+                  <a href="tel:+233553498729" className={styles.contactPhone}>
+                    <Phone size={16} /> +233 (0) 553 498 729
                   </a>
                 </div>
                 <Link href="/branches" className="btn btn-gold btn-md" style={{ marginTop: 24 }}>
@@ -337,11 +337,11 @@ export default function LoansPage() {
             <div className={styles.ctaInner}>
               <h2>Ready to Apply?</h2>
               <p className={styles.ctaDesc}>
-                Visit any of our 18 branches or call us today. Our loan officers
+                Visit any of our 19 branches or call us today. Our loan officers
                 are ready to help you find the right financing.
               </p>
               <div className={styles.ctaButtons}>
-                <a href="tel:+233533519373" className="btn btn-glow btn-lg">
+                <a href="tel:+233509314527" className="btn btn-glow btn-lg">
                   <Phone size={18} /> Call Now
                 </a>
                 <Link href="/branches" className="btn btn-outline-light btn-lg">

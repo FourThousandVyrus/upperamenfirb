@@ -12,6 +12,7 @@ export default function sitemap() {
         { path: '/credit', priority: 0.8, changeFrequency: 'monthly' },
         { path: '/calculators', priority: 0.8, changeFrequency: 'monthly' },
         { path: '/governance', priority: 0.6, changeFrequency: 'yearly' },
+        { path: '/investor-relations', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/csr', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/news', priority: 0.8, changeFrequency: 'weekly' },
         { path: '/contact', priority: 0.7, changeFrequency: 'yearly' },

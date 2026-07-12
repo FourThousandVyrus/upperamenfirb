@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 import TransitionLink from '../RouteTransition/TransitionLink';
@@ -68,7 +67,7 @@ export default function Footer() {
                             </div>
                         </TransitionLink>
                             <p className={styles.footerBrandDesc}>
-                                Empowering communities with modern, secure financial services for over 37 years across Western, Western North, and Central regions of Ghana.
+                                Empowering communities with modern, secure financial services for over 39 years across Western, Western North, and Central regions of Ghana.
                             </p>
                             <div className={styles.socialLinks}>
                                 <a href="https://www.facebook.com/upperamenfirb" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialLink}>
@@ -128,7 +127,7 @@ export default function Footer() {
                             <div className={styles.contactItems}>
                                 <div className={styles.contactItem}>
                                     <Phone size={14} />
-                                    <a href="tel:+233553498729" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 553 498 729</a>
+                                    <a href="tel:+233509314527" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 509 314 527</a>
                                 </div>
                                 <div className={styles.contactItem}>
                                     <Mail size={14} />
@@ -185,7 +184,7 @@ export default function Footer() {
                         <div className={styles.bottomLinks}>
                             <TransitionLink href="/privacy">Privacy Policy</TransitionLink>
                             <TransitionLink href="/terms">Terms of Service</TransitionLink>
-                            <TransitionLink href="/privacy#cookies">Cookie Policy</TransitionLink>
+                            <TransitionLink href="/privacy#cookies" className={styles.bottomLinks}>Cookie Policy</TransitionLink>
                         </div>
                     </div>
                 </div>

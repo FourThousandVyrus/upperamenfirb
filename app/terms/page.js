@@ -75,14 +75,14 @@ export default function TermsPage() {
                         <h2>7. Contact Form &amp; Communications</h2>
                         <p>
                             Information submitted through our contact forms is used solely to respond to your inquiries.
-                            By submitting a form, you consent to being contacted by UARB via the email or phone number you provide.
+                            By submitting a form, you consent to being contacted by UACB via the email or phone number you provide.
                             We will not share your contact information with third parties for marketing purposes.
                         </p>
 
                         <h2>8. Third-Party Links</h2>
                         <p>
                             Our website may contain links to external websites (e.g., Google Maps, social media platforms).
-                            These links are provided for convenience only. UARB is not responsible for the content, privacy practices,
+                            These links are provided for convenience only. UACB is not responsible for the content, privacy practices,
                             or availability of third-party websites.
                         </p>
 
@@ -116,7 +116,7 @@ export default function TermsPage() {
                         <p>For questions about these Terms and Conditions, please contact:</p>
                         <ul>
                             <li><strong>Email:</strong> info@upperamenfirb.com</li>
-                            <li><strong>Phone:</strong> +233 553 498 729</li>
+                            <li><strong>Phone:</strong> +233 (0) 509 314 527</li>
                             <li><strong>Head Office:</strong> Upper Amenfi Community Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
                         </ul>
                     </div>

@@ -687,3 +687,52 @@
     border-radius: 4px;
     transition: width 0.8s var(--ease-out);
 }
+
+/* =========================================
+   AGM Toggle Switcher Styles
+   ========================================= */
+.agmToggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.toggleLabel {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.agmTogglePills {
+    display: inline-flex;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: 4px;
+}
+
+.togglePill {
+    background: transparent;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.togglePill:hover {
+    color: var(--navy);
+}
+
+.activePill {
+    background: var(--navy) !important;
+    color: white !important;
+    box-shadow: var(--shadow-sm);
+}

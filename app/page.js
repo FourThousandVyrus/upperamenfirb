@@ -84,7 +84,7 @@ const testimonialsData = [
     tint: 'mint',
   },
   {
-    quote: "I've been with UARB for over 20 years. They supported my children's education through their salary advance loans. I trust them completely.",
+    quote: "I've been with UACB for over 20 years. They supported my children's education through their salary advance loans. I trust them completely.",
     name: 'Grace Owusu',
     role: 'Nurse, Bogoso',
     img: '/images/avatar_grace.png',
@@ -98,7 +98,7 @@ const testimonialsData = [
     tint: 'lavender',
   },
   {
-    quote: "When no other bank would open a branch here, UARB came. Now our community has access to proper banking for the first time.",
+    quote: "When no other bank would open a branch here, UACB came. Now our community has access to proper banking for the first time.",
     name: 'Ama Darko',
     role: 'Chief, Dadieso',
     img: '/images/avatar_ama.png',
@@ -167,7 +167,7 @@ export default function Home() {
               <HandDrawnUnderline className={styles.heroUnderline} />
 
               <p className={styles.heroSub}>
-                37 years of trust across 3 regions. 18 branches serving
+                39 years of trust across 3 regions. 19 branches serving
                 communities with accessible, reliable financial services.
               </p>
 
@@ -184,28 +184,28 @@ export default function Home() {
               {/* Inline stat chips */}
               <div className={styles.heroStats}>
                 <div className={styles.heroStatChip}>
-                  <AnimatedCounter end={37} suffix="+" />
+                  <AnimatedCounter end={39} suffix="+" />
                   <span>Years</span>
                 </div>
                 <div className={styles.heroStatDivider} />
                 <div className={styles.heroStatChip}>
-                  <AnimatedCounter end={18} />
+                  <AnimatedCounter end={19} />
                   <span>Branches</span>
                 </div>
                 <div className={styles.heroStatDivider} />
                 <div className={styles.heroStatChip}>
-                  <AnimatedCounter end={588} prefix="₵" suffix="M+" />
+                  <AnimatedCounter end={875} prefix="₵" suffix="M+" />
                   <span>Deposits</span>
                 </div>
               </div>
             </div>
 
-            {/* Right: Image with organic shape */}
+            {/* Right: Image with torn edges */}
             <div className={styles.heroVisual}>
               <div className={styles.heroImageWrap}>
-                <div className={styles.heroImageClip}>
+                <div className={styles.heroImageFrame}>
                   <Image
-                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+                    src="/images/best_rural_bank_branded.png"
                     alt="Banking professional assisting a customer"
                     width={600}
                     height={700}
@@ -213,6 +213,16 @@ export default function Home() {
                     priority
                   />
                 </div>
+
+                {/* Top torn edge — blends image into dark hero */}
+                <svg className={styles.heroTornTop} viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 24 L0 14 C20 18 35 8 55 12 C75 16 90 6 110 10 C130 14 145 4 165 8 C185 12 200 2 220 6 C240 10 255 0 275 4 C295 8 310 0 330 4 C350 8 365 0 385 6 C405 12 420 2 440 8 C460 14 475 4 495 10 C515 16 530 6 550 12 C570 18 585 8 600 14 L600 24 Z" fill="#1a1048" />
+                </svg>
+
+                {/* Bottom torn edge — blends image into page body */}
+                <svg className={styles.heroTornBottom} viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 0 L0 10 C20 6 35 16 55 12 C75 8 90 18 110 14 C130 10 145 20 165 16 C185 12 200 22 220 18 C240 14 255 24 275 20 C295 16 310 24 330 20 C350 16 365 24 385 18 C405 12 420 22 440 16 C460 10 475 20 495 14 C515 8 530 18 550 12 C570 6 585 16 600 10 L600 0 Z" fill="#F5F3EE" />
+                </svg>
 
                 {/* Hand-drawn circle accent */}
                 <HandDrawnCircle className={styles.heroCircleAccent} />
@@ -237,7 +247,7 @@ export default function Home() {
           SECTION 3 — BENTO PRODUCT GRID
           ═══════════════════════════════════════════ */}
       <section className={styles.productsSection}>
-        <div className="container">
+        <div className="container-wide">
           <ScrollReveal>
             <div className={styles.sectionHeader}>
               <span className="section-eyebrow">Our Services</span>
@@ -324,7 +334,7 @@ export default function Home() {
           SECTION 4 — WHY WE'RE DIFFERENT
           ═══════════════════════════════════════════ */}
       <section className={styles.differentSection}>
-        <div className="container">
+        <div className="container-wide">
           <div className={styles.differentLayout}>
             <div className={styles.differentText}>
               <ScrollReveal>
@@ -393,16 +403,16 @@ export default function Home() {
           <ScrollReveal>
             <div className={styles.sectionHeader}>
               <span className="section-eyebrow">Our Journey</span>
-              <h2 className="section-title" style={{ color: 'white' }}>37 Years of Growing Together</h2>
+              <h2 className="section-title" style={{ color: 'white' }}>39 Years of Growing Together</h2>
             </div>
           </ScrollReveal>
 
           <div className={styles.timeline}>
             {[
               {
-                year: '1988',
+                year: '1987',
                 title: 'Founded',
-                desc: 'Upper Amenfi Rural Bank was established in Wassa Ankwaso to serve the financial needs of the Amenfi communities.',
+                desc: 'Upper Amenfi Rural Bank was incorporated on 13th August 1987 and commenced operations on 2nd September 1994.',
                 accent: 'green',
               },
               {
@@ -418,16 +428,22 @@ export default function Home() {
                 accent: 'blue',
               },
               {
-                year: '2020',
-                title: '3 Regions',
-                desc: 'Expanded into Western North and Central Regions with 18 branches serving over 275,000 customers.',
+                year: '2023',
+                title: 'Re-Registration',
+                desc: 'Re-registered under the Companies Act 2019 as Upper Amenfi Community Bank PLC with new Registration Number PLO00080223.',
                 accent: 'purple',
               },
               {
                 year: '2025',
-                title: 'Best Rural Bank',
-                desc: 'Awarded Best Rural Bank in Ghana — recognition of 37 years of community-first banking.',
+                title: 'GH¢670M Assets',
+                desc: 'Total assets grew to GH¢669.7M with deposits of GH¢614.7M and net profit of GH¢18.1M.',
                 accent: 'gold',
+              },
+              {
+                year: '2026',
+                title: 'GH¢931M Assets',
+                desc: 'Record-breaking year — total assets reached GH¢930.7M, deposits GH¢875M, with 5,401 employees across 19 locations.',
+                accent: 'green',
               },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 100} className={styles.timelineItem}>

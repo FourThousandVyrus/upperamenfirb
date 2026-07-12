@@ -24,9 +24,9 @@ export default function AnnouncementBar() {
                         <div className="utility-divider" />
                         <div className="utility-item">
                             <span className="utility-tag">Report</span>
-                            <a href="https://upperamenfirb.com/wp-content/uploads/2025/11/upper-amenfi-agm-2025.-huhcdr-9.pdf" target="_blank" rel="noopener noreferrer" className="utility-link">
+                            <a href="/36th_AGM_Report.pdf" target="_blank" rel="noopener noreferrer" className="utility-link">
                                 <FileText size={14} />
-                                35th AGM Report (2025)
+                                36th AGM Report (2026)
                             </a>
                         </div>
                     </div>
