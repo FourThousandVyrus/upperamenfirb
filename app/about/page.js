@@ -23,8 +23,8 @@ export default function AboutPage() {
         <>
             {/* Hero */}
             <div className={styles.pageHeroCinematic}>
-                <Image src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80" alt="Community gathering" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div className="heroText">
+                <Image sizes="100vw" src="/images/stock/stock-community-gathering.webp" alt="Community gathering" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className={styles.heroText}>
                     <h1>Born From the Soil.<br />Built for the People.</h1>
                 </div>
             </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
                     <ScrollReveal>
                         <div className={styles.splitLayout}>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80" alt="Cocoa farming community" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-community.webp" alt="Cocoa farming community" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <div>
                                 <span className="section-eyebrow">Our Story</span>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                                 <span className="section-eyebrow">Licensing Status</span>
                                 <h2>Established by the Bank of Ghana</h2>
                                 <p style={{ marginBottom: 16 }}>
-                                    Incorporated on 13th August, 1987 (with Bank of Ghana License No. 123 issued on 18th August, 1987), Upper Amenfi Rural Bank commenced operations on 2nd September, 1994, to support local agriculture and commerce. It has grown to become one of the premier rural banks in the Western, Western North, and Central regions of Ghana.
+                                    Incorporated on 13th August, 1987 (with Bank of Ghana License No. 123 issued on 18th August, 1987), Upper Amenfi Rural Bank commenced operations on 2nd September, 1994, to support local agriculture and commerce. It has grown to become one of the premier Rural and Community Banks (RCBs) in the Western, Western North, and Central regions of Ghana.
                                 </p>
                                 <p style={{ marginBottom: 16 }}>
                                     Following a path of continuous strategic improvement, the bank officially re-registered on 15th February, 2023 under the Companies Act 2019 (Act 992) as a Public Limited Company with Registration Number <strong>PL000080223</strong>, adopting the official name <strong>UPPER AMENFI COMMUNITY BANK PLC</strong>.
@@ -98,7 +98,7 @@ export default function AboutPage() {
                                 </p>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Banking operations" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-calculator.webp" alt="Banking operations" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                         </div>
                     </ScrollReveal>
@@ -288,7 +288,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80" alt="Security infrastructure" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-boardroom.webp" alt="Security infrastructure" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                         </div>
                     </ScrollReveal>
@@ -325,7 +325,7 @@ export default function AboutPage() {
                                 </Link>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Education support" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-education.webp" alt="Education support" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                         </div>
                     </ScrollReveal>

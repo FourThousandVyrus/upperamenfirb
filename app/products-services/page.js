@@ -113,8 +113,8 @@ export default function ProductsServicesPage() {
         <>
             {/* Hero */}
             <div className={styles.pageHeroCinematic}>
-                <Image src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80" alt="Banking services" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div className="heroText">
+                <Image sizes="100vw" src="/images/stock/stock-card-payment.webp" alt="Banking services" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className={styles.heroText}>
                     <h1>Every Account Tells a Story</h1>
                 </div>
             </div>
@@ -196,19 +196,19 @@ export default function ProductsServicesPage() {
                     </ScrollReveal>
                     <div className={styles.cardGrid}>
                         {[
-                            { icon: <Smartphone size={20} />, title: 'USSD Mobile Banking', desc: 'Dial our short code from any phone — no internet needed. Check balances, transfer funds, and buy airtime instantly.', image: '/images/ussd_banking.png' },
-                            { icon: <CreditCard size={20} />, title: 'E-Zwich & ATM', desc: 'Biometric smart cards accepted at ATMs nationwide. Withdraw cash, check balances, and make purchases at POS terminals.', image: '/images/ezwich_card.png' },
-                            { icon: <ArrowRight size={20} />, title: 'Apexlink', desc: 'Transfer money between rural banks across Ghana instantly through the ARB Apex Bank network.', image: '/images/apelink.png' },
-                            { icon: <Building size={20} />, title: 'Agency Banking', desc: 'Bank through authorized agents in your community. Make deposits, withdrawals, and payments without visiting a branch.', image: '/images/agency_banking.png' },
+                            { icon: <Smartphone size={20} />, title: 'USSD Mobile Banking', desc: 'Dial our short code from any phone — no internet needed. Check balances, transfer funds, and buy airtime instantly.', image: '/images/ussd_banking.webp' },
+                            { icon: <CreditCard size={20} />, title: 'E-Zwich & ATM', desc: 'Biometric smart cards accepted at ATMs nationwide. Withdraw cash, check balances, and make purchases at POS terminals.', image: '/images/ezwich_card.webp' },
+                            { icon: <ArrowRight size={20} />, title: 'Apexlink', desc: 'Transfer money between rural banks across Ghana instantly through the ARB Apex Bank network.', image: '/images/apelink.webp' },
+                            { icon: <Building size={20} />, title: 'Agency Banking', desc: 'Bank through authorized agents in your community. Make deposits, withdrawals, and payments without visiting a branch.', image: '/images/agency_banking.webp' },
                             { icon: <Wallet size={20} />, title: 'Mobile Money Link', desc: 'Connect your mobile money wallet (MTN MoMo, Vodafone Cash, AirtelTigo Money) directly to your bank account.', image: '/images/telco.jpeg' },
-                            { icon: <Repeat size={20} />, title: 'ACH Clearing', desc: 'Automated Clearing House for direct deposits, salary payments, and electronic payment processing.', image: '/images/ach_clearing.png' },
-                            { icon: <MessageSquare size={20} />, title: 'SMS Banking', desc: 'Real-time SMS alerts on all account transactions. Stay informed about credits, debits, and balance changes.', image: '/images/sms_banking.png' },
-                            { icon: <Send size={20} />, title: 'WUMT Services', desc: 'Send and receive Western Union money transfers at all our branches. Fast international remittances.', image: '/images/wu.jpg' },
+                            { icon: <Repeat size={20} />, title: 'ACH Clearing', desc: 'Automated Clearing House for direct deposits, salary payments, and electronic payment processing.', image: '/images/ach_clearing.webp' },
+                            { icon: <MessageSquare size={20} />, title: 'SMS Banking', desc: 'Real-time SMS alerts on all account transactions. Stay informed about credits, debits, and balance changes.', image: '/images/sms_banking.webp' },
+                            { icon: <Send size={20} />, title: 'WUMT Services', desc: 'Send and receive Western Union money transfers at all our branches. Fast international remittances.', image: '/images/wu.webp' },
                         ].map((s, i) => (
                             <ScrollReveal key={i} delay={i * 50}>
                                 <div className={styles.serviceCard}>
                                     <div className={styles.serviceImageWrap}>
-                                        <Image src={s.image} alt={s.title} width={400} height={250} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <Image sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" src={s.image} alt={s.title} width={400} height={250} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
                                     <div className={styles.serviceContent}>
                                         <div className={styles.serviceHeader}>

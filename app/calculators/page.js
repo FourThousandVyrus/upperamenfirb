@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Calculator, TrendingUp, PiggyBank, ArrowRight, Info, Building2 } from 'lucide-react';
+import { Calculator, TrendingUp, PiggyBank, ArrowRight, Info, Building2, TableProperties } from 'lucide-react';
 import styles from '../inner.module.css';
 import ScrollReveal from '../components/ScrollReveal';
 
@@ -31,6 +31,7 @@ function LoanCalculator() {
     const [amount, setAmount] = useState(5000);
     const [tenure, setTenure] = useState(12);
     const [selectedProduct, setSelectedProduct] = useState(0);
+    const [showSchedule, setShowSchedule] = useState(false);
 
     const product = loanProducts[selectedProduct];
     const monthlyRate = product.rate / 100 / 12;
@@ -41,6 +42,18 @@ function LoanCalculator() {
     const totalInterest = totalPayment - amount;
     const processingFee = amount * (product.fee / 100);
 
+    // Amortization schedule
+    const schedule = [];
+    let balance = amount;
+    for (let m = 1; m <= tenure; m++) {
+        const interest = balance * monthlyRate;
+        const principalPart = Math.min(monthlyPayment - interest, balance);
+        balance = Math.max(balance - principalPart, 0);
+        schedule.push({ month: m, payment: monthlyPayment, interest, principal: principalPart, balance });
+    }
+
+    const principalPct = (amount / totalPayment) * 100;
+
     return (
         <div className={styles.calcCard}>
             <div className={styles.calcCardHeader}>
@@ -50,8 +63,8 @@ function LoanCalculator() {
 
             <div className={styles.calcForm}>
                 <div className={styles.formGroup}>
-                    <label>Loan Product</label>
-                    <select value={selectedProduct} onChange={(e) => setSelectedProduct(Number(e.target.value))}>
+                    <label htmlFor="loan-product-select">Loan Product</label>
+                    <select id="loan-product-select" value={selectedProduct} onChange={(e) => setSelectedProduct(Number(e.target.value))}>
                         {loanProducts.map((p, i) => (
                             <option key={p.name} value={i}>{p.name} — {p.rate}% p.a.</option>
                         ))}
@@ -59,8 +72,9 @@ function LoanCalculator() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label>Loan Amount (GH₵)</label>
+                    <label htmlFor="loan-amount-input">Loan Amount (GH₵)</label>
                     <input
+                        id="loan-amount-input"
                         type="number"
                         min="100"
                         max="500000"
@@ -75,12 +89,14 @@ function LoanCalculator() {
                         value={amount}
                         onChange={(e) => setAmount(Number(e.target.value))}
                         className={styles.rangeSlider}
+                        aria-label="Loan amount slider"
                     />
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label>Tenure (Months) — Max {product.maxTenure}</label>
+                    <label htmlFor="loan-tenure-input">Tenure (Months) — Max {product.maxTenure}</label>
                     <input
+                        id="loan-tenure-input"
                         type="number"
                         min="1"
                         max={product.maxTenure}
@@ -94,6 +110,7 @@ function LoanCalculator() {
                         value={tenure > product.maxTenure ? product.maxTenure : tenure}
                         onChange={(e) => setTenure(Number(e.target.value))}
                         className={styles.rangeSlider}
+                        aria-label="Loan tenure slider"
                     />
                 </div>
             </div>
@@ -116,6 +133,71 @@ function LoanCalculator() {
                     <strong className={styles.calcHighlight}>{formatCurrency(totalPayment + processingFee)}</strong>
                 </div>
             </div>
+
+            {/* Principal vs Interest breakdown */}
+            <div style={{ margin: '20px 0 4px' }}>
+                <div style={{
+                    display: 'flex', justifyContent: 'space-between',
+                    fontSize: '0.75rem', fontWeight: 600, fontFamily: 'var(--font-heading)',
+                    color: 'var(--text-muted)', marginBottom: 6,
+                }}>
+                    <span>Principal {principalPct.toFixed(0)}%</span>
+                    <span>Interest {(100 - principalPct).toFixed(0)}%</span>
+                </div>
+                <div style={{
+                    display: 'flex', height: 12, borderRadius: 'var(--radius-pill)',
+                    overflow: 'hidden', background: 'var(--bg-warm)',
+                }} aria-hidden="true">
+                    <div style={{ width: `${principalPct}%`, background: 'var(--primary-600)', transition: 'width 0.4s' }} />
+                    <div style={{ width: `${100 - principalPct}%`, background: 'var(--accent-500)', transition: 'width 0.4s' }} />
+                </div>
+            </div>
+
+            {/* Amortization schedule toggle */}
+            <button
+                onClick={() => setShowSchedule(!showSchedule)}
+                style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    marginTop: 16, padding: '10px 16px',
+                    borderRadius: 'var(--radius-pill)',
+                    border: '1px solid var(--border-default)',
+                    background: showSchedule ? 'var(--primary-50)' : 'transparent',
+                    color: 'var(--primary-700)',
+                    fontFamily: 'var(--font-heading)', fontSize: '0.82rem', fontWeight: 600,
+                    cursor: 'pointer', transition: 'all 0.2s',
+                }}
+                aria-expanded={showSchedule}
+            >
+                <TableProperties size={15} />
+                {showSchedule ? 'Hide Repayment Schedule' : 'View Repayment Schedule'}
+            </button>
+
+            {showSchedule && (
+                <div className={styles.tableWrapper} style={{ marginTop: 16, maxHeight: 320, overflowY: 'auto' }}>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Payment</th>
+                                <th>Interest</th>
+                                <th>Principal</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {schedule.map((row) => (
+                                <tr key={row.month}>
+                                    <td>{row.month}</td>
+                                    <td>{formatCurrency(row.payment)}</td>
+                                    <td style={{ color: 'var(--accent-600)' }}>{formatCurrency(row.interest)}</td>
+                                    <td style={{ color: 'var(--green-500)' }}>{formatCurrency(row.principal)}</td>
+                                    <td>{formatCurrency(row.balance)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
 
             <div className={styles.calcDisclaimer}>
                 <Info size={14} />
@@ -152,8 +234,8 @@ function SavingsCalculator() {
 
             <div className={styles.calcForm}>
                 <div className={styles.formGroup}>
-                    <label>Savings Product</label>
-                    <select value={selectedProduct} onChange={(e) => setSelectedProduct(Number(e.target.value))}>
+                    <label htmlFor="savings-product-select">Savings Product</label>
+                    <select id="savings-product-select" value={selectedProduct} onChange={(e) => setSelectedProduct(Number(e.target.value))}>
                         {savingsProducts.map((p, i) => (
                             <option key={p.name} value={i}>{p.name} — {p.rate}% p.a.</option>
                         ))}
@@ -161,8 +243,9 @@ function SavingsCalculator() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label>Initial Deposit (GH₵)</label>
+                    <label htmlFor="savings-principal-input">Initial Deposit (GH₵)</label>
                     <input
+                        id="savings-principal-input"
                         type="number"
                         min="0"
                         value={principal}
@@ -171,8 +254,9 @@ function SavingsCalculator() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label>Monthly Contribution (GH₵)</label>
+                    <label htmlFor="savings-monthly-input">Monthly Contribution (GH₵)</label>
                     <input
+                        id="savings-monthly-input"
                         type="number"
                         min="0"
                         value={monthly}
@@ -186,12 +270,14 @@ function SavingsCalculator() {
                         value={monthly}
                         onChange={(e) => setMonthly(Number(e.target.value))}
                         className={styles.rangeSlider}
+                        aria-label="Monthly contribution slider"
                     />
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label>Duration (Years)</label>
+                    <label htmlFor="savings-years-input">Duration (Years)</label>
                     <input
+                        id="savings-years-input"
                         type="number"
                         min="1"
                         max="30"
@@ -205,6 +291,7 @@ function SavingsCalculator() {
                         value={years}
                         onChange={(e) => setYears(Number(e.target.value))}
                         className={styles.rangeSlider}
+                        aria-label="Duration slider"
                     />
                 </div>
             </div>

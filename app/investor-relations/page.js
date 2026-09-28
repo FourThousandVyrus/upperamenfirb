@@ -112,14 +112,14 @@ export default function InvestorRelationsPage() {
 
             {/* Hero */}
             <div className={styles.pageHeroCinematic}>
-                <Image 
-                    src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1600&q=80" 
+                <Image sizes="100vw" 
+                    src="/images/stock/stock-finance-growth.webp" 
                     alt="Financial stock market analysis" 
                     width={1600} 
                     height={900} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
-                <div className="heroText">
+                <div className={styles.heroText}>
                     <h1>Investor Relations &amp; Financials</h1>
                 </div>
             </div>
@@ -228,7 +228,7 @@ export default function InvestorRelationsPage() {
 
             {/* Navigation Tabs */}
             <div className={pageStyles.tabsContainer}>
-                <div className={pageStyles.tabsList}>
+                <div className={pageStyles.tabsList} role="tablist" aria-label="Investor Relations Sections">
                     {[
                         { id: 'overview', label: 'Strategic Overview', icon: <Activity size={16} /> },
                         { id: 'highlights', label: 'Financial Highlights', icon: <TrendingUp size={16} /> },
@@ -238,6 +238,10 @@ export default function InvestorRelationsPage() {
                     ].map((tab) => (
                         <button
                             key={tab.id}
+                            id={`${tab.id}-tab`}
+                            role="tab"
+                            aria-selected={activeTab === tab.id}
+                            aria-controls={`${tab.id}-panel`}
                             className={`${pageStyles.tabButton} ${activeTab === tab.id ? pageStyles.tabButtonActive : ''}`}
                             onClick={() => setActiveTab(tab.id)}
                         >
@@ -251,7 +255,7 @@ export default function InvestorRelationsPage() {
                 {/* Tab content renderer */}
                 <div className={pageStyles.tabContent}>
                     {activeTab === 'overview' && (
-                        <div>
+                        <div role="tabpanel" id="overview-panel" aria-labelledby="overview-tab">
                             <div className={pageStyles.outlookGrid}>
                                 <div>
                                     <span className="section-eyebrow">Strategic Position</span>
@@ -323,7 +327,7 @@ export default function InvestorRelationsPage() {
                     )}
 
                     {activeTab === 'highlights' && (
-                        <div>
+                        <div role="tabpanel" id="highlights-panel" aria-labelledby="highlights-tab">
                             <span className="section-eyebrow">Visual Analytics</span>
                             <h2>Financial Dashboard</h2>
                             <p style={{ marginBottom: 40, maxWidth: 680, lineHeight: 1.6 }}>
@@ -582,7 +586,7 @@ export default function InvestorRelationsPage() {
                     )}
 
                     {activeTab === 'financials' && (
-                        <div>
+                        <div role="tabpanel" id="financials-panel" aria-labelledby="financials-tab">
                             <span className="section-eyebrow">Audited Financial Statements</span>
                              <div style={{ marginBottom: 32 }}>
                                  <h2>Statements of Financial Performance</h2>
@@ -948,7 +952,7 @@ export default function InvestorRelationsPage() {
                     )}
 
                     {activeTab === 'shareholding' && (
-                        <div>
+                        <div role="tabpanel" id="shareholding-panel" aria-labelledby="shareholding-tab">
                             <span className="section-eyebrow">Equity Base</span>
                             <h2>Stated Capital &amp; Shareholders</h2>
                             <p style={{ marginBottom: 32, lineHeight: 1.6 }}>
@@ -1044,7 +1048,7 @@ export default function InvestorRelationsPage() {
                     )}
 
                     {activeTab === 'agm' && (
-                        <div>
+                        <div role="tabpanel" id="agm-panel" aria-labelledby="agm-tab">
                             <span className="section-eyebrow">Annual General Meeting</span>
                             <h2>{selectedAgm === '36' ? '36th' : '35th'} Annual General Meeting (AGM)</h2>
                             <p style={{ marginBottom: 32, lineHeight: 1.6 }}>

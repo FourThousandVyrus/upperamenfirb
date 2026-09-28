@@ -4,8 +4,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AnnouncementBar from './components/AnnouncementBar';
 import ScrollToTop from './components/ScrollToTop';
-import WhatsAppButton from './components/WhatsAppButton';
 import CookieConsent from './components/CookieConsent';
+import ServiceWorkerRegistration from './components/ServiceWorkerRegistration';
 import { TransitionProvider } from './components/RouteTransition/TransitionContext';
 import RouteTransition from './components/RouteTransition/RouteTransition';
 
@@ -111,6 +111,16 @@ export const metadata = {
     // google: 'your-google-verification-code',
   },
   category: 'finance',
+  icons: {
+    icon: [
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/logo-new.webp', type: 'image/webp' },
+    ],
+    shortcut: ['/icons/icon-192.png'],
+    apple: [
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+  },
 };
 
 // JSON-LD Structured Data
@@ -120,7 +130,7 @@ const jsonLd = {
   name: 'Upper Amenfi Community Bank PLC',
   alternateName: 'UARB',
   url: siteUrl,
-  logo: `${siteUrl}/images/logo-new.jpeg`,
+  logo: `${siteUrl}/images/logo-new.webp`,
   description:
     'Upper Amenfi Community Bank PLC is a Bank of Ghana-licensed community bank established in 1987, providing savings, loans, Susu, and digital banking services across 19 branches in Ghana.',
   foundingDate: '1988',
@@ -186,10 +196,10 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-          <WhatsAppButton />
           <ScrollToTop />
           <CookieConsent />
           <RouteTransition />
+          <ServiceWorkerRegistration />
         </TransitionProvider>
       </body>
     </html>

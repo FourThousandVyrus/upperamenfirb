@@ -8,7 +8,7 @@ export const metadata = {
         title: 'About Upper Amenfi Community Bank PLC',
         description: '39+ years of trusted community banking. Founded by farmers, built for communities.',
         url: '/about',
-        images: [{ url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80', alt: 'UACB community' }],
+        images: [{ url: '/images/stock/stock-community-gathering.webp', alt: 'UACB community' }],
     },
 };
 

@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
                         <div className="utility-item">
                             <Bell size={14} className="utility-bell" />
                             <span className="utility-tag">Notice</span>
-                            <a href="https://upperamenfirb.com/wp-content/uploads/2025/08/DORMANT-ACCOUNT.pdf" target="_blank" rel="noopener noreferrer" className="utility-link">
+                            <a href="/DORMANT-ACCOUNT.pdf" target="_blank" rel="noopener noreferrer" className="utility-link">
                                 <FileText size={14} />
                                 View Dormant Accounts List
                             </a>

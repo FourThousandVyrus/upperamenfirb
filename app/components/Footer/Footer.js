@@ -52,8 +52,8 @@ export default function Footer() {
                         {/* Brand */}
                         <div className={styles.footerBrand}>
                         <TransitionLink href="/" className={styles.footerLogo}>
-                            <Image
-                                src="/images/logo-new.jpeg"
+                            <Image sizes="48px"
+                                src="/images/logo-new.webp"
                                 alt="Upper Amenfi Community Bank PLC"
                                 className={styles.footerLogoImg}
                                 width={48}
@@ -131,11 +131,11 @@ export default function Footer() {
                                 </div>
                                 <div className={styles.contactItem}>
                                     <Mail size={14} />
-                                    <span>info@upperamenfirb.com</span>
+                                    <a href="mailto:info@upperamenfirb.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@upperamenfirb.com</a>
                                 </div>
                                 <div className={styles.contactItem}>
                                     <MapPin size={14} />
-                                    <span>Wassa Ankwaso, Western Region, Ghana</span>
+                                    <a href="https://maps.google.com/?q=Upper+Amenfi+Community+Bank+Ankwaso" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Wassa Ankwaso, Western Region, Ghana</a>
                                 </div>
                             </div>
                         </div>

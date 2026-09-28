@@ -8,7 +8,7 @@ export const metadata = {
         title: 'Loan Products | Upper Amenfi Community Bank',
         description: 'Seven loan products from same-day Easy Loans to group microfinance — capital for every stage of your financial journey.',
         url: '/loans',
-        images: [{ url: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=1200&q=80', alt: 'Business growth financing' }],
+        images: [{ url: '/images/stock/stock-savings-jar.webp', alt: 'Business growth financing' }],
     },
 };
 

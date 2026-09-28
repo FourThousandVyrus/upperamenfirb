@@ -1058,7 +1058,7 @@
     }
 
     .pageHero {
-        padding: 130px 0 56px;
+        padding: 110px 0 56px;
     }
 
     .pageHeroCinematic {
@@ -1073,16 +1073,27 @@
     .accordionHeader {
         padding: 14px 18px;
         font-size: 0.88rem;
+        min-height: 48px;
     }
 
     .accordionContent {
         padding: 0 18px 18px;
+    }
+
+    .formGroup input,
+    .formGroup textarea,
+    .formGroup select {
+        min-height: 48px;
     }
 }
 
 @media (max-width: 480px) {
     .statsRow {
         grid-template-columns: 1fr;
+    }
+
+    .pageHero {
+        padding: 90px 0 40px;
     }
 
     .pageHero h1 {
@@ -1124,6 +1135,34 @@
 
     .hubChairman h4 {
         font-size: 0.92rem;
+    }
+
+    .contactCard {
+        padding: 20px 16px;
+    }
+
+    .contactCard h3 {
+        font-size: 1.1rem;
+    }
+
+    .stepCard {
+        padding: 16px;
+    }
+
+    .calcCard {
+        border-radius: var(--radius-md);
+    }
+
+    .calcForm {
+        padding: 20px;
+    }
+
+    .calcResults {
+        padding: 16px 20px;
+    }
+
+    .calcCardHeader {
+        padding: 18px 20px;
     }
 }
 
@@ -1817,5 +1856,16 @@
     .branchMapOverlay {
         flex-wrap: wrap;
         gap: 6px;
+        bottom: calc(8px + var(--sat, 0px));
+    }
+
+    .tipItem {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .reportChannel {
+        min-width: auto;
+        width: 100%;
     }
 }

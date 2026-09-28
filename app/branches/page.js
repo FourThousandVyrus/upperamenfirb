@@ -47,8 +47,8 @@ export default function BranchesPage() {
         <>
             {/* Hero */}
             <div className={styles.pageHeroCinematic}>
-                <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Buildings" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div className="heroText">
+                <Image sizes="100vw" src="/images/stock/stock-building.webp" alt="Buildings" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className={styles.heroText}>
                     <h1>Wherever You Are, We&apos;re There</h1>
                 </div>
             </div>

@@ -21,8 +21,8 @@ export default function RouteTransition() {
       aria-hidden="true"
     >
       <div className={styles.overlayContent}>
-        <Image
-          src="/images/logo-new.jpeg"
+        <Image sizes="64px"
+          src="/images/logo-new.webp"
           alt="Upper Amenfi Community Bank PLC"
           width={64}
           height={64}

@@ -92,6 +92,19 @@
   --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
   --font-hand: var(--font-caveat), 'Caveat', cursive;
 
+  /* Safe Areas (iOS notch / home bar) */
+  --sat: env(safe-area-inset-bottom, 0px);
+  --sat-top: env(safe-area-inset-top, 0px);
+  --sat-left: env(safe-area-inset-left, 0px);
+  --sat-right: env(safe-area-inset-right, 0px);
+
+  /* Z-Index Layers */
+  --z-scroll-top: 800;
+  --z-whatsapp: 850;
+  --z-header: 1000;
+  --z-mobile-nav: 1050;
+  --z-cookie: 9990;
+
   /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -206,6 +219,13 @@ button {
   font-family: inherit;
 }
 
+/* iOS Safari zoom prevention — inputs < 16px trigger auto-zoom */
+input,
+textarea,
+select {
+  font-size: max(16px, 1rem);
+}
+
 /* ---------- SKIP TO CONTENT ---------- */
 .skip-to-content {
   position: absolute;
@@ -260,15 +280,19 @@ p {
 
 /* ---------- LAYOUT ---------- */
 .container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(16px, 3.5vw, 48px);
+  box-sizing: border-box;
 }
 
 .container-wide {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(16px, 3.5vw, 48px);
+  box-sizing: border-box;
 }
 
 /* ---------- BUTTONS ---------- */
@@ -680,11 +704,21 @@ p {
   align-items: center;
   justify-content: center;
   gap: 32px;
+  max-width: none;
+  padding: 0 clamp(16px, 3.5vw, 48px);
+}
+
+/* Full-bleed utility bar — center aligned notices */
+.utility-bar .container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 .utility-announcements {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -769,17 +803,63 @@ p {
 @media (max-width: 768px) {
   .utility-inner {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 8px;
-    padding: 4px 0;
+    padding: 4px clamp(16px, 3.5vw, 48px);
   }
 
   .utility-announcements {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
   }
 
   .utility-divider {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .utility-bar {
+    padding: 6px 0;
+    font-size: 0.68rem;
+  }
+
+  .utility-inner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px clamp(16px, 3.5vw, 48px);
+  }
+
+  .utility-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .utility-announcements {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .utility-item {
+    flex-shrink: 0;
+  }
+
+  .utility-link {
+    font-size: 0.68rem;
+  }
+
+  .utility-tag {
+    font-size: 0.55rem;
   }
 }
 
@@ -798,7 +878,7 @@ p {
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-lg);
-  z-index: 900;
+  z-index: var(--z-scroll-top);
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
@@ -819,8 +899,19 @@ p {
 
 @media (max-width: 640px) {
   .scroll-to-top {
-    bottom: 20px;
+    bottom: calc(20px + var(--sat));
     right: 16px;
+  }
+}
+
+/* ---------- COOKIE CONSENT MOBILE ---------- */
+@media (max-width: 640px) {
+  .cookie-consent-banner {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: calc(12px + var(--sat)) !important;
+    padding: 18px !important;
+    max-width: none !important;
   }
 }
 
@@ -829,6 +920,31 @@ p {
   outline: 2px solid var(--primary-400);
   outline-offset: 2px;
   border-radius: var(--radius-xs);
+}
+
+/* ---------- MOBILE TOUCH & TYPOGRAPHY ---------- */
+@media (max-width: 768px) {
+  /* Enforce 44px minimum touch targets on all interactive elements */
+  a,
+  button,
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+  }
+
+  /* Bump tiny text for mobile readability */
+  .section-eyebrow {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Further bump micro text on small phones */
+  .section-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 /* ---------- REDUCED MOTION ---------- */
@@ -849,4 +965,18 @@ p {
     opacity: 1;
     transform: none;
   }
+}
+
+/* =========================================
+    MOTION POLISH — scroll-driven enhancements
+    (progressive: only where supported)
+   ========================================= */
+
+/* Focus visibility for keyboard users */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2.5px solid var(--accent-500);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

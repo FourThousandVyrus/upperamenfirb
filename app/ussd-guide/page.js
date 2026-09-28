@@ -111,8 +111,8 @@ export default function UssdGuidePage() {
                                 </div>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <Image
-                                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=75"
+                                <Image sizes="(max-width: 900px) 100vw, 50vw"
+                                    src="/images/stock/stock-mobile-banking.webp"
                                     alt="Woman using phone for mobile banking"
                                     width={800}
                                     height={500}

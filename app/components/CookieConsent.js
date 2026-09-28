@@ -41,7 +41,9 @@ export default function CookieConsent() {
             zIndex: 9999,
             animation: 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
             marginBottom: 'env(safe-area-inset-bottom, 0px)',
-        }}>
+        }}
+            className="cookie-consent-banner"
+        >
             <button
                 onClick={decline}
                 aria-label="Close"

@@ -615,3 +615,28 @@
     padding: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    height: 42vh;
+    min-height: 300px;
+  }
+
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroChip {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    min-height: 44px;
+  }
+
+  .accountDetail {
+    padding: 20px 16px;
+  }
+}

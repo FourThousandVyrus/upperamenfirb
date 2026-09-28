@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Upper Amenfi Community Bank PLC — Website
+
+Modern marketing site for UACB PLC, a Bank of Ghana–licensed community bank headquartered in Ankwaso (Wassa Amenfi), Ghana. Built with **Next.js 16 (App Router) + React 19**, CSS Modules, and lucide-react icons.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm start          # serve production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+app/                    # App Router pages + layouts + global styles
+  components/           # Shared components (Header, Footer, SearchModal,
+                        #   BranchNetworkMap, RouteTransition, etc.)
+  manifest.js           # PWA manifest (route: /manifest.webmanifest)
+  offline/              # Offline fallback page for the service worker
+  opengraph-image.js    # Dynamic OG image
+  sitemap.js / robots.js
+docs/
+  imagery-guide.md      # AI image prompts + stock sourcing + asset pipeline
+  extracts/             # Source PDFs & extracted AGM text used for content
+public/
+  images/               # Optimized WebP assets (kebab-case names)
+    stock/              # Locally-hosted stock photography
+  icons/                # PWA icons (192/512)
+scripts/                # Python utilities used to extract AGM PDF content
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Design system** — brand tokens (purple/green/gold/blue) in `app/globals.css`; fonts via `next/font` (Outfit, Inter, Caveat)
+- **PWA** — installable, offline page, cache-first static assets (`public/sw.js`, registered in production only)
+- **Site search** — `Ctrl/⌘+K` modal (`SearchModal.js`) over a static page index
+- **Branch network map** — SVG overview with region filters synced to branch table + Google Maps embed
+- **Calculators** — loan calculator with full amortization schedule; savings growth projector
+- **Motion** — ScrollReveal component, CSS scroll-driven timeline reveals (progressive), reduced-motion support
 
-To learn more about Next.js, take a look at the following resources:
+## Image Pipeline
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All images are WebP, kebab-case, ≤ ~350KB:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```powershell
+ffmpeg -i input.png -c:v libwebp -quality 85 output.webp
+```
 
-## Deploy on Vercel
+Every `<Image>` should set an appropriate `sizes` prop. See `docs/imagery-guide.md` for sourcing new imagery.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Any Node host or Vercel. Set the production URL in `app/layout.js` (`siteUrl`) for metadata/OG.

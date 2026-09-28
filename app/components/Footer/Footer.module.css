@@ -281,3 +281,56 @@
         text-align: center;
     }
 }
+
+@media (max-width: 480px) {
+    .footerGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footerBrand {
+        grid-column: 1;
+        text-align: center;
+    }
+
+    .footerLogo {
+        justify-content: center;
+    }
+
+    .socialLinks {
+        justify-content: center;
+    }
+
+    .footerCol {
+        text-align: center;
+    }
+
+    .footerCol ul {
+        align-items: center;
+    }
+
+    .contactItems {
+        align-items: center;
+    }
+
+    .contactItem {
+        justify-content: center;
+    }
+
+    .badgesInner {
+        gap: 12px;
+    }
+
+    .badge {
+        flex-basis: 48%;
+        justify-content: center;
+    }
+
+    .bottomBar {
+        padding-bottom: calc(20px + var(--sat, 0px));
+    }
+
+    .bottomLinks {
+        gap: 12px;
+    }
+}

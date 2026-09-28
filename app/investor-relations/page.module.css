@@ -143,15 +143,6 @@
     margin-top: 32px;
 }
 
-@media (max-width: 640px) {
-    .downloadCard {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-        text-align: center;
-    }
-}
-
 .downloadInfo h4 {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -563,6 +554,35 @@
 @media (max-width: 640px) {
     .donutLayout {
         flex-direction: column;
+    }
+
+    .downloadCard {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .agmDetailsCard {
+        padding: 24px 20px;
+    }
+
+    .agmDetailsGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .kpiCard {
+        padding: 20px 20px 0;
+    }
+
+    .tabButton {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .trendCard {
+        padding: 18px;
     }
 }
 

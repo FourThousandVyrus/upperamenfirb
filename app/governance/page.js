@@ -9,24 +9,24 @@ import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
 
 const board = [
-    { name: 'Mr. Anthony Mensah', initials: 'AM', role: 'Board Chairman', image: '/images/anthony mensah.png' },
-    { name: 'Mrs. Georgina Lartey', initials: 'GL', role: 'Vice Chairperson', image: '/images/georgina lartey.png' },
-    { name: 'Ben Angyewa Essuman (Esq)', initials: 'BE', role: 'Board Secretary', image: '/images/ben angywewa essuman.png' },
-    { name: 'Mr. Jacob Kwarteng', initials: 'JK', role: 'Member', image: '/images/jacob kwarteng.png' },
-    { name: 'Mr. Joseph Baffour-Tabi', initials: 'JT', role: 'Member', image: '/images/joseph baffour-tabi.png' },
-    { name: 'Paul Nkuah-Gyapong (Esq)', initials: 'PNG', role: 'Member', image: '/images/paul nkuah-gyapong.png' },
+    { name: 'Mr. Anthony Mensah', initials: 'AM', role: 'Board Chairman', image: '/images/anthony-mensah.webp' },
+    { name: 'Mrs. Georgina Lartey', initials: 'GL', role: 'Vice Chairperson', image: '/images/georgina-lartey.webp' },
+    { name: 'Ben Angyewa Essuman (Esq)', initials: 'BE', role: 'Board Secretary', image: '/images/ben-angywewa-essuman.webp' },
+    { name: 'Mr. Jacob Kwarteng', initials: 'JK', role: 'Member', image: '/images/jacob-kwarteng.webp' },
+    { name: 'Mr. Joseph Baffour-Tabi', initials: 'JT', role: 'Member', image: '/images/joseph-baffour-tabi.webp' },
+    { name: 'Paul Nkuah-Gyapong (Esq)', initials: 'PNG', role: 'Member', image: '/images/paul-nkuah-gyapong.webp' },
 ];
 
 const management = [
-    { name: 'Mr. Ignatius Appiah Otwey', initials: 'IAO', role: 'Chief Executive Officer (C.E.O.)', image: '/images/ignatius appiah.png' },
-    { name: 'Mr. Paul Agyekum Mensah', initials: 'PAM', role: 'Deputy C.E.O. (Operations)', image: '/images/paul agyekum.png' },
-    { name: 'Mr. Collins Nyame', initials: 'CN', role: 'Head of Finance', image: '/images/collins nyame.png' },
-    { name: 'Mr. Charles Boakye', initials: 'CB', role: 'Head of Internal Audit', image: '/images/charles boakye.png' },
-    { name: 'Mr. Emmanuel Enyan Guha', initials: 'EEG', role: 'Head of Monitoring, Supervision & Evaluation', image: '/images/emmanuel enyan.png' },
-    { name: 'Mr. Stephen Adjei', initials: 'SA', role: 'Head of Risk & Compliance', image: '/images/stephen adjei.png' },
-    { name: 'Mr. Joshua Lartey', initials: 'JL', role: 'Ag. Head of Human Resource', image: '/images/joshua lartey.png' },
-    { name: 'Mr. Dominic Asare Wiredu', initials: 'DAW', role: 'Head of IT', image: '/images/dominic asare wiredu.png' },
-    { name: 'Mr. Emmanuel Kusi Asiedu', initials: 'EKA', role: 'Head of Credit', image: '/images/emmanuel kusi.png' },
+    { name: 'Mr. Ignatius Appiah Otwey', initials: 'IAO', role: 'Chief Executive Officer (C.E.O.)', image: '/images/ignatius-appiah.webp' },
+    { name: 'Mr. Paul Agyekum Mensah', initials: 'PAM', role: 'Deputy C.E.O. (Operations)', image: '/images/paul-agyekum.webp' },
+    { name: 'Mr. Collins Nyame', initials: 'CN', role: 'Head of Finance', image: '/images/collins-nyame.webp' },
+    { name: 'Mr. Charles Boakye', initials: 'CB', role: 'Head of Internal Audit', image: '/images/charles-boakye.webp' },
+    { name: 'Mr. Emmanuel Enyan Guha', initials: 'EEG', role: 'Head of Monitoring, Supervision & Evaluation', image: '/images/emmanuel-enyan.webp' },
+    { name: 'Mr. Stephen Adjei', initials: 'SA', role: 'Head of Risk & Compliance', image: '/images/stephen-adjei.webp' },
+    { name: 'Mr. Joshua Lartey', initials: 'JL', role: 'Ag. Head of Human Resource', image: '/images/joshua-lartey.webp' },
+    { name: 'Mr. Dominic Asare Wiredu', initials: 'DAW', role: 'Head of IT', image: '/images/dominic-asare-wiredu.webp' },
+    { name: 'Mr. Emmanuel Kusi Asiedu', initials: 'EKA', role: 'Head of Credit', image: '/images/emmanuel-kusi.webp' },
 ];
 
 const committees = [
@@ -123,8 +123,8 @@ export default function GovernancePage() {
         <>
             {/* Hero */}
             <div className={styles.pageHeroCinematic}>
-                <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Corporate building" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div className="heroText">
+                <Image sizes="100vw" src="/images/stock/stock-building.webp" alt="Corporate building" width={1600} height={900} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className={styles.heroText}>
                     <h1>The People Behind Your Trust</h1>
                 </div>
             </div>
@@ -156,7 +156,7 @@ export default function GovernancePage() {
                                 </div>
                             </div>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" alt="Professional team" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-professional-woman.webp" alt="Professional team" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                         </div>
                     </ScrollReveal>
@@ -187,14 +187,14 @@ export default function GovernancePage() {
                                     <h4>{b.name}</h4>
                                     <p>{b.role}</p>
                                     <div className={styles.teamPhoto}>
-                                        <Image src={b.image} alt={b.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                        <Image sizes="160px" src={b.image} alt={b.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
                                     </div>
                                 </div>
                             ))}
                         </div>
                         <div className={styles.hubChairman} ref={chairmanRef}>
                             <div className={styles.hubChairmanPhoto}>
-                                <Image src={board[0].image} alt={board[0].name} width={200} height={200} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                <Image sizes="160px" src={board[0].image} alt={board[0].name} width={200} height={200} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
                             </div>
                             <h4>{board[0].name}</h4>
                             <p>{board[0].role}</p>
@@ -247,7 +247,7 @@ export default function GovernancePage() {
                                 <div className={styles.teamCard}>
                                     {m.image ? (
                                         <div className={styles.teamPhoto}>
-                                            <Image src={m.image} alt={m.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                            <Image sizes="160px" src={m.image} alt={m.name} width={180} height={180} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
                                         </div>
                                     ) : (
                                         <div className={styles.teamAvatar}>
@@ -296,7 +296,7 @@ export default function GovernancePage() {
                     <ScrollReveal>
                         <div className={styles.splitLayout}>
                             <div className={styles.splitImageWrap}>
-                                <Image src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&q=80" alt="Security Camera" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image sizes="(max-width: 900px) 100vw, 50vw" src="/images/stock/stock-boardroom.webp" alt="Security Camera" width={800} height={500} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <div>
                                 <span className="section-eyebrow">Security</span>

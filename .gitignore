@@ -27,6 +27,12 @@
 *.zip
 extracted_pdf_text.txt
 
+# local tooling / pdf extraction scratch (not part of the site)
+scratch/
+docs/extracts/
+public/agm35_pages/
+public/agm36_pages/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

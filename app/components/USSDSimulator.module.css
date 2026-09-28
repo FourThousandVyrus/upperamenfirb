@@ -1,0 +1,383 @@
+.wrapper {
+  padding: 60px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.simulatorGrid {
+  background: linear-gradient(135deg, #091322 0%, #15243b 50%, #0d1a2d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  padding: clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 9999px;
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.badgeIcon {
+  color: #34d399;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.highlightText {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.dialBox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 16px;
+  width: fit-content;
+}
+
+.dialCode {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffc000;
+  letter-spacing: 0.05em;
+  font-family: var(--font-heading);
+}
+
+.guideBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.guideBtn:hover {
+  color: #ffc000;
+}
+
+/* Phone Column */
+.phoneCol {
+  display: flex;
+  justify-content: center;
+}
+
+.phoneFrame {
+  width: 320px;
+  background: #080d16;
+  border: 4px solid #1a293f;
+  border-radius: 40px;
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(52, 211, 153, 0.15);
+  position: relative;
+}
+
+.phoneNotch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.speaker {
+  width: 48px;
+  height: 4px;
+  background: #1a293f;
+  border-radius: 9999px;
+}
+
+.camera {
+  width: 8px;
+  height: 8px;
+  background: #1a293f;
+  border-radius: 50%;
+}
+
+.phoneScreen {
+  background: #03070d;
+  border-radius: 24px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.screenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
+}
+
+.screenNetwork {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.screenSignal {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.terminalWindow {
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px dashed rgba(52, 211, 153, 0.3);
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.terminalTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #34d399;
+  margin-bottom: 4px;
+  font-family: monospace;
+}
+
+.terminalSubtitle {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+
+.terminalList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.terminalItemBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.terminalItemBtn:hover {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: #34d399;
+}
+
+.keyBadge {
+  background: #ffc000;
+  color: #091322;
+  font-weight: 900;
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Balance Screen */
+.balanceBox {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.accountNumber {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.balanceAmount {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 4px 0;
+}
+
+.balanceStatus {
+  font-size: 0.65rem;
+  color: #34d399;
+}
+
+/* Susu Screen */
+.susuBox {
+  background: rgba(255, 192, 0, 0.1);
+  border: 1px solid rgba(255, 192, 0, 0.3);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.susuLabel {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.susuAmount {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffc000;
+}
+
+.streakBadge {
+  font-size: 0.65rem;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.successMsg {
+  font-size: 0.7rem;
+  color: #34d399;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.transferOptions,
+.airtimeList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 8px 0;
+}
+
+.instantNote,
+.feeBadge {
+  font-size: 0.65rem;
+  color: #ffc000;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.backBtn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Keypad Grid */
+.keypadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.keypadKey {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.keypadKey:hover {
+  background: rgba(255, 192, 0, 0.25);
+  color: #ffc000;
+}
+
+@media (max-width: 900px) {
+  .simulatorGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 28px 20px;
+  }
+}

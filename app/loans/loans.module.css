@@ -152,7 +152,7 @@
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: url('/images/kente_pattern.png') repeat;
+  background: url('/images/kente_pattern.webp') repeat;
   background-size: 80px;
   border-radius: var(--radius-xl);
   z-index: -1;
@@ -570,5 +570,29 @@
 
   .contactCard {
     padding: 28px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 42vh;
+    min-height: 300px;
+  }
+
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroChip {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+  }
+
+  .loanCard {
+    padding: 20px 16px;
+  }
+
+  .contactCard {
+    padding: 20px 16px;
   }
 }

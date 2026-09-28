@@ -261,8 +261,8 @@ export default function CreditPage() {
     <>
       {/* ═══ CINEMATIC HERO ═══ */}
       <div className={styles.hero}>
-        <Image
-          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80"
+        <Image sizes="100vw"
+          src="/images/stock/stock-calculator.webp"
           alt="Banking documents and pen"
           fill
           style={{ objectFit: 'cover' }}
@@ -348,10 +348,14 @@ export default function CreditPage() {
           </ScrollReveal>
 
           {/* Tab Selector */}
-          <div className={styles.tabBar}>
+          <div className={styles.tabBar} role="tablist" aria-label="Account Types">
             {accountTypes.map((a) => (
               <button
                 key={a.id}
+                id={`${a.id}-tab`}
+                role="tab"
+                aria-selected={activeTab === a.id}
+                aria-controls={`${a.id}-panel`}
                 className={`${styles.tab} ${activeTab === a.id ? styles.tabActive : ''}`}
                 onClick={() => setActiveTab(a.id)}
               >
@@ -363,7 +367,12 @@ export default function CreditPage() {
 
           {/* Active Account Detail */}
           {activeAccount && (
-            <div className={styles.accountDetail}>
+            <div 
+              id={`${activeAccount.id}-panel`}
+              role="tabpanel"
+              aria-labelledby={`${activeAccount.id}-tab`}
+              className={styles.accountDetail}
+            >
               <div className={styles.accountDetailHeader}>
                 <div className={`${styles.accountDetailIcon} ${styles[`icon${activeAccount.color.charAt(0).toUpperCase() + activeAccount.color.slice(1)}`]}`}>
                   {activeAccount.icon}
@@ -449,8 +458,8 @@ export default function CreditPage() {
 
             <ScrollReveal className={styles.splitVisual}>
               <div className={styles.splitImageWrap}>
-                <Image
-                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+                <Image sizes="(max-width: 900px) 100vw, 50vw"
+                  src="/images/stock/stock-card-payment.webp"
                   alt="Customer opening an account at the bank"
                   width={800}
                   height={600}

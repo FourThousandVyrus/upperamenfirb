@@ -15,6 +15,7 @@ import {
   Newspaper,
   TrendingUp,
 } from 'lucide-react';
+import SearchModal from '../SearchModal';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -47,6 +48,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [moneyOpen, setMoneyOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isTransparent = isHomePage && !scrolled;
@@ -70,6 +72,17 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
   const handleNavClick = () => closeMenus(setMobileOpen, setMegaOpen, setMoneyOpen);
 
   return (
@@ -81,8 +94,8 @@ export default function Header() {
         <div className={styles.headerInner}>
           {/* Logo */}
           <TransitionLink href="/" className={styles.logo} onClick={handleNavClick}>
-            <Image
-              src="/images/logo-new.jpeg"
+            <Image sizes="40px"
+              src="/images/logo-new.webp"
               alt="Upper Amenfi Community Bank PLC"
               className={styles.logoImg}
               width={48}
@@ -182,6 +195,10 @@ export default function Header() {
         <div className={styles.mobileOverlay}>
           <div className={styles.mobileNav}>
             <div className={styles.mobileSection}>
+              <TransitionLink href="/" className={styles.mobileLink} onClick={handleNavClick}>Home</TransitionLink>
+            </div>
+
+            <div className={styles.mobileSection}>
               <span className={styles.mobileSectionLabel}>Money Solutions</span>
               <TransitionLink href="/loans" className={styles.mobileLink} onClick={handleNavClick}>Loan Products</TransitionLink>
               <TransitionLink href="/credit" className={styles.mobileLink} onClick={handleNavClick}>Open an Account</TransitionLink>
@@ -198,6 +215,9 @@ export default function Header() {
 
             <div className={styles.mobileSection}>
               <span className={styles.mobileSectionLabel}>Tools & Support</span>
+              <button className={styles.mobileLink} style={{ textAlign: 'left' }} onClick={() => { setMobileOpen(false); setSearchOpen(true); }}>
+                Search Site
+              </button>
               <TransitionLink href="/calculators" className={styles.mobileLink} onClick={handleNavClick}>Calculators</TransitionLink>
               <TransitionLink href="/ussd-guide" className={styles.mobileLink} onClick={handleNavClick}>USSD Guide</TransitionLink>
               <TransitionLink href="/branches" className={styles.mobileLink} onClick={handleNavClick}>Find a Branch</TransitionLink>
@@ -214,6 +234,9 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      {/* Site Search */}
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

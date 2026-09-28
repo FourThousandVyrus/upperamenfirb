@@ -121,8 +121,8 @@ export default function LoansPage() {
     <>
       {/* ═══ CINEMATIC HERO ═══ */}
       <div className={styles.hero}>
-        <Image
-          src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=1600&q=80"
+        <Image sizes="100vw"
+          src="/images/stock/stock-savings-jar.webp"
           alt="Business growth and capital"
           fill
           style={{ objectFit: 'cover' }}
@@ -239,8 +239,8 @@ export default function LoansPage() {
 
             <ScrollReveal className={styles.splitVisual}>
               <div className={styles.splitImageWrap}>
-                <Image
-                  src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&q=80"
+                <Image sizes="(max-width: 900px) 100vw, 50vw"
+                  src="/images/stock/stock-teamwork.webp"
                   alt="Community group meeting"
                   width={800}
                   height={600}
