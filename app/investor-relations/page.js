@@ -273,7 +273,7 @@ export default function InvestorRelationsPage() {
                                             <p>Download the complete, official {selectedAgm === '36' ? '72-page' : '64-page'} PDF report.</p>
                                         </div>
                                         <a 
-                                            href={selectedAgm === '36' ? '/36th_AGM_Report.pdf' : 'https://upperamenfirb.com/wp-content/uploads/2025/11/upper-amenfi-agm-2025.-huhcdr-9.pdf'} 
+                                            href={selectedAgm === '36' ? '/36th_AGM_Report.pdf' : '/35th_AGM_Report.pdf'} 
                                             className="btn btn-primary btn-sm"
                                             target="_blank"
                                             rel="noopener noreferrer"

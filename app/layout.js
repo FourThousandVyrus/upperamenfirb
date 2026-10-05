@@ -180,6 +180,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} ${caveat.variable}`}>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/best_rural_bank_branded.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/logo-new.webp"
+          type="image/webp"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

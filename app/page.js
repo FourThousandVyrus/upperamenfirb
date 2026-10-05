@@ -192,13 +192,14 @@ export default function Home() {
               <div className={styles.heroImageWrap}>
                 <div className={styles.heroImageFrame}>
                   <Image
-                    sizes="(max-width: 900px) 100vw, 55vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 55vw"
                     src="/images/best_rural_bank_branded.webp"
                     alt="Upper Amenfi Rural Bank — Banking Local is Banking Better"
                     width={800}
                     height={850}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     priority
+                    fetchPriority="high"
                   />
                   <div className={styles.heroImageOverlay} />
                 </div>
