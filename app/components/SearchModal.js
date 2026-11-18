@@ -57,13 +57,14 @@ export default function SearchModal({ open, onClose }) {
 
   useEffect(() => {
     if (open) {
-      setQuery('');
-      setActiveIdx(0);
-      setTimeout(() => inputRef.current?.focus(), 50);
+      const focusTimer = setTimeout(() => inputRef.current?.focus(), 50);
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      return () => {
+        clearTimeout(focusTimer);
+        document.body.style.overflow = '';
+      };
     }
+    document.body.style.overflow = '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 

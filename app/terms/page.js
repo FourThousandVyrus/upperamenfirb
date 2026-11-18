@@ -116,7 +116,7 @@ export default function TermsPage() {
                         <p>For questions about these Terms and Conditions, please contact:</p>
                         <ul>
                             <li><strong>Email:</strong> info@upperamenfirb.com</li>
-                            <li><strong>Phone:</strong> +233 (0) 509 314 527</li>
+                            <li><strong>Phone:</strong> +233 (0) 533 519 373 / +233 (0) 244 948 600</li>
                             <li><strong>Head Office:</strong> Upper Amenfi Community Bank PLC, Ankwaso, Wassa Amenfi, P.O. Box 399, Dunkwa-on-Offin</li>
                         </ul>
                     </div>

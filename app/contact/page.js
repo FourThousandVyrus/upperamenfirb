@@ -12,7 +12,7 @@ const faqs = [
     { q: 'Can I access my account from my phone?', a: 'Yes! Use our USSD mobile banking code *992# from any phone — no internet required. You can check balances, transfer funds, and more. See our USSD Guide for details.' },
     { q: 'What are your operating hours?', a: 'Monday to Friday: 8:30 AM - 4:00 PM. Closed on Saturdays, Sundays, and public holidays.' },
     { q: 'Is my money safe?', a: 'Yes. UACB is fully licensed by Bank of Ghana and your deposits are protected under the Ghana Deposit Protection scheme.' },
-    { q: 'How do I report a lost card?', a: 'Call our hotline immediately at +233 (0) 509 314 527 or visit any branch. We will block the card and issue a replacement.' },
+    { q: 'How do I report a lost card?', a: 'Call our hotline immediately at +233 (0) 533 519 373 or +233 (0) 244 948 600, or visit any branch. We will block the card and issue a replacement.' },
     { q: 'What savings products do you offer?', a: 'We offer Normal Savings (8% p.a.), Susu Savings (7.5% p.a.), Fixed Deposits (14-18% p.a.), Current Accounts, and Salary Accounts. Visit any branch to learn more.' },
     { q: 'How can I estimate my loan repayment?', a: 'Use our free online Loan Calculator to estimate monthly repayments based on your loan amount, tenure, and product type.' },
     { q: 'Do you offer Western Union services?', a: 'Yes! You can send and receive money via Western Union Money Transfer (WUMT) at select branches. Visit our branches page to find a location near you.' },
@@ -105,7 +105,9 @@ export default function ContactPage() {
                                     <div>
                                         <h4>Phone</h4>
                                         <p>
-                                            <a href="tel:+233509314527" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 509 314 527</a>
+                                            <a href="tel:+233533519373" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 533 519 373</a>
+                                            <br />
+                                            <a href="tel:+233244948600" style={{ color: 'var(--navy)', fontWeight: 600 }}>+233 (0) 244 948 600</a>
                                         </p>
                                     </div>
                                 </div>

@@ -146,7 +146,7 @@ const jsonLd = {
     addressCountry: 'GH',
     postalCode: 'P.O. Box 399, Dunkwa-on-Offin',
   },
-  telephone: ['+233509314527'],
+  telephone: ['+233533519373', '+233244948600'],
   email: 'info@upperamenfirb.com',
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Western Region, Ghana' },

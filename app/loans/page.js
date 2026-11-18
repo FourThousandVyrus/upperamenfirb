@@ -154,7 +154,7 @@ export default function LoansPage() {
               </div>
               <div className={styles.heroChip}>
                 <Phone size={16} />
-                <span>+233 509 314 527</span>
+                <span>+233 533 519 373</span>
               </div>
             </div>
           </div>
@@ -313,8 +313,11 @@ export default function LoansPage() {
                   visit any of our 19 branches across Ghana.
                 </p>
                 <div className={styles.contactPhones}>
-                  <a href="tel:+233509314527" className={styles.contactPhone}>
-                    <Phone size={16} /> +233 (0) 509 314 527
+                  <a href="tel:+233533519373" className={styles.contactPhone}>
+                    <Phone size={16} /> +233 (0) 533 519 373
+                  </a>
+                  <a href="tel:+233244948600" className={styles.contactPhone}>
+                    <Phone size={16} /> +233 (0) 244 948 600
                   </a>
                   <a href="tel:+233553498729" className={styles.contactPhone}>
                     <Phone size={16} /> +233 (0) 553 498 729
@@ -341,7 +344,7 @@ export default function LoansPage() {
                 are ready to help you find the right financing.
               </p>
               <div className={styles.ctaButtons}>
-                <a href="tel:+233509314527" className="btn btn-glow btn-lg">
+                <a href="tel:+233533519373" className="btn btn-glow btn-lg">
                   <Phone size={18} /> Call Now
                 </a>
                 <Link href="/branches" className="btn btn-outline-light btn-lg">

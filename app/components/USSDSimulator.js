@@ -126,7 +126,7 @@ export default function USSDSimulator() {
                     <div className={styles.terminalContent}>
                       <div className={styles.terminalTitle}>Daily Susu Deposit</div>
                       <div className={styles.susuBox}>
-                        <div className={styles.susuLabel}>Today's Contribution</div>
+                        <div className={styles.susuLabel}>Today&apos;s Contribution</div>
                         <div className={styles.susuAmount}>GH₵ 50.00</div>
                         <div className={styles.streakBadge}>🔥 14 Days Active Streak</div>
                       </div>

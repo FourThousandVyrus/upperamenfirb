@@ -127,7 +127,11 @@ export default function Footer() {
                             <div className={styles.contactItems}>
                                 <div className={styles.contactItem}>
                                     <Phone size={14} />
-                                    <a href="tel:+233509314527" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 509 314 527</a>
+                                    <a href="tel:+233533519373" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 533 519 373</a>
+                                </div>
+                                <div className={styles.contactItem}>
+                                    <Phone size={14} />
+                                    <a href="tel:+233244948600" style={{ color: 'inherit', textDecoration: 'none' }}>+233 (0) 244 948 600</a>
                                 </div>
                                 <div className={styles.contactItem}>
                                     <Mail size={14} />

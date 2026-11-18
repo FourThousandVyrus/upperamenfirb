@@ -1,7 +1,7 @@
 export const metadata = {
     title: 'Contact Us — Phone, Email & Branch Locations',
     description:
-        'Get in touch with Upper Amenfi Community Bank PLC. Call +233 (0) 509 314 527, email info@upperamenfirb.com, or visit our head office in Ankwaso. FAQs and contact form available.',
+        'Get in touch with Upper Amenfi Community Bank PLC. Call +233 (0) 533 519 373 or +233 (0) 244 948 600, email info@upperamenfirb.com, or visit our head office in Ankwaso. FAQs and contact form available.',
     keywords: ['contact UACB', 'Upper Amenfi Community Bank phone', 'bank customer service Ghana', 'Ankwaso head office', 'community bank support'],
     alternates: { canonical: '/contact' },
     openGraph: {

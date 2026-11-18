@@ -236,7 +236,7 @@ export default function Header() {
       )}
 
       {/* Site Search */}
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchOpen && <SearchModal open onClose={() => setSearchOpen(false)} />}
     </>
   );
 }

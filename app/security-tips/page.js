@@ -55,7 +55,7 @@ const safetyTips = [
     'Do not click on links in unsolicited SMS or email messages',
     'Always verify caller identity before sharing any information',
     'Keep your USSD PIN (*992#) secret and change it regularly',
-    'Report lost or stolen cards immediately by calling +233 (0) 509 314 527',
+    'Report lost or stolen cards immediately by calling +233 (0) 533 519 373 or +233 (0) 244 948 600',
     'Monitor your account regularly for unauthorized transactions',
     'Use strong passwords that combine letters, numbers, and symbols',
     'Do not write your PIN on your card or keep it in your wallet',
@@ -166,11 +166,18 @@ export default function SecurityTipsPage() {
                             </p>
 
                             <div className={styles.reportChannels}>
-                                <a href="tel:+233509314527" className={styles.reportChannel}>
+                                <a href="tel:+233533519373" className={styles.reportChannel}>
                                     <Phone size={20} />
                                     <div>
                                         <strong>Call Our Hotline</strong>
-                                        <span>+233 (0) 509 314 527</span>
+                                        <span>+233 (0) 533 519 373</span>
+                                    </div>
+                                </a>
+                                <a href="tel:+233244948600" className={styles.reportChannel}>
+                                    <Phone size={20} />
+                                    <div>
+                                        <strong>Call Our Hotline</strong>
+                                        <span>+233 (0) 244 948 600</span>
                                     </div>
                                 </a>
                                 <a href="mailto:info@upperamenfirb.com" className={styles.reportChannel}>
